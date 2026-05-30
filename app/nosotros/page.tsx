@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { AnimatedTimeline } from "@/components/sections/nosotros/AnimatedTimeline";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { COMPANY_INFO, VALUES } from "@/lib/data/company";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function NosotrosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden">
+      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
         <div className="container-tight relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">
@@ -38,7 +39,7 @@ export default function NosotrosPage() {
             </p>
           </FadeIn>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Mission & Vision */}
       <section className="section-padding bg-white">
@@ -88,7 +89,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-navy-900">
+      <MouseGradientSection className="section-padding bg-navy-900" color="mixed">
         <div className="container-tight">
           <SectionHeader
             eyebrow="Nuestros valores"
@@ -123,7 +124,7 @@ export default function NosotrosPage() {
             })}
           </StaggerContainer>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Differentiators */}
       <section className="section-padding bg-white">
@@ -167,7 +168,7 @@ export default function NosotrosPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { value: "10+", label: "Años de experiencia", color: "gold" },
-                  { value: "13+", label: "Proyectos entregados", color: "electric" },
+                  { value: "109+", label: "Proyectos entregados", color: "electric" },
                   { value: "3", label: "Líneas de servicio", color: "eco" },
                   { value: "100%", label: "Compromiso con calidad", color: "gold" },
                 ].map(({ value, label, color }) => (

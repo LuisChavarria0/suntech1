@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { MapPin } from "lucide-react";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
@@ -43,7 +44,7 @@ export default function ProyectosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden">
+      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
         <div className="container-tight relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">
@@ -54,13 +55,13 @@ export default function ProyectosPage() {
               <span className="gradient-text-gold">nuestra experiencia</span>
             </h1>
             <p className="text-navy-300 text-lg max-w-2xl leading-relaxed">
-              Más de {PROJECTS.length} proyectos completados en todo El Salvador.
+              Más de 109 proyectos completados en todo El Salvador.
               Energía solar, seguridad electrónica y tecnología al servicio de
               comunidades y empresas.
             </p>
           </FadeIn>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Projects */}
       <section className="section-padding bg-white">

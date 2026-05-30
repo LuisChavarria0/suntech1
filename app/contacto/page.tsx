@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { ContactForm } from "@/components/sections/contacto/ContactForm";
 import { CONTACT, WHATSAPP_URL } from "@/lib/data/company";
 
@@ -60,7 +61,7 @@ export default function ContactoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden">
+      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
         <div className="container-tight relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">
@@ -76,7 +77,7 @@ export default function ContactoPage() {
             </p>
           </FadeIn>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Contact section */}
       <section className="section-padding bg-white">

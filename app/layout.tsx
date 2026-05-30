@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { getLocale } from "next-intl/server";
 import { COMPANY_INFO, CONTACT } from "@/lib/data/company";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -41,14 +39,7 @@ export const metadata: Metadata = {
     title: "Grupo Suntech | Energía Solar y Tecnología en El Salvador",
     description:
       "Líderes en energía solar fotovoltaica, seguridad electrónica y tecnología en El Salvador.",
-    images: [
-      {
-        url: COMPANY_INFO.logoUrl,
-        width: 1200,
-        height: 630,
-        alt: "Grupo Suntech",
-      },
-    ],
+    images: [{ url: COMPANY_INFO.logoUrl, width: 1200, height: 630, alt: "Grupo Suntech" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -75,45 +66,19 @@ const jsonLd = {
     addressRegion: "San Salvador",
     addressCountry: "SV",
   },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Servicios de Grupo Suntech",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Energía Solar Fotovoltaica" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Seguridad Electrónica" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Tecnología" },
-      },
-    ],
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
   return (
-    <html lang="es" className={jakarta.variable}>
+    <html lang={locale} className={jakarta.variable}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <ScrollToTop />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

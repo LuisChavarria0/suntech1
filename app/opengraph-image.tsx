@@ -111,7 +111,7 @@ export default function OgImage() {
 
         {/* Pills */}
         <div style={{ display: "flex", gap: "16px" }}>
-          {["10+ años", "13+ proyectos", "Cobertura nacional"].map((item) => (
+          {["10+ años", "109+ proyectos", "Cobertura nacional"].map((item) => (
             <div
               key={item}
               style={{

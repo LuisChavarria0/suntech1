@@ -1,22 +1,25 @@
+import { getTranslations } from "next-intl/server";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { STATS } from "@/lib/data/company";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 
-export function StatsBar() {
+export async function StatsBar() {
+  const t = await getTranslations("stats");
+
+  const stats = [
+    { value: 10, suffix: "+", label: t("years") },
+    { value: 109, suffix: "+", label: t("projects") },
+    { value: 3, suffix: "", label: t("services") },
+    { value: 100, suffix: "%", label: t("commitment") },
+  ];
+
   return (
-    <section className="bg-navy-800 py-14 md:py-16">
+    <MouseGradientSection className="bg-navy-800 py-14 md:py-16" color="gold">
       <div className="container-tight">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-          {STATS.map((stat, i) => (
-            <div
-              key={i}
-              className="text-center group"
-            >
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center group">
               <div className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                <AnimatedCounter
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  duration={1800}
-                />
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1800} />
               </div>
               <div className="mt-2 text-sm text-navy-400 font-medium tracking-wide">
                 {stat.label}
@@ -26,6 +29,6 @@ export function StatsBar() {
           ))}
         </div>
       </div>
-    </section>
+    </MouseGradientSection>
   );
 }

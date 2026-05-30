@@ -2,55 +2,26 @@ import type { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/data/services";
 import { PROJECTS } from "@/lib/data/projects";
 
-const BASE_URL = "https://suntechsv.com";
+const BASE = "https://suntechsv.com";
+const locales = ["es", "en"];
+
+function localeRoutes(path: string, priority: number, changeFreq: MetadataRoute.Sitemap[0]["changeFrequency"]): MetadataRoute.Sitemap {
+  return locales.map((locale) => ({
+    url: `${BASE}/${locale}${path}`,
+    lastModified: new Date(),
+    changeFrequency: changeFreq,
+    priority,
+  }));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/nosotros`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/servicios`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/proyectos`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/contacto`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
+  return [
+    ...localeRoutes("", 1, "weekly"),
+    ...localeRoutes("/nosotros", 0.8, "monthly"),
+    ...localeRoutes("/servicios", 0.9, "monthly"),
+    ...localeRoutes("/proyectos", 0.9, "weekly"),
+    ...localeRoutes("/contacto", 0.7, "yearly"),
+    ...SERVICES.flatMap((s) => localeRoutes(`/servicios/${s.slug}`, 0.8, "monthly")),
+    ...PROJECTS.flatMap((p) => localeRoutes(`/proyectos/${p.slug}`, 0.6, "monthly")),
   ];
-
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
-    url: `${BASE_URL}/servicios/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
-
-  const projectRoutes: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
-    url: `${BASE_URL}/proyectos/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
 }

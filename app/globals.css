@@ -122,4 +122,34 @@
   .card-hover:hover {
     box-shadow: 0 12px 40px -8px rgba(10, 15, 30, 0.2);
   }
+
+  /* Button shine sweep */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 100%
+    );
+    transform: translateX(-160%) skewX(-18deg);
+    animation: btn-shine 3.2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes btn-shine {
+    0%   { transform: translateX(-160%) skewX(-18deg); }
+    22%  { transform: translateX(320%)  skewX(-18deg); }
+    100% { transform: translateX(320%)  skewX(-18deg); }
+  }
 }

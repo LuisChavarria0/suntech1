@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Sun, Shield, Cpu } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { SERVICES } from "@/lib/data/services";
 
 export const metadata: Metadata = {
@@ -66,7 +67,7 @@ export default function ServiciosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden">
+      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
         <div className="container-tight relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">
@@ -83,7 +84,7 @@ export default function ServiciosPage() {
             </p>
           </FadeIn>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Services detail */}
       <section className="section-padding bg-white">

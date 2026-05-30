@@ -3,45 +3,42 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, MessageCircle, Zap } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { WHATSAPP_URL, COMPANY_INFO } from "@/lib/data/company";
 
 export function Hero() {
-  return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden hero-gradient">
-      {/* Animated orbs */}
-      <motion.div
-        className="absolute top-1/4 left-[10%] w-80 h-80 rounded-full opacity-20 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, #fbbf24, transparent)" }}
-        animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 right-[10%] w-96 h-96 rounded-full opacity-15 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, #3b82f6, transparent)" }}
-        animate={{ scale: [1, 1.15, 1], x: [0, -15, 0], y: [0, 25, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
-      <motion.div
-        className="absolute top-2/3 left-1/3 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, #10b981, transparent)" }}
-        animate={{ scale: [1, 1.3, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-      />
+  const t = useTranslations("hero");
+  const tc = useTranslations("common");
 
-      {/* Grid overlay */}
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-950">
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      >
+        <source src="/media/video-inicial.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-navy-950/65" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-950 to-transparent pointer-events-none" />
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
+          background:
+            "radial-gradient(ellipse at 20% 60%, rgba(251,191,36,0.07) 0%, transparent 55%)",
         }}
       />
 
       {/* Content */}
       <div className="relative z-10 container-tight pt-24 pb-16 flex flex-col items-center text-center">
-        {/* Logo grande */}
+        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -49,7 +46,6 @@ export function Hero() {
           className="mb-8"
         >
           <div className="relative">
-            {/* Glow detrás del logo */}
             <div className="absolute inset-0 blur-2xl scale-110 opacity-30 bg-gold-400 rounded-full" />
             <Image
               src={COMPANY_INFO.logoUrl}
@@ -62,7 +58,7 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Eyebrow badge */}
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,7 +66,7 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold-400 backdrop-blur-sm mb-8">
             <Zap className="h-3 w-3" />
-            Más de 10 años de experiencia en El Salvador
+            {t("badge")}
           </span>
         </motion.div>
 
@@ -81,10 +77,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          Soluciones tecnológicas{" "}
-          <span className="gradient-text-gold">para un futuro</span>
+          {t("title1")}{" "}
+          <span className="gradient-text-gold">{t("title2")}</span>
           <br />
-          sostenible
+          {t("title3")}
         </motion.h1>
 
         {/* Subheadline */}
@@ -94,12 +90,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
         >
-          Energía solar fotovoltaica, seguridad electrónica y tecnología
-          integrada. Diseñamos proyectos a la medida para empresas, hogares e
-          instituciones en todo El Salvador.
+          {t("description")}
         </motion.p>
 
-        {/* CTA buttons */}
+        {/* CTAs */}
         <motion.div
           className="mt-10 flex flex-col sm:flex-row items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
@@ -110,21 +104,21 @@ export function Hero() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 h-13 px-8 bg-gold-500 hover:bg-gold-400 text-navy-900 text-base font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-gold-500/25 hover:shadow-xl hover:-translate-y-0.5"
+            className="btn-shine inline-flex items-center gap-2 h-13 px-8 bg-gold-500 hover:bg-gold-400 text-navy-900 text-base font-bold rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5"
           >
             <MessageCircle className="h-5 w-5" />
-            Cotizar proyecto
+            {t("cta_primary")}
           </a>
           <Link
             href="/proyectos"
-            className="inline-flex items-center gap-2 h-13 px-8 bg-white/10 hover:bg-white/15 text-white text-base font-semibold rounded-xl border border-white/20 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
+            className="btn-shine inline-flex items-center gap-2 h-13 px-8 bg-white/10 hover:bg-white/15 text-white text-base font-semibold rounded-xl border border-white/20 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
           >
-            Ver proyectos
+            {t("cta_secondary")}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
 
-        {/* Stats row */}
+        {/* Stats */}
         <motion.div
           className="mt-16 grid grid-cols-3 gap-8 md:gap-16 border-t border-white/10 pt-10"
           initial={{ opacity: 0 }}
@@ -132,16 +126,14 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           {[
-            { value: "10+", label: "Años" },
-            { value: "13+", label: "Proyectos" },
-            { value: "3", label: "Servicios" },
-          ].map(({ value, label }) => (
-            <div key={label} className="text-center">
-              <div className="text-2xl md:text-3xl font-extrabold text-white">
-                {value}
-              </div>
+            { value: "10+", key: "years" },
+            { value: "109+", key: "projects_label" },
+            { value: "3", key: "services_label" },
+          ].map(({ value, key }) => (
+            <div key={key} className="text-center">
+              <div className="text-2xl md:text-3xl font-extrabold text-white">{value}</div>
               <div className="text-xs text-navy-400 mt-1 uppercase tracking-wide">
-                {label}
+                {tc(key as "years" | "projects_label" | "services_label")}
               </div>
             </div>
           ))}

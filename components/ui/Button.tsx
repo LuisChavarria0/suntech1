@@ -19,12 +19,12 @@ interface ButtonProps {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-gold-500 text-navy-900 hover:bg-gold-400 shadow-md hover:shadow-lg font-semibold",
+    "btn-shine bg-gold-500 text-navy-900 hover:bg-gold-400 shadow-md hover:shadow-lg font-semibold",
   secondary:
-    "bg-navy-800 text-white hover:bg-navy-700 shadow-md hover:shadow-lg font-semibold",
-  ghost: "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-medium border border-white/20",
+    "btn-shine bg-navy-800 text-white hover:bg-navy-700 shadow-md hover:shadow-lg font-semibold",
+  ghost: "btn-shine bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-medium border border-white/20",
   outline:
-    "bg-transparent text-navy-900 border-2 border-navy-900 hover:bg-navy-900 hover:text-white font-semibold",
+    "btn-shine bg-transparent text-navy-900 border-2 border-navy-900 hover:bg-navy-900 hover:text-white font-semibold",
 };
 
 const sizeClasses: Record<Size, string> = {

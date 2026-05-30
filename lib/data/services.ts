@@ -20,8 +20,7 @@ export const SERVICES: Service[] = [
       "Centros de monitoreo con tecnología 5G",
       "Mantenimiento preventivo y correctivo",
     ],
-    image:
-      "https://suntechsvcom.wpcomstaging.com/wp-content/uploads/2025/01/whatsapp-image-2025-01-23-at-19.17.31_9f0f3001.jpg",
+    image: "/images/whatsapp-image-2025-01-23-at-19.17.31_9f0f3001.jpg",
   },
   {
     id: "2",
@@ -42,8 +41,7 @@ export const SERVICES: Service[] = [
       "Control de acceso y gestión de visitantes",
       "Soporte técnico y mantenimiento continuo",
     ],
-    image:
-      "https://suntechsvcom.wpcomstaging.com/wp-content/uploads/2025/01/screenshot_1.png",
+    image: "/images/screenshot_1.png",
   },
   {
     id: "3",
@@ -64,8 +62,7 @@ export const SERVICES: Service[] = [
       "Infraestructura de redes y comunicaciones",
       "Capacitación y acompañamiento al equipo",
     ],
-    image:
-      "https://suntechsvcom.wpcomstaging.com/wp-content/uploads/2025/01/sadqq3.png",
+    image: "/images/sadqq3.png",
   },
 ];
 

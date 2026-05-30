@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, MessageCircle, Sun, Shield, Cpu } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { SERVICES, getServiceBySlug } from "@/lib/data/services";
 import { WHATSAPP_URL } from "@/lib/data/company";
@@ -63,7 +64,7 @@ export default async function ServicePage(
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden">
+      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
         <div className="container-tight relative z-10">
           <FadeIn>
             <Link
@@ -93,7 +94,7 @@ export default async function ServicePage(
             </p>
           </FadeIn>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Content */}
       <section className="section-padding bg-white">

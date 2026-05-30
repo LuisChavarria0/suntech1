@@ -1,13 +1,25 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
-import { COMPANY_INFO, CONTACT, NAV_LINKS, WHATSAPP_URL } from "@/lib/data/company";
+import { Link } from "@/i18n/navigation";
+import { COMPANY_INFO, CONTACT, WHATSAPP_URL } from "@/lib/data/company";
 import { SERVICES } from "@/lib/data/services";
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations("footer");
+  const tc = await getTranslations("common");
+  const tn = await getTranslations("nav");
+
+  const navLinks = [
+    { label: tn("home"), href: "/" },
+    { label: tn("about"), href: "/nosotros" },
+    { label: tn("services"), href: "/servicios" },
+    { label: tn("projects"), href: "/proyectos" },
+    { label: tn("contact"), href: "/contacto" },
+  ];
+
   return (
     <footer className="bg-navy-950 text-white">
-      {/* Main footer */}
       <div className="container-tight py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
@@ -28,20 +40,20 @@ export function Footer() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-5 h-10 px-5 bg-gold-500 hover:bg-gold-400 text-navy-900 text-sm font-semibold rounded-xl transition-colors"
+              className="btn-shine inline-flex items-center gap-2 mt-5 h-10 px-5 bg-gold-500 hover:bg-gold-400 text-navy-900 text-sm font-semibold rounded-xl transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
-              Cotizar ahora
+              {tc("quote")}
             </a>
           </div>
 
-          {/* Navigation */}
+          {/* Nav */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-navy-300 mb-4">
-              Empresa
+              {t("company_col")}
             </h3>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -57,7 +69,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-navy-300 mb-4">
-              Servicios
+              {t("services_col")}
             </h3>
             <ul className="space-y-3">
               {SERVICES.map((service) => (
@@ -76,15 +88,15 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-navy-300 mb-4">
-              Contacto
+              {t("contact_col")}
             </h3>
             <ul className="space-y-4">
               <li>
                 <a
                   href={`tel:${CONTACT.phone}`}
-                  className="flex items-start gap-3 text-sm text-navy-400 hover:text-white transition-colors group"
+                  className="flex items-start gap-3 text-sm text-navy-400 hover:text-white transition-colors"
                 >
-                  <Phone className="h-4 w-4 mt-0.5 text-gold-500 flex-shrink-0" />
+                  <Phone className="h-4 w-4 mt-0.5 text-gold-500 shrink-0" />
                   {CONTACT.phone}
                 </a>
               </li>
@@ -95,7 +107,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 text-sm text-navy-400 hover:text-white transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4 mt-0.5 text-gold-500 flex-shrink-0" />
+                  <MessageCircle className="h-4 w-4 mt-0.5 text-gold-500 shrink-0" />
                   {CONTACT.whatsapp}
                 </a>
               </li>
@@ -104,13 +116,13 @@ export function Footer() {
                   href={`mailto:${CONTACT.email}`}
                   className="flex items-start gap-3 text-sm text-navy-400 hover:text-white transition-colors"
                 >
-                  <Mail className="h-4 w-4 mt-0.5 text-gold-500 flex-shrink-0" />
+                  <Mail className="h-4 w-4 mt-0.5 text-gold-500 shrink-0" />
                   {CONTACT.email}
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-sm text-navy-400">
-                  <MapPin className="h-4 w-4 mt-0.5 text-gold-500 flex-shrink-0" />
+                  <MapPin className="h-4 w-4 mt-0.5 text-gold-500 shrink-0" />
                   <span>{CONTACT.address}</span>
                 </div>
               </li>
@@ -119,15 +131,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="container-tight py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-navy-500">
-            © {new Date().getFullYear()} Grupo Suntech. Todos los derechos reservados.
+            © {new Date().getFullYear()} Grupo Suntech. {t("copyright")}
           </p>
-          <p className="text-xs text-navy-500">
-            El Salvador — Energía, Seguridad & Tecnología
-          </p>
+          <p className="text-xs text-navy-500">{t("tagline")}</p>
         </div>
       </div>
     </footer>

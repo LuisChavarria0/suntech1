@@ -13,7 +13,7 @@ export const CONTACT = {
 
 export const STATS: CompanyStat[] = [
   { value: 10, suffix: "+", label: "Años de experiencia" },
-  { value: 13, suffix: "+", label: "Proyectos completados" },
+  { value: 109, suffix: "+", label: "Proyectos completados" },
   { value: 3, suffix: "", label: "Líneas de servicio" },
   { value: 100, suffix: "%", label: "Compromiso nacional" },
 ];
@@ -55,7 +55,6 @@ export const COMPANY_INFO = {
   vision:
     "Revolucionar el acceso a la energía con soluciones sostenibles que promueven un futuro más eficiente para El Salvador.",
   description:
-    "Con más de 10 años de experiencia, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
-  logoUrl:
-    "https://i0.wp.com/suntechsvcom.wpcomstaging.com/wp-content/uploads/2025/01/LOGO-FULL-COLOR-SLOGAN-NEGRO-SIN-FONDO.png",
+    "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
+  logoUrl: "/logo.png",
 };

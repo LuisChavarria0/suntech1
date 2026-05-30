@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Calendar, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
+import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { CTABanner } from "@/components/sections/home/CTABanner";
@@ -54,7 +55,7 @@ export default async function ProjectPage(
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden">
+      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
         <div className="container-tight relative z-10">
           <FadeIn>
             <Link
@@ -85,7 +86,7 @@ export default async function ProjectPage(
             </div>
           </FadeIn>
         </div>
-      </section>
+      </MouseGradientSection>
 
       {/* Content */}
       <section className="section-padding bg-white">
