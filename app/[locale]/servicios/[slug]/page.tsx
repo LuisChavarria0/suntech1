@@ -25,7 +25,10 @@ const slugToKey: Record<string, "solar" | "security" | "tech"> = {
 };
 
 export async function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.slug }));
+  const locales = ["es", "en"];
+  return locales.flatMap((locale) =>
+    SERVICES.map((s) => ({ locale, slug: s.slug }))
+  );
 }
 
 export async function generateMetadata(
