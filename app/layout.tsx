@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { getLocale } from "next-intl/server";
-import { COMPANY_INFO, CONTACT } from "@/lib/data/company";
+import { COMPANY_INFO, CONTACT, SOCIAL_LINKS } from "@/lib/data/company";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -61,11 +61,12 @@ const jsonLd = {
   email: CONTACT.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Centro Comercial Periplaza Apopa",
-    addressLocality: "San Salvador",
+    streetAddress: "Residencial Paseo del Prado, Polígono B, Casa 64B",
+    addressLocality: "Apopa",
     addressRegion: "San Salvador",
     addressCountry: "SV",
   },
+  sameAs: Object.values(SOCIAL_LINKS),
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

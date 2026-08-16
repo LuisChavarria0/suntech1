@@ -26,7 +26,7 @@ const contactMethods = [
     label: "Teléfono",
     value: CONTACT.phone,
     href: `tel:${CONTACT.phone}`,
-    description: "Lunes a viernes, 8am – 5pm",
+    description: "Lunes a jueves, 7:30am – 5:30pm",
     external: false,
     color: "electric",
   },
@@ -140,15 +140,15 @@ export default function ContactoPage() {
                 </div>
                 <ul className="space-y-2 text-sm text-navy-400">
                   <li className="flex justify-between">
-                    <span>Lunes – Viernes</span>
-                    <span className="text-white">8:00 AM – 5:00 PM</span>
+                    <span>Lunes a jueves</span>
+                    <span className="text-white">7:30 AM – 5:30 PM</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Sábado</span>
-                    <span className="text-white">8:00 AM – 12:00 PM</span>
+                    <span>Viernes</span>
+                    <span className="text-white">7:30 AM – 3:00 PM</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Domingo</span>
+                    <span>Sábado y Domingo</span>
                     <span>Cerrado</span>
                   </li>
                 </ul>
@@ -183,8 +183,8 @@ export default function ContactoPage() {
           <FadeIn delay={0.1}>
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-80">
               <iframe
-                title="Ubicación Grupo Suntech — Periplaza Apopa"
-                src="https://maps.google.com/maps?q=Periplaza+Apopa+San+Salvador+El+Salvador&output=embed&z=15"
+                title="Ubicación Grupo Suntech — Residencial Paseo del Prado, Apopa"
+                src={CONTACT.mapEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -192,10 +192,15 @@ export default function ContactoPage() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-            <p className="text-xs text-slate-400 mt-3 flex items-center gap-1.5">
+            <a
+              href={CONTACT.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-slate-400 mt-3 flex items-center gap-1.5 hover:text-gold-600 transition-colors w-fit"
+            >
               <MapPin className="h-3.5 w-3.5 text-gold-500" />
               {CONTACT.address}
-            </p>
+            </a>
           </FadeIn>
         </div>
       </section>

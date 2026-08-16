@@ -18,10 +18,7 @@ const badgeVariant: Record<Project["category"], "gold" | "electric" | "eco"> = {
 };
 
 export async function generateStaticParams() {
-  const locales = ["es", "en"];
-  return locales.flatMap((locale) =>
-    PROJECTS.map((p) => ({ locale, slug: p.slug }))
-  );
+  return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata(

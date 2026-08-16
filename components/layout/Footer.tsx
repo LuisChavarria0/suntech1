@@ -2,8 +2,23 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { COMPANY_INFO, CONTACT, WHATSAPP_URL } from "@/lib/data/company";
+import { COMPANY_INFO, CONTACT, WHATSAPP_URL, SOCIAL_LINKS } from "@/lib/data/company";
 import { SERVICES } from "@/lib/data/services";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  TikTokIcon,
+  LinkedInIcon,
+  YouTubeIcon,
+} from "@/components/ui/icons/SocialIcons";
+
+const SOCIALS = [
+  { href: SOCIAL_LINKS.facebook, label: "Facebook", Icon: FacebookIcon },
+  { href: SOCIAL_LINKS.instagram, label: "Instagram", Icon: InstagramIcon },
+  { href: SOCIAL_LINKS.tiktok, label: "TikTok", Icon: TikTokIcon },
+  { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
+  { href: SOCIAL_LINKS.youtube, label: "YouTube", Icon: YouTubeIcon },
+];
 
 export async function Footer() {
   const t = await getTranslations("footer");
@@ -45,6 +60,21 @@ export async function Footer() {
               <MessageCircle className="h-4 w-4" />
               {tc("quote")}
             </a>
+
+            <div className="flex items-center gap-3 mt-6">
+              {SOCIALS.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/5 text-navy-300 hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Nav */}

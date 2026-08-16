@@ -1,6 +1,7 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
+import { WHATSAPP_NUMBER } from "@/lib/data/company";
 
 export function ContactForm() {
   return (
@@ -20,7 +21,7 @@ export function ContactForm() {
           `Hola, soy ${name}. Me interesa el servicio de ${service}. ${message}`
         );
         window.open(
-          `https://api.whatsapp.com/send?phone=50371949502&text=${text}`,
+          `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${text}`,
           "_blank"
         );
       }}

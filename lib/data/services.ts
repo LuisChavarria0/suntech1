@@ -62,7 +62,7 @@ export const SERVICES: Service[] = [
       "Infraestructura de redes y comunicaciones",
       "Capacitación y acompañamiento al equipo",
     ],
-    image: "/images/sadqq3.png",
+    image: "/images/6h66h6.jpg",
   },
 ];
 

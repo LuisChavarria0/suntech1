@@ -15,7 +15,8 @@
     "services_label": "Services",
     "location": "Location",
     "year": "Year",
-    "category": "Category"
+    "category": "Category",
+    "calc_savings": "Calculate your savings"
   },
   "nav": {
     "home": "Home",
@@ -25,12 +26,12 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Over 10 years of experience in El Salvador",
-    "title1": "Technology solutions",
-    "title2": "for a sustainable",
-    "title3": "future",
-    "description": "Photovoltaic solar energy, electronic security and integrated technology. We design custom projects for businesses, homes and institutions across El Salvador.",
-    "cta_primary": "Quote project",
+    "title1": "Solar panels",
+    "title2": "in El Salvador",
+    "savings_prefix": "save up to",
+    "savings_highlight": "90%",
+    "savings_suffix": "on your electric bill",
+    "cta_primary": "Get a quote",
     "cta_secondary": "View projects"
   },
   "stats": {
@@ -38,6 +39,63 @@
     "projects": "Completed projects",
     "services": "Service lines",
     "commitment": "National commitment"
+  },
+  "system_types": {
+    "intro_prefix": "Discover the photovoltaic system",
+    "intro_highlight": "that fits your needs:",
+    "grid_label": "Grid-tied system",
+    "isolated_label": "Off-grid system",
+    "hybrid_label": "Hybrid system"
+  },
+  "self_consumption": {
+    "title": "We offer",
+    "title_highlight": "tailored self-consumption solutions",
+    "homes_title": "Solar self-consumption for homes",
+    "homes_desc": "The cleanest, most affordable energy within everyone's reach.",
+    "business_title": "Solar self-consumption for businesses",
+    "business_desc": "Cut your operating costs and boost your business's competitiveness."
+  },
+  "panels_showcase": {
+    "title_bold": "Over 20,000",
+    "title_rest": "solar panels installed across El Salvador",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "advantages": {
+    "title": "Your advantages with SunTech",
+    "chamber": "Accredited by the Chamber of Commerce and Industry of El Salvador",
+    "huawei": "Certified Huawei installers",
+    "bac": "12-month zero-interest payment plan.",
+    "cuscatlan": "36-month zero-interest payment plan."
+  },
+  "equipment": {
+    "title": "Equipment and warranties",
+    "panel_title": "Solar panel",
+    "panel_1": "Width: 1.10 m",
+    "panel_2": "Height: 2.40 m",
+    "panel_3": "Weight: 60 - 70 lb",
+    "inverter_title": "Inverter",
+    "inverter_1": "Width: 52.5 cm",
+    "inverter_2": "Height: 47.0 cm",
+    "inverter_3": "Depth: 16.6 cm",
+    "inverter_4": "Weight: 37.5 lb",
+    "battery_title": "Batteries",
+    "battery_1": "Width: 1810 mm",
+    "battery_2": "Height: 2135 mm",
+    "battery_3": "Depth: 1200 mm",
+    "battery_4": "Weight: 2170 to 2950 kg, depending on capacity.",
+    "leak_title": "Leak warranty:",
+    "leak_desc": "A 12-month warranty is offered on the areas involved during installation.",
+    "brands_title": "Backed by the best brands",
+    "brands_desc": "We work with first-line technology and world-leading manufacturers. This lets us guarantee performance, durability, and support on every project we deliver."
+  },
+  "testimonials": {
+    "clients_intro": "They already joined the savings:",
+    "eyebrow": "Success story",
+    "quote": "I installed solar panels, which has led me to save 80% on my consumption.",
+    "cta": "Get a free study",
+    "video_badge1": "Real savings with",
+    "video_badge2": "Solar panel system"
   },
   "services_section": {
     "eyebrow": "Our services",
@@ -167,18 +225,18 @@
     "whatsapp_label": "WhatsApp",
     "whatsapp_desc": "Immediate response",
     "phone_label": "Phone",
-    "phone_desc": "Monday to Friday, 8am – 5pm",
+    "phone_desc": "Monday to Thursday, 7:30am – 5:30pm",
     "email_label": "Email",
     "email_desc": "Response within 24 hours",
     "office_label": "Office",
     "office_desc": "Visit us in person",
     "hours_title": "Business hours",
-    "hours_weekdays": "Monday – Friday",
-    "hours_weekdays_time": "8:00 AM – 5:00 PM",
-    "hours_saturday": "Saturday",
-    "hours_saturday_time": "8:00 AM – 12:00 PM",
-    "hours_sunday": "Sunday",
-    "hours_sunday_time": "Closed",
+    "hours_weekdays": "Monday to Thursday",
+    "hours_weekdays_time": "7:30 AM – 5:30 PM",
+    "hours_saturday": "Friday",
+    "hours_saturday_time": "7:30 AM – 3:00 PM",
+    "hours_weekend": "Saturday and Sunday",
+    "hours_weekend_time": "Closed",
     "form_title": "Send us a message",
     "form_subtitle": "Fill out the form and we'll contact you shortly.",
     "field_name": "Name",
@@ -191,7 +249,7 @@
     "send_button": "Send via WhatsApp",
     "send_note": "On submit, WhatsApp will open with your message ready to send.",
     "map_title": "Where to find us",
-    "map_iframe_title": "Grupo Suntech Location — Periplaza Apopa"
+    "map_iframe_title": "Grupo Suntech Location — Residencial Paseo del Prado, Apopa"
   },
   "not_found": {
     "eyebrow": "Page not found",

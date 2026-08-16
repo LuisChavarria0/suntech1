@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { WHATSAPP_URL } from "@/lib/data/company";
 
@@ -46,7 +47,7 @@ export async function CTABanner() {
             rel="noopener noreferrer"
             className="btn-shine inline-flex items-center gap-2 h-14 px-10 bg-gold-500 hover:bg-gold-400 text-navy-900 text-base font-bold rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5"
           >
-            <MessageCircle className="h-5 w-5" />
+            <WhatsAppIcon className="h-5 w-5" />
             {tc("quote_whatsapp")}
           </a>
           <Link

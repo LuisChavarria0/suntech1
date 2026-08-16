@@ -3,23 +3,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { COMPANY_INFO, WHATSAPP_URL } from "@/lib/data/company";
 
 export function Navbar() {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -38,16 +32,9 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={[
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-navy-900/95 backdrop-blur-md border-b border-white/5 shadow-lg"
-            : "bg-transparent",
-        ].join(" ")}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-navy-100">
         <div className="container-tight">
-          <div className="flex h-16 md:h-20 items-center justify-between gap-4">
+          <div className="flex h-14 md:h-16 items-center justify-between gap-4">
             {/* Logo */}
             <Link href="/" className="relative z-10 flex-shrink-0">
               <Image
@@ -55,7 +42,7 @@ export function Navbar() {
                 alt="Grupo Suntech"
                 width={560}
                 height={168}
-                className="h-40 md:h-52 w-auto object-contain brightness-0 invert"
+                className="h-11 md:h-14 w-auto object-contain"
                 priority
               />
             </Link>
@@ -66,7 +53,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
+                  className="px-4 py-2 text-sm font-medium text-navy-800 hover:text-navy-950 hover:bg-navy-50 rounded-lg transition-all duration-200"
                 >
                   {link.label}
                 </Link>
@@ -80,17 +67,16 @@ export function Navbar() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-shine inline-flex items-center gap-2 h-10 px-5 bg-gold-500 hover:bg-gold-400 text-navy-900 text-sm font-semibold rounded-xl transition-all duration-200 shadow-md"
+                className="btn-shine inline-flex items-center h-9 px-5 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-md"
               >
-                <MessageCircle className="h-4 w-4" />
-                {tc("quote")}
+                {tc("calc_savings")}
               </a>
             </div>
 
             {/* Mobile hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden relative z-10 p-2 text-white rounded-lg hover:bg-white/10 transition-colors"
+              className="md:hidden relative z-10 p-2 text-navy-900 rounded-lg hover:bg-navy-50 transition-colors"
               aria-label="Abrir menú"
             >
               {menuOpen ? (
@@ -138,14 +124,14 @@ export function Navbar() {
               transition={{ delay: 0.4 }}
               className="flex flex-col gap-3"
             >
-              <LanguageSwitcher />
+              <LanguageSwitcher variant="dark" />
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-shine flex items-center justify-center gap-2 h-14 w-full bg-gold-500 hover:bg-gold-400 text-navy-900 text-base font-bold rounded-2xl transition-colors"
               >
-                <MessageCircle className="h-5 w-5" />
+                <WhatsAppIcon className="h-5 w-5" />
                 {tc("quote_whatsapp")}
               </a>
             </motion.div>

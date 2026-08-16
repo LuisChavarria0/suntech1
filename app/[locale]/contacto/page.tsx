@@ -78,7 +78,7 @@ export default async function ContactoPage() {
                 <ul className="space-y-2 text-sm text-navy-400">
                   <li className="flex justify-between"><span>{t("hours_weekdays")}</span><span className="text-white">{t("hours_weekdays_time")}</span></li>
                   <li className="flex justify-between"><span>{t("hours_saturday")}</span><span className="text-white">{t("hours_saturday_time")}</span></li>
-                  <li className="flex justify-between"><span>{t("hours_sunday")}</span><span>{t("hours_sunday_time")}</span></li>
+                  <li className="flex justify-between"><span>{t("hours_weekend")}</span><span>{t("hours_weekend_time")}</span></li>
                 </ul>
               </div>
             </FadeIn>
@@ -103,7 +103,7 @@ export default async function ContactoPage() {
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-80">
               <iframe
                 title={t("map_iframe_title")}
-                src="https://maps.google.com/maps?q=Periplaza+Apopa+San+Salvador+El+Salvador&output=embed&z=15"
+                src={CONTACT.mapEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -111,10 +111,15 @@ export default async function ContactoPage() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-            <p className="text-xs text-slate-400 mt-3 flex items-center gap-1.5">
+            <a
+              href={CONTACT.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-slate-400 mt-3 flex items-center gap-1.5 hover:text-gold-600 transition-colors w-fit"
+            >
               <MapPin className="h-3.5 w-3.5 text-gold-500" />
               {CONTACT.address}
-            </p>
+            </a>
           </FadeIn>
         </div>
       </section>
