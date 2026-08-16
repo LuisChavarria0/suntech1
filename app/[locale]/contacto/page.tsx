@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ContactForm } from "@/components/sections/contacto/ContactForm";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { CONTACT, WHATSAPP_URL } from "@/lib/data/company";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,10 +15,10 @@ export default async function ContactoPage() {
   const t = await getTranslations("contact_page");
 
   const contactMethods = [
-    { icon: MessageCircle, label: t("whatsapp_label"), value: CONTACT.whatsapp, href: WHATSAPP_URL, desc: t("whatsapp_desc"), external: true, color: "eco" },
+    { icon: WhatsAppIcon, label: t("whatsapp_label"), value: CONTACT.whatsapp, href: WHATSAPP_URL, desc: t("whatsapp_desc"), external: true, color: "eco" },
     { icon: Phone, label: t("phone_label"), value: CONTACT.phone, href: `tel:${CONTACT.phone}`, desc: t("phone_desc"), external: false, color: "electric" },
     { icon: Mail, label: t("email_label"), value: CONTACT.email, href: `mailto:${CONTACT.email}`, desc: t("email_desc"), external: false, color: "gold" },
-    { icon: MapPin, label: t("office_label"), value: CONTACT.address, href: "#", desc: t("office_desc"), external: false, color: "navy" },
+    { icon: MapPin, label: t("office_label"), value: CONTACT.address, href: CONTACT.mapUrl, desc: t("office_desc"), external: true, color: "navy" },
   ];
 
   const colorMap: Record<string, string> = {

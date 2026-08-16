@@ -59,7 +59,12 @@
     "title_bold": "Over 20,000",
     "title_rest": "solar panels installed across El Salvador",
     "prev": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "power_drill_specs": "200 panels / 4 20K inverters",
+    "super_keny_specs": "84 panels / 4 10K inverters",
+    "super_baratillo_specs": "290 panels / 12 10K inverters",
+    "ariana_reyes_specs": "40 panels / 1 10K and 6K inverter",
+    "paseo_prado_specs": "20 panels / 1 15K inverter"
   },
   "advantages": {
     "title": "Your advantages with SunTech",
@@ -149,15 +154,19 @@
     "services_col": "Services",
     "contact_col": "Contact",
     "copyright": "All rights reserved.",
-    "tagline": "El Salvador — Energy, Security & Technology"
+    "tagline": "El Salvador — Energy, Security & Technology",
+    "description": "With more than 10 years of experience and over 109 completed projects, we are leaders in solar energy, electronic security, and technology in El Salvador. We integrate three strategic areas to offer complete, personalized solutions."
   },
   "about": {
     "eyebrow": "Who we are",
     "title": "Over a decade",
     "title_highlight": "transforming",
     "title_end": "El Salvador",
+    "description": "With more than 10 years of experience and over 109 completed projects, we are leaders in solar energy, electronic security, and technology in El Salvador. We integrate three strategic areas to offer complete, personalized solutions.",
     "mission_title": "Mission",
+    "mission": "To offer tailored solutions by integrating technologies that adapt to the needs of all our clients.",
     "vision_title": "Vision",
+    "vision": "To revolutionize access to energy with sustainable solutions that promote a more efficient future for El Salvador.",
     "timeline_eyebrow": "Our history",
     "timeline_title": "A journey of constant growth",
     "values_eyebrow": "Our values",

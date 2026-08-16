@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { WHATSAPP_NUMBER } from "@/lib/data/company";
 
 export function ContactForm() {
@@ -99,9 +99,9 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="w-full h-12 bg-gold-500 hover:bg-gold-400 text-navy-900 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2 shadow-md cursor-pointer"
+        className="btn-shine w-full h-14 bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
       >
-        <MessageCircle className="h-4 w-4" />
+        <WhatsAppIcon className="h-5 w-5" />
         Enviar por WhatsApp
       </button>
 

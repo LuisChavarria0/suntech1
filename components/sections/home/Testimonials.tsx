@@ -39,11 +39,11 @@ export async function Testimonials() {
 
       {/* Testimonial */}
       <div className="grid grid-cols-1 md:grid-cols-[minmax(0,320px)_1fr] bg-navy-800 px-6 md:px-16 lg:px-24">
-        <div className="py-0 px-3 md:px-4 flex items-center">
+        <div className="py-6 md:py-0 px-3 md:px-4 flex items-center">
           <TestimonialVideo src="/media/videos/ahorro-real-escalon.mp4" />
         </div>
 
-        <FadeIn direction="left" className="flex flex-col justify-center py-0 px-8 md:px-10">
+        <FadeIn direction="left" className="flex flex-col justify-center py-6 md:py-0 px-8 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-white mb-4">
             {t("eyebrow")}
           </p>

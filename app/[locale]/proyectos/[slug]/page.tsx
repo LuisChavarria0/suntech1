@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { ArrowLeft, MapPin, Calendar, MessageCircle } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { PROJECTS, getProjectBySlug } from "@/lib/data/projects";
 import { WHATSAPP_URL } from "@/lib/data/company";
@@ -119,9 +120,9 @@ export default async function ProjectPage(
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-shine flex items-center justify-center gap-2 h-12 w-full rounded-xl text-sm font-bold text-navy-900 bg-gold-500 hover:bg-gold-400 transition-colors"
+                    className="btn-shine flex items-center justify-center gap-2 h-14 w-full rounded-xl text-lg font-bold text-white bg-navy-800 hover:bg-navy-700 transition-all duration-200 shadow-lg hover:-translate-y-0.5"
                   >
-                    <MessageCircle className="h-4 w-4" />
+                    <WhatsAppIcon className="h-5 w-5" />
                     {tc("quote_whatsapp")}
                   </a>
                 </div>

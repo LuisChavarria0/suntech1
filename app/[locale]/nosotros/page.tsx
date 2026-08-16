@@ -6,7 +6,6 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { AnimatedTimeline } from "@/components/sections/nosotros/AnimatedTimeline";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
-import { COMPANY_INFO } from "@/lib/data/company";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: "Nosotros" };
@@ -51,7 +50,7 @@ export default async function NosotrosPage() {
               {t("title_end")}
             </h1>
             <p className="text-navy-300 text-lg md:text-xl max-w-2xl leading-relaxed">
-              {COMPANY_INFO.description}
+              {t("description")}
             </p>
           </FadeIn>
         </div>
@@ -67,7 +66,7 @@ export default async function NosotrosPage() {
                   <Target className="h-7 w-7 text-gold-500" />
                 </div>
                 <h2 className="text-2xl font-bold text-navy-900 mb-4">{t("mission_title")}</h2>
-                <p className="text-slate-500 leading-relaxed">{COMPANY_INFO.mission}</p>
+                <p className="text-slate-500 leading-relaxed">{t("mission")}</p>
               </div>
             </FadeIn>
             <FadeIn direction="right">
@@ -76,7 +75,7 @@ export default async function NosotrosPage() {
                   <Eye className="h-7 w-7 text-electric-500" />
                 </div>
                 <h2 className="text-2xl font-bold text-navy-900 mb-4">{t("vision_title")}</h2>
-                <p className="text-slate-500 leading-relaxed">{COMPANY_INFO.vision}</p>
+                <p className="text-slate-500 leading-relaxed">{t("vision")}</p>
               </div>
             </FadeIn>
           </div>

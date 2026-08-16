@@ -7,9 +7,9 @@ import { PanelsShowcase } from "@/components/sections/home/PanelsShowcase";
 import { Advantages } from "@/components/sections/home/Advantages";
 import { Equipment } from "@/components/sections/home/Equipment";
 import { Services } from "@/components/sections/home/Services";
-import { FeaturedProjects } from "@/components/sections/home/FeaturedProjects";
-import { WhySuntech } from "@/components/sections/home/WhySuntech";
-import { Partners } from "@/components/sections/home/Partners";
+// import { FeaturedProjects } from "@/components/sections/home/FeaturedProjects";
+// import { WhySuntech } from "@/components/sections/home/WhySuntech";
+// import { Partners } from "@/components/sections/home/Partners";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 
 export default function HomePage() {
@@ -24,9 +24,9 @@ export default function HomePage() {
       <Advantages />
       <Equipment />
       <Services />
-      <FeaturedProjects />
-      <WhySuntech />
-      <Partners />
+      {/* <FeaturedProjects /> */}
+      {/* <WhySuntech /> */}
+      {/* <Partners /> */}
       <CTABanner />
     </>
   );

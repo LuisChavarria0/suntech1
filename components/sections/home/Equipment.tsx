@@ -37,7 +37,7 @@ export async function Equipment() {
   ];
 
   return (
-    <section className="w-full bg-white pt-2 pb-14 md:pb-20 border-y border-slate-100 shadow-[0_4px_16px_rgba(10,15,30,0.12),0_-4px_16px_rgba(10,15,30,0.12)]">
+    <section className="w-full bg-white pt-2 pb-8 md:pb-10 border-y border-slate-100 shadow-[0_4px_16px_rgba(10,15,30,0.12),0_-4px_16px_rgba(10,15,30,0.12)]">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_460px]">
         {/* Left: products */}
         <div className="px-8 md:px-16 lg:px-24 py-8 md:py-14 flex flex-col items-center">

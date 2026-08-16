@@ -9,39 +9,39 @@ const PROJECTS = [
   {
     key: "power-drill",
     name: "Power Drill",
-    specs: "200 paneles / 4 Inversores de 20K",
+    specsKey: "power_drill_specs",
     image: "/fotografias/POWER DRILL.png",
     logo: "/logos/clientes/POWER DRILL.png",
   },
   {
     key: "super-keny",
     name: "Super Keny",
-    specs: "84 paneles / 4 Inversores de 10K",
+    specsKey: "super_keny_specs",
     image: "/fotografias/SUPER KENY.jpg",
     logo: "/logos/clientes/SUPER KENY.png",
   },
   {
     key: "super-baratillo",
     name: "Super el Baratillo",
-    specs: "290 paneles / 12 inversores de 10K",
+    specsKey: "super_baratillo_specs",
     image: "/fotografias/SUPER BARATILLO.png",
     logo: "/logos/clientes/EL BARATILLO.png",
   },
   {
     key: "ariana-reyes",
     name: "Ariana Reyes",
-    specs: "40 paneles / 1 inversor de 10K y 6K",
+    specsKey: "ariana_reyes_specs",
     image: "/fotografias/ARIANNA REYES.png",
     logo: "/logos/clientes/ARIANNA REYES.png",
   },
   {
     key: "paseo-prado",
     name: "Paseo del Prado",
-    specs: "120 paneles / 3 inversores de 15K",
+    specsKey: "paseo_prado_specs",
     image: "/fotografias/paseo-prado.jpg",
     logo: "/logos/clientes/PASEO DEL PRADO.png",
   },
-];
+] as const;
 
 export function PanelsShowcase() {
   const t = useTranslations("panels_showcase");
@@ -114,7 +114,7 @@ export function PanelsShowcase() {
                     {project.name}
                     <span className="font-normal">:</span>
                   </p>
-                  <p className="text-slate-500 text-xs leading-snug mt-0.5">{project.specs}</p>
+                  <p className="text-slate-500 text-xs leading-snug mt-0.5">{t(project.specsKey)}</p>
                 </div>
               </div>
             </div>

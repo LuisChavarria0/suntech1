@@ -129,7 +129,7 @@ export function Navbar() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-shine flex items-center justify-center gap-2 h-14 w-full bg-gold-500 hover:bg-gold-400 text-navy-900 text-base font-bold rounded-2xl transition-colors"
+                className="btn-shine flex items-center justify-center gap-2 h-14 w-full bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 {tc("quote_whatsapp")}

@@ -12,7 +12,7 @@ export async function CTABanner() {
 
   return (
     <MouseGradientSection
-      className="relative overflow-hidden bg-navy-900 py-20 md:py-28"
+      className="relative overflow-hidden bg-navy-900 py-14 md:py-20"
       color="gold"
       blobSize={800}
     >
@@ -45,7 +45,7 @@ export async function CTABanner() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-shine inline-flex items-center gap-2 h-14 px-10 bg-gold-500 hover:bg-gold-400 text-navy-900 text-base font-bold rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5"
+            className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5"
           >
             <WhatsAppIcon className="h-5 w-5" />
             {tc("quote_whatsapp")}
