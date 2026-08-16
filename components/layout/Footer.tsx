@@ -13,6 +13,12 @@ import {
   YouTubeIcon,
 } from "@/components/ui/icons/SocialIcons";
 
+const slugToKey: Record<string, "solar" | "security" | "tech"> = {
+  "energia-solar": "solar",
+  "seguridad-electronica": "security",
+  "tecnologia": "tech",
+};
+
 const SOCIALS = [
   { href: SOCIAL_LINKS.facebook, label: "Facebook", Icon: FacebookIcon },
   { href: SOCIAL_LINKS.instagram, label: "Instagram", Icon: InstagramIcon },
@@ -26,6 +32,7 @@ export async function Footer() {
   const tc = await getTranslations("common");
   const tn = await getTranslations("nav");
   const th = await getTranslations("contact_page");
+  const ts = await getTranslations("services_data");
 
   const navLinks = [
     { label: tn("home"), href: "/" },
@@ -39,7 +46,7 @@ export async function Footer() {
     <footer className="relative bg-navy-950 text-white">
       <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-500/40 to-transparent" />
 
-      <div className="container-tight py-16 md:py-20">
+      <div className="container-tight py-4 md:py-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -112,7 +119,7 @@ export async function Footer() {
                     href={`/servicios/${service.slug}`}
                     className="text-sm text-navy-400 hover:text-white transition-colors"
                   >
-                    {service.title}
+                    {ts(`${slugToKey[service.slug] ?? "solar"}.title`)}
                   </Link>
                 </li>
               ))}

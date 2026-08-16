@@ -12,7 +12,7 @@ export async function CTABanner() {
 
   return (
     <MouseGradientSection
-      className="relative overflow-hidden bg-navy-900 py-14 md:py-20"
+      className="relative overflow-hidden bg-navy-900 py-10 md:py-14"
       color="gold"
       blobSize={800}
     >

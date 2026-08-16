@@ -253,6 +253,7 @@
     "field_phone": "Teléfono",
     "field_phone_placeholder": "Tu número de teléfono",
     "field_service": "Servicio de interés",
+    "field_service_other": "Otro / No estoy seguro",
     "field_message": "Mensaje",
     "field_message_placeholder": "Describe tu proyecto o necesidad...",
     "send_button": "Enviar por WhatsApp",
