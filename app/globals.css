@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Navy palette */
-  --color-navy-950: #020617;
-  --color-navy-900: #0a0f1e;
-  --color-navy-800: #0f172a;
-  --color-navy-700: #1e2b4a;
-  --color-navy-600: #2d4060;
-  --color-navy-500: #3d5580;
-  --color-navy-400: #5b7aaa;
-  --color-navy-300: #8aa4c8;
+  /* Navy palette (SunTech brand blue) */
+  --color-navy-950: #0a1e4d;
+  --color-navy-900: #0e2a6b;
+  --color-navy-800: #143a8f;
+  --color-navy-700: #1a4bb0;
+  --color-navy-600: #2260c9;
+  --color-navy-500: #3d78d9;
+  --color-navy-400: #7ba3e6;
+  --color-navy-300: #aec6ef;
 
-  /* Gold / solar palette */
-  --color-gold-300: #fcd34d;
-  --color-gold-400: #fbbf24;
-  --color-gold-500: #f59e0b;
-  --color-gold-600: #d97706;
-  --color-gold-700: #b45309;
+  /* Gold / solar palette (SunTech brand orange) */
+  --color-gold-300: #ffb877;
+  --color-gold-400: #fb923c;
+  --color-gold-500: #f97316;
+  --color-gold-600: #ea580c;
+  --color-gold-700: #c2410c;
 
   /* Electric blue */
   --color-electric-300: #93c5fd;
@@ -38,10 +38,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-white text-navy-900 font-sans antialiased;
+    overflow-x: hidden;
   }
 
   h1,
@@ -151,5 +153,13 @@
     0%   { transform: translateX(-160%) skewX(-18deg); }
     22%  { transform: translateX(320%)  skewX(-18deg); }
     100% { transform: translateX(320%)  skewX(-18deg); }
+  }
+
+  /* Keep full video frame visible in native fullscreen instead of cropping */
+  .fullscreen-contain:fullscreen,
+  .fullscreen-contain:-webkit-full-screen,
+  .fullscreen-contain:-moz-full-screen {
+    object-fit: contain;
+    background: black;
   }
 }

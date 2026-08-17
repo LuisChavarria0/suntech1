@@ -6,7 +6,6 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { AnimatedTimeline } from "@/components/sections/nosotros/AnimatedTimeline";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
-import { COMPANY_INFO } from "@/lib/data/company";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: "Nosotros" };
@@ -41,7 +40,7 @@ export default async function NosotrosPage() {
 
   return (
     <>
-      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
+      <MouseGradientSection className="relative pt-32 pb-14 bg-navy-800 overflow-hidden" color="white">
         <div className="container-tight relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">{t("eyebrow")}</p>
@@ -51,14 +50,14 @@ export default async function NosotrosPage() {
               {t("title_end")}
             </h1>
             <p className="text-navy-300 text-lg md:text-xl max-w-2xl leading-relaxed">
-              {COMPANY_INFO.description}
+              {t("description")}
             </p>
           </FadeIn>
         </div>
       </MouseGradientSection>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container-tight">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FadeIn direction="left">
@@ -67,7 +66,7 @@ export default async function NosotrosPage() {
                   <Target className="h-7 w-7 text-gold-500" />
                 </div>
                 <h2 className="text-2xl font-bold text-navy-900 mb-4">{t("mission_title")}</h2>
-                <p className="text-slate-500 leading-relaxed">{COMPANY_INFO.mission}</p>
+                <p className="text-slate-500 leading-relaxed">{t("mission")}</p>
               </div>
             </FadeIn>
             <FadeIn direction="right">
@@ -76,7 +75,7 @@ export default async function NosotrosPage() {
                   <Eye className="h-7 w-7 text-electric-500" />
                 </div>
                 <h2 className="text-2xl font-bold text-navy-900 mb-4">{t("vision_title")}</h2>
-                <p className="text-slate-500 leading-relaxed">{COMPANY_INFO.vision}</p>
+                <p className="text-slate-500 leading-relaxed">{t("vision")}</p>
               </div>
             </FadeIn>
           </div>

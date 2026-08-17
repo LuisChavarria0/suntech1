@@ -24,7 +24,7 @@ export async function Services() {
   const ts = await getTranslations("services_data");
 
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="py-10 md:py-14 bg-slate-50">
       <div className="container-tight">
         <SectionHeader
           eyebrow={t("eyebrow")}

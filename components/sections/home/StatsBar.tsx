@@ -9,22 +9,21 @@ export async function StatsBar() {
     { value: 10, suffix: "+", label: t("years") },
     { value: 109, suffix: "+", label: t("projects") },
     { value: 3, suffix: "", label: t("services") },
-    { value: 100, suffix: "%", label: t("commitment") },
   ];
 
   return (
-    <MouseGradientSection className="bg-navy-800 py-14 md:py-16" color="gold">
+    <MouseGradientSection className="bg-navy-800 py-14 md:py-16" color="gold" blobSize={380}>
       <div className="container-tight">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+        <div className="grid grid-cols-3 gap-8 md:gap-6">
           {stats.map((stat, i) => (
             <div key={i} className="text-center group">
-              <div className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+              <div className="text-6xl md:text-7xl font-extrabold text-white tracking-tight">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1800} />
               </div>
-              <div className="mt-2 text-sm text-navy-400 font-medium tracking-wide">
+              <div className="mt-3 text-lg md:text-xl text-navy-400 font-medium tracking-wide">
                 {stat.label}
               </div>
-              <div className="mt-3 mx-auto w-8 h-0.5 bg-gold-500 rounded-full opacity-60 group-hover:opacity-100 group-hover:w-12 transition-all duration-300" />
+              <div className="mt-4 mx-auto w-12 h-1.5 bg-gold-500 rounded-full opacity-80 group-hover:opacity-100 group-hover:w-16 transition-all duration-300" />
             </div>
           ))}
         </div>

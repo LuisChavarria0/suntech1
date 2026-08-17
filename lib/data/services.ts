@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
       "Centros de monitoreo con tecnología 5G",
       "Mantenimiento preventivo y correctivo",
     ],
-    image: "/images/whatsapp-image-2025-01-23-at-19.17.31_9f0f3001.jpg",
+    image: "/images/6h66h6.jpg",
   },
   {
     id: "2",
@@ -62,7 +62,7 @@ export const SERVICES: Service[] = [
       "Infraestructura de redes y comunicaciones",
       "Capacitación y acompañamiento al equipo",
     ],
-    image: "/images/sadqq3.png",
+    image: "/images/whatsapp-image-2025-01-23-at-19.17.31_9f0f3001.jpg",
   },
 ];
 

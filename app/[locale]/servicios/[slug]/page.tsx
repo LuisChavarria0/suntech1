@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { ArrowLeft, CheckCircle2, MessageCircle, Sun, Shield, Cpu } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Sun, Shield, Cpu } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { SERVICES, getServiceBySlug } from "@/lib/data/services";
 import { WHATSAPP_URL } from "@/lib/data/company";
@@ -25,10 +26,7 @@ const slugToKey: Record<string, "solar" | "security" | "tech"> = {
 };
 
 export async function generateStaticParams() {
-  const locales = ["es", "en"];
-  return locales.flatMap((locale) =>
-    SERVICES.map((s) => ({ locale, slug: s.slug }))
-  );
+  return SERVICES.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata(
@@ -62,7 +60,7 @@ export default async function ServicePage(
 
   return (
     <>
-      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
+      <MouseGradientSection className="relative pt-32 pb-14 bg-navy-800 overflow-hidden" color="white">
         <div className="container-tight relative z-10">
           <FadeIn>
             <Link href="/servicios" className="inline-flex items-center gap-2 text-navy-400 hover:text-white text-sm mb-8 transition-colors">
@@ -85,7 +83,7 @@ export default async function ServicePage(
         </div>
       </MouseGradientSection>
 
-      <section className="section-padding bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="container-tight">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-10">
@@ -120,9 +118,9 @@ export default async function ServicePage(
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-shine flex items-center justify-center gap-2 h-12 w-full rounded-xl text-sm font-bold text-navy-900 bg-gold-500 hover:bg-gold-400 transition-colors shadow-md"
+                    className="btn-shine flex items-center justify-center gap-2 h-14 w-full rounded-xl text-lg font-bold text-white bg-navy-800 hover:bg-navy-700 transition-all duration-200 shadow-lg hover:-translate-y-0.5"
                   >
-                    <MessageCircle className="h-4 w-4" />
+                    <WhatsAppIcon className="h-5 w-5" />
                     {tc("quote_whatsapp")}
                   </a>
                   <Link

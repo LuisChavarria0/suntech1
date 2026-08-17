@@ -15,7 +15,8 @@
     "services_label": "Servicios",
     "location": "Ubicación",
     "year": "Año",
-    "category": "Categoría"
+    "category": "Categoría",
+    "calc_savings": "Calcular el ahorro"
   },
   "nav": {
     "home": "Inicio",
@@ -25,12 +26,12 @@
     "contact": "Contacto"
   },
   "hero": {
-    "badge": "Más de 10 años de experiencia en El Salvador",
-    "title1": "Soluciones tecnológicas",
-    "title2": "para un futuro",
-    "title3": "sostenible",
-    "description": "Energía solar fotovoltaica, seguridad electrónica y tecnología integrada. Diseñamos proyectos a la medida para empresas, hogares e instituciones en todo El Salvador.",
-    "cta_primary": "Cotizar proyecto",
+    "title1": "Paneles solares",
+    "title2": "en El Salvador",
+    "savings_prefix": "ahorra hasta un",
+    "savings_highlight": "90%",
+    "savings_suffix": "en tu factura eléctrica",
+    "cta_primary": "Cotizar",
     "cta_secondary": "Ver proyectos"
   },
   "stats": {
@@ -38,6 +39,83 @@
     "projects": "Proyectos completados",
     "services": "Líneas de servicio",
     "commitment": "Compromiso nacional"
+  },
+  "system_types": {
+    "intro_prefix": "Conoce el sistema fotovoltaico",
+    "intro_highlight": "que se ajusta a tus necesidades:",
+    "grid_label": "Sistema inyectado a red",
+    "isolated_label": "Sistema aislado",
+    "hybrid_label": "Sistema híbrido",
+    "grid_desc": "Compuesto por paneles solares e inversor. La energía generada se utiliza primero en tu hogar y el excedente se envía a la red eléctrica para usarlo posteriormente. Mantienes conexión permanente a la red y puedes lograr ahorros de entre 65% y 90% en tu factura de energía.",
+    "isolated_desc": "Compuesto principalmente por paneles solares, inversor y un banco de baterías. Este tipo de sistema se implementa principalmente en zonas donde no existe acceso a la red eléctrica, permitiendo generar y almacenar energía de forma independiente para abastecer las necesidades del usuario.",
+    "hybrid_desc": "Combina ambas soluciones y se compone principalmente de paneles solares, inversor y un banco de baterías. Siempre está conectado a la red eléctrica; cuando hay un apagón existe un respaldo, y durante la noche se puede programar cierta cantidad de horas para que todo funcione con el sistema.",
+    "grid_video_cta": "Conoce más sobre los sistemas inyectado a red",
+    "isolated_video_cta": "Conoce más sobre los sistemas aislados",
+    "hybrid_video_cta": "Conoce más sobre el sistema híbrido",
+    "close": "Cerrar"
+  },
+  "self_consumption": {
+    "title": "Ofrecemos soluciones de",
+    "title_highlight": "autoconsumo a medida",
+    "homes_title": "Autoconsumo fotovoltaico en hogares",
+    "homes_desc": "La energía más limpia y económica al alcance de todos.",
+    "business_title": "Autoconsumo fotovoltaico en empresas",
+    "business_desc": "Reduce tus costos operativos y aumenta la competitividad de tu negocio."
+  },
+  "recommendations": {
+    "eyebrow": "Recomendados por nuestros clientes",
+    "title": "Contamos con recomendaciones",
+    "cta": "Ver carta",
+    "close": "Cerrar",
+    "textufil_name": "TEXTUFIL, S.A. DE C.V.",
+    "zonasolar_name": "Zona Solar"
+  },
+  "panels_showcase": {
+    "title_bold": "Más de 20,000.00",
+    "title_rest": "paneles solares instalados en todo El Salvador",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "power_drill_specs": "200 paneles / 4 Inversores de 20K",
+    "super_keny_specs": "84 paneles / 4 Inversores de 10K",
+    "super_baratillo_specs": "290 paneles / 12 inversores de 10K",
+    "ariana_reyes_specs": "40 paneles / 1 inversor de 10K y 6K",
+    "paseo_prado_specs": "20 paneles / 1 inversor de 15K"
+  },
+  "advantages": {
+    "title": "Tus ventajas con SunTech",
+    "chamber": "Acreditados con Cámara de Comercio e Industrias de El Salvador",
+    "huawei": "Instaladores certificados de Huawei",
+    "bac": "Pago en 12 meses a tasa cero.",
+    "cuscatlan": "Pago en 36 meses a tasa cero."
+  },
+  "equipment": {
+    "title": "Equipos y garantías",
+    "panel_title": "Panel solar",
+    "panel_1": "Ancho: 1.10 m",
+    "panel_2": "Alto: 2.40 m",
+    "panel_3": "Peso: 60 - 70 lb",
+    "inverter_title": "Inversor",
+    "inverter_1": "Ancho: 52.5 cm",
+    "inverter_2": "Alto: 47.0 cm",
+    "inverter_3": "Profundidad 16.6 cm",
+    "inverter_4": "Peso: 37.5 lb",
+    "battery_title": "Baterías",
+    "battery_1": "Ancho: 1810 mm",
+    "battery_2": "Alto: 2135 mm",
+    "battery_3": "Profundidad: 1200 mm",
+    "battery_4": "Peso: 2170 y 2950 kg, según la capacidad.",
+    "leak_title": "Garantía por filtraciones:",
+    "leak_desc": "Se ofrece una garantía de 12 meses sobre las áreas intervenidas durante la instalación.",
+    "brands_title": "Respaldados por las mejores marcas",
+    "brands_desc": "Trabajamos con tecnología de primera línea y fabricantes líderes a nivel mundial. Esto nos permite garantizar rendimiento, durabilidad y soporte en cada proyecto que entregamos."
+  },
+  "testimonials": {
+    "clients_intro": "Ellos ya se unieron al ahorro:",
+    "eyebrow": "Caso de éxito",
+    "quote": "He instalado paneles solares, lo cual me ha llevado a un ahorro de un 80% a lo que es mi consumo.",
+    "cta": "Recibir estudio gratis",
+    "video_badge1": "Ahorro real con",
+    "video_badge2": "Sistema de paneles solares"
   },
   "services_section": {
     "eyebrow": "Nuestros servicios",
@@ -91,15 +169,19 @@
     "services_col": "Servicios",
     "contact_col": "Contacto",
     "copyright": "Todos los derechos reservados.",
-    "tagline": "El Salvador — Energía, Seguridad & Tecnología"
+    "tagline": "El Salvador — Energía, Seguridad & Tecnología",
+    "description": "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas."
   },
   "about": {
     "eyebrow": "Quiénes somos",
     "title": "Más de una década",
     "title_highlight": "transformando",
     "title_end": "El Salvador",
+    "description": "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
     "mission_title": "Misión",
+    "mission": "Ofrecer soluciones a la medida integrando tecnologías que se adaptan a la necesidad de todos nuestros clientes.",
     "vision_title": "Visión",
+    "vision": "Revolucionar el acceso a la energía con soluciones sostenibles que promueven un futuro más eficiente para El Salvador.",
     "timeline_eyebrow": "Nuestra historia",
     "timeline_title": "Una trayectoria de crecimiento constante",
     "values_eyebrow": "Nuestros valores",
@@ -167,18 +249,18 @@
     "whatsapp_label": "WhatsApp",
     "whatsapp_desc": "Respuesta inmediata",
     "phone_label": "Teléfono",
-    "phone_desc": "Lunes a viernes, 8am – 5pm",
+    "phone_desc": "Lunes a jueves, 7:30am – 5:30pm",
     "email_label": "Email",
     "email_desc": "Respuesta en menos de 24 horas",
     "office_label": "Oficina",
     "office_desc": "Visítanos en persona",
     "hours_title": "Horario de atención",
-    "hours_weekdays": "Lunes – Viernes",
-    "hours_weekdays_time": "8:00 AM – 5:00 PM",
-    "hours_saturday": "Sábado",
-    "hours_saturday_time": "8:00 AM – 12:00 PM",
-    "hours_sunday": "Domingo",
-    "hours_sunday_time": "Cerrado",
+    "hours_weekdays": "Lunes a jueves",
+    "hours_weekdays_time": "7:30 AM – 5:30 PM",
+    "hours_saturday": "Viernes",
+    "hours_saturday_time": "7:30 AM – 3:00 PM",
+    "hours_weekend": "Sábado y domingo",
+    "hours_weekend_time": "Cerrado",
     "form_title": "Envíanos un mensaje",
     "form_subtitle": "Completa el formulario y te contactaremos a la brevedad.",
     "field_name": "Nombre",
@@ -186,12 +268,13 @@
     "field_phone": "Teléfono",
     "field_phone_placeholder": "Tu número de teléfono",
     "field_service": "Servicio de interés",
+    "field_service_other": "Otro / No estoy seguro",
     "field_message": "Mensaje",
     "field_message_placeholder": "Describe tu proyecto o necesidad...",
     "send_button": "Enviar por WhatsApp",
     "send_note": "Al enviar, se abrirá WhatsApp con tu mensaje listo para enviar.",
     "map_title": "Dónde encontrarnos",
-    "map_iframe_title": "Ubicación Grupo Suntech — Periplaza Apopa"
+    "map_iframe_title": "Ubicación Grupo Suntech — Residencial Paseo del Prado, Apopa"
   },
   "not_found": {
     "eyebrow": "Página no encontrada",

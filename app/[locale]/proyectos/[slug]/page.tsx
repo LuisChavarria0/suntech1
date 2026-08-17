@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { ArrowLeft, MapPin, Calendar, MessageCircle } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { PROJECTS, getProjectBySlug } from "@/lib/data/projects";
 import { WHATSAPP_URL } from "@/lib/data/company";
@@ -18,10 +19,7 @@ const badgeVariant: Record<Project["category"], "gold" | "electric" | "eco"> = {
 };
 
 export async function generateStaticParams() {
-  const locales = ["es", "en"];
-  return locales.flatMap((locale) =>
-    PROJECTS.map((p) => ({ locale, slug: p.slug }))
-  );
+  return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata(
@@ -51,8 +49,8 @@ export default async function ProjectPage(
   return (
     <>
       <MouseGradientSection
-        className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden"
-        color="gold"
+        className="relative pt-32 pb-14 bg-navy-800 overflow-hidden"
+        color="white"
       >
         <div className="container-tight relative z-10">
           <FadeIn>
@@ -83,7 +81,7 @@ export default async function ProjectPage(
         </div>
       </MouseGradientSection>
 
-      <section className="section-padding bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="container-tight">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-8">
@@ -122,9 +120,9 @@ export default async function ProjectPage(
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-shine flex items-center justify-center gap-2 h-12 w-full rounded-xl text-sm font-bold text-navy-900 bg-gold-500 hover:bg-gold-400 transition-colors"
+                    className="btn-shine flex items-center justify-center gap-2 h-14 w-full rounded-xl text-lg font-bold text-white bg-navy-800 hover:bg-navy-700 transition-all duration-200 shadow-lg hover:-translate-y-0.5"
                   >
-                    <MessageCircle className="h-4 w-4" />
+                    <WhatsAppIcon className="h-5 w-5" />
                     {tc("quote_whatsapp")}
                   </a>
                 </div>

@@ -1,8 +1,13 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
+import { WHATSAPP_NUMBER } from "@/lib/data/company";
 
 export function ContactForm() {
+  const t = useTranslations("contact_page");
+  const ts = useTranslations("services_data");
+
   return (
     <form
       onSubmit={(e) => {
@@ -20,7 +25,7 @@ export function ContactForm() {
           `Hola, soy ${name}. Me interesa el servicio de ${service}. ${message}`
         );
         window.open(
-          `https://api.whatsapp.com/send?phone=50371949502&text=${text}`,
+          `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${text}`,
           "_blank"
         );
       }}
@@ -32,14 +37,14 @@ export function ContactForm() {
             htmlFor="name"
             className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
           >
-            Nombre
+            {t("field_name")}
           </label>
           <input
             id="name"
             name="name"
             type="text"
             required
-            placeholder="Tu nombre completo"
+            placeholder={t("field_name_placeholder")}
             className="w-full h-11 px-4 rounded-xl border border-slate-200 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all"
           />
         </div>
@@ -48,13 +53,13 @@ export function ContactForm() {
             htmlFor="phone"
             className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
           >
-            Teléfono
+            {t("field_phone")}
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
-            placeholder="Tu número de teléfono"
+            placeholder={t("field_phone_placeholder")}
             className="w-full h-11 px-4 rounded-xl border border-slate-200 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all"
           />
         </div>
@@ -65,17 +70,17 @@ export function ContactForm() {
           htmlFor="service"
           className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
         >
-          Servicio de interés
+          {t("field_service")}
         </label>
         <select
           id="service"
           name="service"
           className="w-full h-11 px-4 rounded-xl border border-slate-200 text-sm text-navy-900 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all bg-white"
         >
-          <option value="Energía Solar">Energía Solar</option>
-          <option value="Seguridad Electrónica">Seguridad Electrónica</option>
-          <option value="Tecnología">Tecnología</option>
-          <option value="otro">Otro / No estoy seguro</option>
+          <option value="Energía Solar">{ts("solar.title")}</option>
+          <option value="Seguridad Electrónica">{ts("security.title")}</option>
+          <option value="Tecnología">{ts("tech.title")}</option>
+          <option value="otro">{t("field_service_other")}</option>
         </select>
       </div>
 
@@ -84,28 +89,28 @@ export function ContactForm() {
           htmlFor="message"
           className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
         >
-          Mensaje
+          {t("field_message")}
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
           required
-          placeholder="Describe tu proyecto o necesidad..."
+          placeholder={t("field_message_placeholder")}
           className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all resize-none"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full h-12 bg-gold-500 hover:bg-gold-400 text-navy-900 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2 shadow-md cursor-pointer"
+        className="btn-shine w-full h-14 bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
       >
-        <MessageCircle className="h-4 w-4" />
-        Enviar por WhatsApp
+        <WhatsAppIcon className="h-5 w-5" />
+        {t("send_button")}
       </button>
 
       <p className="text-xs text-slate-400 text-center">
-        Al enviar, se abrirá WhatsApp con tu mensaje listo para enviar.
+        {t("send_note")}
       </p>
     </form>
   );
