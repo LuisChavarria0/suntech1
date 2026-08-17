@@ -3,7 +3,7 @@
 import { useRef, useCallback, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-type Color = "gold" | "electric" | "eco" | "mixed";
+type Color = "gold" | "electric" | "eco" | "mixed" | "white";
 
 const gradients: Record<Color, string> = {
   gold: "radial-gradient(circle, rgba(251,191,36,0.38) 0%, rgba(251,191,36,0.12) 40%, transparent 65%)",
@@ -11,6 +11,7 @@ const gradients: Record<Color, string> = {
   eco: "radial-gradient(circle, rgba(16,185,129,0.30) 0%, rgba(16,185,129,0.08) 40%, transparent 65%)",
   mixed:
     "radial-gradient(circle, rgba(251,191,36,0.30) 0%, rgba(59,130,246,0.20) 40%, transparent 65%)",
+  white: "radial-gradient(circle, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 40%, transparent 65%)",
 };
 
 interface Props {

@@ -45,7 +45,14 @@
     "intro_highlight": "that fits your needs:",
     "grid_label": "Grid-tied system",
     "isolated_label": "Off-grid system",
-    "hybrid_label": "Hybrid system"
+    "hybrid_label": "Hybrid system",
+    "grid_desc": "Made up of solar panels and an inverter. The energy generated is used in your home first, and the surplus is sent to the electrical grid to be used later. You stay permanently connected to the grid and can achieve savings of between 65% and 90% on your energy bill.",
+    "isolated_desc": "Made up mainly of solar panels, an inverter, and a battery bank. This type of system is mainly implemented in areas without access to the electrical grid, allowing energy to be generated and stored independently to meet the user's needs.",
+    "hybrid_desc": "Combines both solutions and is made up mainly of solar panels, an inverter, and a battery bank. It's always connected to the electrical grid; when there's a blackout it acts as backup, and at night a certain number of hours can be programmed to run everything on the system.",
+    "grid_video_cta": "Learn more about grid-tied systems",
+    "isolated_video_cta": "Learn more about off-grid systems",
+    "hybrid_video_cta": "Learn more about hybrid systems",
+    "close": "Close"
   },
   "self_consumption": {
     "title": "We offer",

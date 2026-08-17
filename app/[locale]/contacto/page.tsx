@@ -63,8 +63,8 @@ export default async function ContactoPage() {
   return (
     <>
       <MouseGradientSection
-        className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden"
-        color="gold"
+        className="relative pt-32 pb-14 bg-navy-800 overflow-hidden"
+        color="white"
       >
         <div className="container-tight relative z-10">
           <FadeIn>
@@ -82,7 +82,7 @@ export default async function ContactoPage() {
         </div>
       </MouseGradientSection>
 
-      <section className="py-4 md:py-8 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="container-tight">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <FadeIn direction="left">

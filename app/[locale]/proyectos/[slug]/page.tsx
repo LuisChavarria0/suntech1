@@ -49,8 +49,8 @@ export default async function ProjectPage(
   return (
     <>
       <MouseGradientSection
-        className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden"
-        color="gold"
+        className="relative pt-32 pb-14 bg-navy-800 overflow-hidden"
+        color="white"
       >
         <div className="container-tight relative z-10">
           <FadeIn>
@@ -81,7 +81,7 @@ export default async function ProjectPage(
         </div>
       </MouseGradientSection>
 
-      <section className="section-padding bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="container-tight">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-8">

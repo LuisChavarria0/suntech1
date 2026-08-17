@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { X, FileText, Quote } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { LockedPdfViewer } from "@/components/ui/LockedPdfViewer";
 
 const LETTERS = [
   {
@@ -75,12 +76,12 @@ export function Recommendations() {
       {/* Locked PDF viewer modal */}
       {openPdf && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-950/80 backdrop-blur-sm p-4 sm:p-8"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm p-4 sm:p-8"
           onClick={() => setOpenPdf(null)}
           onContextMenu={(e) => e.preventDefault()}
         >
           <div
-            className="relative w-full max-w-3xl h-[85vh] bg-white rounded-2xl overflow-hidden shadow-2xl select-none"
+            className="relative w-full max-w-3xl h-[85dvh] bg-white rounded-2xl overflow-hidden shadow-2xl select-none"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -90,12 +91,7 @@ export function Recommendations() {
             >
               <X className="h-5 w-5" />
             </button>
-            <iframe
-              src={`${openPdf}#toolbar=0&navpanes=0&scrollbar=0`}
-              title="PDF"
-              className="w-full h-full"
-              style={{ pointerEvents: "auto" }}
-            />
+            <LockedPdfViewer src={openPdf} />
           </div>
         </div>
       )}

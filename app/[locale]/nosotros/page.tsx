@@ -40,7 +40,7 @@ export default async function NosotrosPage() {
 
   return (
     <>
-      <MouseGradientSection className="relative pt-32 pb-20 bg-navy-900 hero-gradient overflow-hidden" color="gold">
+      <MouseGradientSection className="relative pt-32 pb-14 bg-navy-800 overflow-hidden" color="white">
         <div className="container-tight relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">{t("eyebrow")}</p>
@@ -57,7 +57,7 @@ export default async function NosotrosPage() {
       </MouseGradientSection>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container-tight">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FadeIn direction="left">

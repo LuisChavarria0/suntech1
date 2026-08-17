@@ -45,7 +45,14 @@
     "intro_highlight": "que se ajusta a tus necesidades:",
     "grid_label": "Sistema inyectado a red",
     "isolated_label": "Sistema aislado",
-    "hybrid_label": "Sistema híbrido"
+    "hybrid_label": "Sistema híbrido",
+    "grid_desc": "Compuesto por paneles solares e inversor. La energía generada se utiliza primero en tu hogar y el excedente se envía a la red eléctrica para usarlo posteriormente. Mantienes conexión permanente a la red y puedes lograr ahorros de entre 65% y 90% en tu factura de energía.",
+    "isolated_desc": "Compuesto principalmente por paneles solares, inversor y un banco de baterías. Este tipo de sistema se implementa principalmente en zonas donde no existe acceso a la red eléctrica, permitiendo generar y almacenar energía de forma independiente para abastecer las necesidades del usuario.",
+    "hybrid_desc": "Combina ambas soluciones y se compone principalmente de paneles solares, inversor y un banco de baterías. Siempre está conectado a la red eléctrica; cuando hay un apagón existe un respaldo, y durante la noche se puede programar cierta cantidad de horas para que todo funcione con el sistema.",
+    "grid_video_cta": "Conoce más sobre los sistemas inyectado a red",
+    "isolated_video_cta": "Conoce más sobre los sistemas aislados",
+    "hybrid_video_cta": "Conoce más sobre el sistema híbrido",
+    "close": "Cerrar"
   },
   "self_consumption": {
     "title": "Ofrecemos soluciones de",
