@@ -55,6 +55,14 @@
     "business_title": "Solar self-consumption for businesses",
     "business_desc": "Cut your operating costs and boost your business's competitiveness."
   },
+  "recommendations": {
+    "eyebrow": "Recommended by our clients",
+    "title": "We have recommendation letters",
+    "cta": "View letter",
+    "close": "Close",
+    "textufil_name": "TEXTUFIL, S.A. DE C.V.",
+    "zonasolar_name": "Zona Solar"
+  },
   "panels_showcase": {
     "title_bold": "Over 20,000",
     "title_rest": "solar panels installed across El Salvador",

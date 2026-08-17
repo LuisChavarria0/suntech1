@@ -3,6 +3,7 @@ import { StatsBar } from "@/components/sections/home/StatsBar";
 import { SystemTypes } from "@/components/sections/home/SystemTypes";
 import { SelfConsumption } from "@/components/sections/home/SelfConsumption";
 import { Testimonials } from "@/components/sections/home/Testimonials";
+import { Recommendations } from "@/components/sections/home/Recommendations";
 import { PanelsShowcase } from "@/components/sections/home/PanelsShowcase";
 import { Advantages } from "@/components/sections/home/Advantages";
 import { Equipment } from "@/components/sections/home/Equipment";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <SystemTypes />
       <SelfConsumption />
       <Testimonials />
+      <Recommendations />
       <PanelsShowcase />
       <Advantages />
       <Equipment />

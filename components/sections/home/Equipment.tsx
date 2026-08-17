@@ -12,14 +12,14 @@ export async function Equipment() {
       key: "panel",
       title: t("panel_title"),
       image: "/logos/panel.png",
-      imgClass: "h-72",
+      imgClass: "h-56 md:h-72",
       specs: [t("panel_1"), t("panel_2"), t("panel_3")],
     },
     {
       key: "inverter",
       title: t("inverter_title"),
       image: "/logos/equipo2.png",
-      imgClass: "h-60",
+      imgClass: "h-44 md:h-60",
       specs: [
         t("inverter_1"),
         t("inverter_2"),
@@ -31,7 +31,7 @@ export async function Equipment() {
       key: "battery",
       title: t("battery_title"),
       image: "/logos/bateria.png",
-      imgClass: "h-72",
+      imgClass: "h-56 md:h-72",
       specs: [t("battery_1"), t("battery_2"), t("battery_3"), t("battery_4")],
     },
   ];
@@ -40,12 +40,12 @@ export async function Equipment() {
     <section className="w-full bg-white pt-2 pb-4 md:pb-6 border-y border-slate-100 shadow-[0_4px_16px_rgba(10,15,30,0.12),0_-4px_16px_rgba(10,15,30,0.12)]">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_460px]">
         {/* Left: products */}
-        <div className="px-8 md:px-16 lg:px-24 py-8 md:py-14 flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy-800 mb-12 text-center">
+        <div className="px-6 md:px-16 lg:px-24 py-8 md:py-14 flex flex-col items-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-navy-800 mb-10 md:mb-12 text-center">
             {t("title")}
           </h2>
 
-          <div className="grid grid-cols-3 gap-8 md:gap-14 items-end w-full max-w-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 md:gap-14 items-start w-full max-w-4xl">
             {products.map((product) => (
               <div
                 key={product.key}

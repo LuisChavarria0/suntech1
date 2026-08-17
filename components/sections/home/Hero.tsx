@@ -11,7 +11,7 @@ export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden bg-navy-950">
+    <section className="relative min-h-[92dvh] flex flex-col justify-center overflow-hidden bg-navy-950">
       {/* Video background */}
       <video
         autoPlay

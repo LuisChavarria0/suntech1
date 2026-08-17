@@ -55,6 +55,14 @@
     "business_title": "Autoconsumo fotovoltaico en empresas",
     "business_desc": "Reduce tus costos operativos y aumenta la competitividad de tu negocio."
   },
+  "recommendations": {
+    "eyebrow": "Recomendados por nuestros clientes",
+    "title": "Contamos con recomendaciones",
+    "cta": "Ver carta",
+    "close": "Cerrar",
+    "textufil_name": "TEXTUFIL, S.A. DE C.V.",
+    "zonasolar_name": "Zona Solar"
+  },
   "panels_showcase": {
     "title_bold": "Más de 20,000.00",
     "title_rest": "paneles solares instalados en todo El Salvador",
