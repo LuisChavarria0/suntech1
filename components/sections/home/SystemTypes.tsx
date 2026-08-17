@@ -2,28 +2,29 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { X, PlayCircle } from "lucide-react";
+import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
+import { YouTubePlayer } from "@/components/ui/YouTubePlayer";
 
 const SYSTEMS = [
   {
     key: "grid",
     icons: ["fotovoltaico1", "fotovoltaico2"],
     showPlus: false,
-    videoUrl: "https://drive.google.com/file/d/1oI3iry3e5Lf4GDRRCVrN4aldNd1Dyx-S/view?usp=sharing",
+    videoId: "oQV1oI9ELnE",
   },
   {
     key: "isolated",
     icons: ["fotovoltaico1", "fotovoltaico4"],
     showPlus: true,
-    videoUrl: null,
+    videoId: null,
   },
   {
     key: "hybrid",
     icons: ["fotovoltaico1", "fotovoltaico4", "fotovoltaico2"],
     showPlus: true,
-    videoUrl: "https://drive.google.com/file/d/1kTOEJlySYR8R5ZrXmFXRabOW3qZrcFzq/view?usp=sharing",
+    videoId: "L5tT62qPMBI",
   },
 ] as const;
 
@@ -97,7 +98,9 @@ export function SystemTypes() {
           onClick={() => setOpenKey(null)}
         >
           <div
-            className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8"
+            className={`relative w-full bg-white rounded-2xl shadow-2xl p-8 ${
+              openSystem.videoId ? "max-w-2xl" : "max-w-lg"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -108,41 +111,45 @@ export function SystemTypes() {
               <X className="h-5 w-5" />
             </button>
 
-            <div className="flex items-center gap-3 mb-5">
-              {openSystem.icons.map((icon, idx) => (
-                <div key={icon + idx} className="flex items-center gap-3">
-                  {idx > 0 && openSystem.showPlus && (
-                    <span className="text-navy-700 text-xl font-bold">+</span>
-                  )}
-                  <Image
-                    src={`/logos/${icon}.png`}
-                    alt=""
-                    width={56}
-                    height={56}
-                    className="h-11 w-11 object-contain"
-                  />
+            <div
+              className={
+                openSystem.videoId
+                  ? "grid grid-cols-1 sm:grid-cols-[1fr_180px] gap-6 items-start"
+                  : ""
+              }
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  {openSystem.icons.map((icon, idx) => (
+                    <div key={icon + idx} className="flex items-center gap-3">
+                      {idx > 0 && openSystem.showPlus && (
+                        <span className="text-navy-700 text-xl font-bold">+</span>
+                      )}
+                      <Image
+                        src={`/logos/${icon}.png`}
+                        alt=""
+                        width={56}
+                        height={56}
+                        className="h-11 w-11 object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+
+                <h3 className="text-xl font-bold text-navy-900 mb-3">
+                  {t(`${openSystem.key}_label`)}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {t(`${openSystem.key}_desc`)}
+                </p>
+              </div>
+
+              {openSystem.videoId && (
+                <div className="mt-1">
+                  <YouTubePlayer videoId={openSystem.videoId} />
+                </div>
+              )}
             </div>
-
-            <h3 className="text-xl font-bold text-navy-900 mb-3">
-              {t(`${openSystem.key}_label`)}
-            </h3>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">
-              {t(`${openSystem.key}_desc`)}
-            </p>
-
-            {openSystem.videoUrl && (
-              <a
-                href={openSystem.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-shine inline-flex items-center gap-2 h-12 px-6 bg-navy-800 hover:bg-navy-700 text-white text-sm font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <PlayCircle className="h-4 w-4" />
-                {t(`${openSystem.key}_video_cta`)}
-              </a>
-            )}
           </div>
         </div>
       )}
