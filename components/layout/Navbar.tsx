@@ -125,6 +125,15 @@ export function Navbar() {
               className="flex flex-col gap-3"
             >
               <LanguageSwitcher variant="dark" />
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  openCotizador();
+                }}
+                className="btn-shine flex items-center justify-center h-14 w-full bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+              >
+                {tc("calc_savings")}
+              </button>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
