@@ -13,6 +13,65 @@ const currency = new Intl.NumberFormat("es-SV", {
   currency: "USD",
 });
 
+type Locale = "es" | "en";
+
+const LABELS: Record<
+  Locale,
+  {
+    title: string;
+    avgConsumption: string;
+    panelsNeeded: string;
+    recommendedInverter: string;
+    tableProduct: string;
+    tableQty: string;
+    tableUnitPrice: string;
+    tableSubtotal: string;
+    subtotal: string;
+    discount: string;
+    total: string;
+    exceedsCapacity: string;
+    disclaimer: string;
+    perMonth: string;
+  }
+> = {
+  es: {
+    title: "Cotización — Sistema Solar",
+    avgConsumption: "Consumo promedio",
+    panelsNeeded: "Paneles necesarios",
+    recommendedInverter: "Inversor recomendado",
+    tableProduct: "Producto",
+    tableQty: "Cant.",
+    tableUnitPrice: "P.U.",
+    tableSubtotal: "Subtotal",
+    subtotal: "Subtotal",
+    discount: "Descuento especial",
+    total: "Total (IVA incluido)",
+    exceedsCapacity:
+      "Este consumo supera la capacidad estándar de cotización automática. Se muestra el sistema más grande disponible; contáctanos para una propuesta a medida.",
+    disclaimer:
+      "Esta cotización tiene fines informativos y puede variar dependiendo de la inspección técnica virtual o presencial que se pueda realizar.",
+    perMonth: "Kwh / mes",
+  },
+  en: {
+    title: "Quote — Solar System",
+    avgConsumption: "Average consumption",
+    panelsNeeded: "Panels needed",
+    recommendedInverter: "Recommended inverter",
+    tableProduct: "Product",
+    tableQty: "Qty.",
+    tableUnitPrice: "Unit price",
+    tableSubtotal: "Subtotal",
+    subtotal: "Subtotal",
+    discount: "Special discount",
+    total: "Total (tax included)",
+    exceedsCapacity:
+      "This consumption exceeds our standard automatic quoting capacity. We're showing you the largest available system; contact us for a custom proposal.",
+    disclaimer:
+      "This quote is for informational purposes and may vary depending on the virtual or on-site technical inspection that may be carried out.",
+    perMonth: "Kwh / month",
+  },
+};
+
 function loadImageAsDataUrl(url: string): Promise<{ dataUrl: string; width: number; height: number }> {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -35,7 +94,9 @@ function loadImageAsDataUrl(url: string): Promise<{ dataUrl: string; width: numb
   });
 }
 
-export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
+export async function generateQuotePdf(quote: QuoteResult, locale: Locale = "es"): Promise<Blob> {
+  const t = LABELS[locale];
+  const dateLocale = locale === "es" ? "es-SV" : "en-US";
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -59,12 +120,12 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(16);
   doc.setTextColor(...NAVY);
-  doc.text("Cotización — Sistema Solar", pageWidth - margin, cursorY + 14, { align: "right" });
+  doc.text(t.title, pageWidth - margin, cursorY + 14, { align: "right" });
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(...NAVY_LIGHT);
-  const dateStr = new Intl.DateTimeFormat("es-SV", { dateStyle: "long" }).format(new Date());
+  const dateStr = new Intl.DateTimeFormat(dateLocale, { dateStyle: "long" }).format(new Date());
   doc.text(dateStr, pageWidth - margin, cursorY + 28, { align: "right" });
 
   cursorY += 60;
@@ -74,9 +135,9 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
   cursorY += 24;
 
   const summaryItems: [string, string][] = [
-    ["Consumo promedio", `${quote.consumoMensualKwh} Kwh / mes`],
-    ["Paneles necesarios", `${quote.panelesNecesarios}`],
-    ["Inversor recomendado", quote.inverterTier?.capacityLabel ?? "—"],
+    [t.avgConsumption, `${quote.consumoMensualKwh} ${t.perMonth}`],
+    [t.panelsNeeded, `${quote.panelesNecesarios}`],
+    [t.recommendedInverter, quote.inverterTier?.capacityLabel ?? "—"],
   ];
   const colWidth = (pageWidth - margin * 2) / 3;
   summaryItems.forEach(([label, value], i) => {
@@ -96,7 +157,7 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
   autoTable(doc, {
     startY: cursorY,
     margin: { left: margin, right: margin },
-    head: [["Producto", "Cant.", "P.U.", "Subtotal"]],
+    head: [[t.tableProduct, t.tableQty, t.tableUnitPrice, t.tableSubtotal]],
     body: quote.lines.map((line) => [
       line.name,
       String(line.quantity),
@@ -121,12 +182,12 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
   doc.setTextColor(...NAVY_LIGHT);
-  doc.text("Subtotal", totalsX - 100, totalsY, { align: "right" });
+  doc.text(t.subtotal, totalsX - 100, totalsY, { align: "right" });
   doc.text(currency.format(quote.subtotal), totalsX, totalsY, { align: "right" });
   totalsY += 16;
 
   if (quote.discount > 0) {
-    doc.text("Descuento especial", totalsX - 100, totalsY, { align: "right" });
+    doc.text(t.discount, totalsX - 100, totalsY, { align: "right" });
     doc.text(`-${currency.format(quote.discount)}`, totalsX, totalsY, { align: "right" });
     totalsY += 16;
   }
@@ -138,7 +199,7 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
   doc.setTextColor(...NAVY);
-  doc.text("Total (IVA incluido)", totalsX - 100, totalsY, { align: "right" });
+  doc.text(t.total, totalsX - 100, totalsY, { align: "right" });
   doc.setTextColor(...GOLD);
   doc.text(currency.format(quote.total), totalsX, totalsY, { align: "right" });
 
@@ -147,10 +208,7 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     doc.setTextColor(...NAVY_LIGHT);
-    const note = doc.splitTextToSize(
-      "Este consumo supera la capacidad estándar de cotización automática. Se muestra el sistema más grande disponible; contáctanos para una propuesta a medida.",
-      pageWidth - margin * 2
-    );
+    const note = doc.splitTextToSize(t.exceedsCapacity, pageWidth - margin * 2);
     doc.text(note, margin, totalsY);
     totalsY += note.length * 10;
   }
@@ -159,10 +217,7 @@ export async function generateQuotePdf(quote: QuoteResult): Promise<Blob> {
   doc.setFont("helvetica", "italic");
   doc.setFontSize(8);
   doc.setTextColor(...NAVY_LIGHT);
-  const disclaimer = doc.splitTextToSize(
-    "Esta cotización tiene fines informativos y puede variar dependiendo de la inspección técnica virtual o presencial que se pueda realizar.",
-    pageWidth - margin * 2
-  );
+  const disclaimer = doc.splitTextToSize(t.disclaimer, pageWidth - margin * 2);
   doc.text(disclaimer, margin, totalsY);
 
   const footerY = pageHeight - 40;

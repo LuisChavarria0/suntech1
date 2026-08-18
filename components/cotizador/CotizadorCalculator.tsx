@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { WHATSAPP_NUMBER } from "@/lib/data/company";
 import { calculateQuote, type QuoteResult } from "@/lib/cotizador/calculate";
@@ -13,6 +14,8 @@ const currency = new Intl.NumberFormat("es-SV", {
 });
 
 export function CotizadorCalculator() {
+  const t = useTranslations("cotizador");
+  const locale = useLocale() as "es" | "en";
   const [config, setConfig] = useState<CotizadorConfig | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [consumo, setConsumo] = useState("");
@@ -38,16 +41,21 @@ export function CotizadorCalculator() {
   const whatsappHref = useMemo(() => {
     if (!quote || !quote.inverterTier) return null;
     const text = encodeURIComponent(
-      `Hola, quiero cotizar un sistema solar.\nConsumo promedio: ${quote.consumoMensualKwh} Kwh\nPaneles estimados: ${quote.panelesNecesarios}\nInversor: ${quote.inverterTier.capacityLabel}\nTotal estimado: ${currency.format(quote.total)}\n\nAdjunto el PDF de mi cotización descargada.`
+      t("whatsapp_message", {
+        consumo: quote.consumoMensualKwh,
+        paneles: quote.panelesNecesarios,
+        inversor: quote.inverterTier.capacityLabel,
+        total: currency.format(quote.total),
+      })
     );
     return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${text}`;
-  }, [quote]);
+  }, [quote, t]);
 
   const sendViaWhatsapp = async () => {
     if (!quote || !whatsappHref) return;
     setPreparing(true);
     try {
-      const blob = await generateQuotePdf(quote);
+      const blob = await generateQuotePdf(quote, locale);
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -69,7 +77,7 @@ export function CotizadorCalculator() {
           htmlFor="consumo"
           className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
         >
-          Ingresar Consumo Promedio de Factura Eléctrica (Kwh, entre 30 días)
+          {t("input_label")}
         </label>
         <input
           id="consumo"
@@ -78,13 +86,11 @@ export function CotizadorCalculator() {
           inputMode="decimal"
           value={consumo}
           onChange={(e) => setConsumo(e.target.value)}
-          placeholder="Ej. 350"
+          placeholder={t("input_placeholder")}
           className="w-full h-14 px-4 rounded-xl border border-slate-200 text-lg text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all"
         />
         {loadError && (
-          <p className="mt-3 text-sm text-red-600">
-            No se pudo cargar la configuración del cotizador. Intenta recargar la página.
-          </p>
+          <p className="mt-3 text-sm text-red-600">{t("load_error")}</p>
         )}
       </div>
 
@@ -95,26 +101,25 @@ export function CotizadorCalculator() {
               <div className="text-3xl font-extrabold text-navy-800">
                 {quote.panelesNecesarios}
               </div>
-              <div className="text-xs text-slate-500 font-medium mt-1">Paneles necesarios</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">{t("panels_needed")}</div>
             </div>
             <div className="card-base p-5 text-center">
               <div className="text-3xl font-extrabold text-navy-800">
                 {quote.inverterTier?.capacityLabel ?? "—"}
               </div>
-              <div className="text-xs text-slate-500 font-medium mt-1">Inversor recomendado</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">{t("inverter_recommended")}</div>
             </div>
             <div className="card-base p-5 text-center col-span-2 sm:col-span-1">
               <div className="text-3xl font-extrabold text-gold-600">
                 {currency.format(quote.total)}
               </div>
-              <div className="text-xs text-slate-500 font-medium mt-1">Total estimado</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">{t("total_estimated")}</div>
             </div>
           </div>
 
           {quote.exceedsStandardCapacity && (
             <div className="rounded-xl bg-gold-500/10 border border-gold-500/30 text-navy-900 text-sm p-4">
-              Este consumo supera nuestra capacidad estándar de cotización automática.
-              Te mostramos el sistema más grande disponible; contáctanos para una propuesta a medida.
+              {t("exceeds_capacity")}
             </div>
           )}
 
@@ -122,10 +127,10 @@ export function CotizadorCalculator() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-navy-800 text-white text-left">
-                  <th className="py-3 px-4 font-semibold">Producto</th>
-                  <th className="py-3 px-4 font-semibold text-center">Cant.</th>
-                  <th className="py-3 px-4 font-semibold text-right">PU</th>
-                  <th className="py-3 px-4 font-semibold text-right">Subtotal</th>
+                  <th className="py-3 px-4 font-semibold">{t("table_product")}</th>
+                  <th className="py-3 px-4 font-semibold text-center">{t("table_qty")}</th>
+                  <th className="py-3 px-4 font-semibold text-right">{t("table_unit_price")}</th>
+                  <th className="py-3 px-4 font-semibold text-right">{t("table_subtotal")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -145,7 +150,7 @@ export function CotizadorCalculator() {
               <tfoot>
                 <tr className="border-t border-slate-200">
                   <td colSpan={3} className="py-2.5 px-4 text-right font-semibold text-navy-900">
-                    Subtotal
+                    {t("table_subtotal")}
                   </td>
                   <td className="py-2.5 px-4 text-right font-semibold text-navy-900">
                     {currency.format(quote.subtotal)}
@@ -154,7 +159,7 @@ export function CotizadorCalculator() {
                 {quote.discount > 0 && (
                   <tr>
                     <td colSpan={3} className="py-2.5 px-4 text-right font-semibold text-navy-900">
-                      Descuento especial
+                      {t("discount")}
                     </td>
                     <td className="py-2.5 px-4 text-right font-semibold text-navy-900">
                       -{currency.format(quote.discount)}
@@ -163,7 +168,7 @@ export function CotizadorCalculator() {
                 )}
                 <tr className="bg-slate-50">
                   <td colSpan={3} className="py-3 px-4 text-right font-bold text-navy-900">
-                    Total (IVA incluido)
+                    {t("total_with_tax")}
                   </td>
                   <td className="py-3 px-4 text-right font-bold text-gold-600 text-base">
                     {currency.format(quote.total)}
@@ -181,11 +186,9 @@ export function CotizadorCalculator() {
                 className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-navy-800 hover:bg-navy-700 disabled:opacity-60 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
               >
                 <WhatsAppIcon className="h-5 w-5" />
-                {preparing ? "Generando PDF..." : "Descargar PDF y enviar por WhatsApp"}
+                {preparing ? t("generating_pdf") : t("send_whatsapp")}
               </button>
-              <p className="mt-2 text-s text-slate-500">
-                Se descargará el PDF de tu cotización y se abrirá WhatsApp — adjúnta la cotización descargada.
-              </p>
+              <p className="mt-2 text-sm text-slate-500">{t("whatsapp_hint")}</p>
             </div>
           )}
         </div>

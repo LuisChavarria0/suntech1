@@ -2,10 +2,12 @@
 
 import { useEffect } from "react";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CotizadorCalculator } from "@/components/cotizador/CotizadorCalculator";
 import { useCotizadorModal } from "@/components/cotizador/CotizadorModalContext";
 
 export function CotizadorModal() {
+  const t = useTranslations("cotizador");
   const { isOpen, close } = useCotizadorModal();
 
   useEffect(() => {
@@ -34,17 +36,17 @@ export function CotizadorModal() {
       >
         <button
           onClick={close}
-          aria-label="Cerrar"
+          aria-label={t("close")}
           className="absolute top-3 right-3 flex items-center justify-center h-9 w-9 rounded-full bg-navy-900/5 hover:bg-navy-900/10 text-navy-800 transition-colors cursor-pointer"
         >
           <X className="h-5 w-5" />
         </button>
 
         <h2 className="text-xl md:text-2xl font-bold text-navy-900 mb-2 text-center pr-8">
-          Calcula el ahorro de tu sistema solar
+          {t("modal_title")}
         </h2>
         <p className="text-slate-500 text-center max-w-xl mx-auto mb-8 text-sm">
-          Ingresa el consumo promedio de tu factura eléctrica y te mostramos una propuesta estimada al instante.
+          {t("modal_subtitle")}
         </p>
 
         <CotizadorCalculator />

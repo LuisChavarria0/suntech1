@@ -348,5 +348,27 @@
     "solar_full": "Energía Solar",
     "seguridad_full": "Seguridad Electrónica",
     "tecnologia_full": "Tecnología"
+  },
+  "cotizador": {
+    "modal_title": "Calcula el ahorro de tu sistema solar",
+    "modal_subtitle": "Ingresa el consumo promedio de tu factura eléctrica y te mostramos una propuesta estimada al instante.",
+    "close": "Cerrar",
+    "input_label": "Ingresar Consumo Promedio de Factura Eléctrica (Kwh, entre 30 días)",
+    "input_placeholder": "Ej. 350",
+    "load_error": "No se pudo cargar la configuración del cotizador. Intenta recargar la página.",
+    "panels_needed": "Paneles necesarios",
+    "inverter_recommended": "Inversor recomendado",
+    "total_estimated": "Total estimado",
+    "exceeds_capacity": "Este consumo supera nuestra capacidad estándar de cotización automática. Te mostramos el sistema más grande disponible; contáctanos para una propuesta a medida.",
+    "table_product": "Producto",
+    "table_qty": "Cant.",
+    "table_unit_price": "PU",
+    "table_subtotal": "Subtotal",
+    "discount": "Descuento especial",
+    "total_with_tax": "Total (IVA incluido)",
+    "send_whatsapp": "Descargar PDF y enviar por WhatsApp",
+    "generating_pdf": "Generando PDF...",
+    "whatsapp_hint": "Se descargará el PDF de tu cotización y se abrirá WhatsApp — adjúnta la cotización descargada.",
+    "whatsapp_message": "Hola, quiero cotizar un sistema solar.\nConsumo promedio: {consumo} Kwh\nPaneles estimados: {paneles}\nInversor: {inversor}\nTotal estimado: {total}\n\nAdjunto el PDF de mi cotización descargada."
   }
 }
