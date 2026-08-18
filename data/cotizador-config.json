@@ -1,0 +1,359 @@
+{
+  "formula": {
+    "hsp": 6,
+    "safetyFactor": 1.2,
+    "panelWattage": 620
+  },
+  "discount": 0,
+  "inverterTiers": [
+    {
+      "capacityLabel": "3K",
+      "capacityKw": 3,
+      "maxPanels": 7,
+      "productId": "inv-3k"
+    },
+    {
+      "capacityLabel": "4K",
+      "capacityKw": 4,
+      "maxPanels": 10,
+      "productId": "inv-4k"
+    },
+    {
+      "capacityLabel": "5K",
+      "capacityKw": 5,
+      "maxPanels": 12,
+      "productId": "inv-5k"
+    },
+    {
+      "capacityLabel": "6K",
+      "capacityKw": 6,
+      "maxPanels": 14,
+      "productId": "inv-6k"
+    },
+    {
+      "capacityLabel": "8K",
+      "capacityKw": 8,
+      "maxPanels": 19,
+      "productId": "inv-8k"
+    },
+    {
+      "capacityLabel": "10K",
+      "capacityKw": 10,
+      "maxPanels": 24,
+      "productId": "inv-10k"
+    },
+    {
+      "capacityLabel": "20K",
+      "capacityKw": 20,
+      "maxPanels": 48,
+      "productId": "inv-20k"
+    }
+  ],
+  "products": [
+    {
+      "id": "inv-3k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 3KW",
+      "unitPrice": 1135,
+      "category": "inverter"
+    },
+    {
+      "id": "inv-4k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 4KW",
+      "unitPrice": 1372.32,
+      "category": "inverter"
+    },
+    {
+      "id": "inv-5k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 5KW",
+      "unitPrice": 1395.63,
+      "category": "inverter"
+    },
+    {
+      "id": "inv-6k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 6KW",
+      "unitPrice": 1479.3,
+      "category": "inverter"
+    },
+    {
+      "id": "inv-8k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 8KW",
+      "unitPrice": 1705,
+      "category": "inverter"
+    },
+    {
+      "id": "inv-10k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 10KW",
+      "unitPrice": 1860,
+      "category": "inverter"
+    },
+    {
+      "id": "inv-20k",
+      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 20KW",
+      "unitPrice": 5070.57,
+      "category": "inverter"
+    },
+    {
+      "id": "panel-620w",
+      "name": "Panel Solar 620W Jinko/ Longi/ JA solar / Trina / Sunshine",
+      "unitPrice": 210,
+      "category": "panel"
+    },
+    {
+      "id": "mc4",
+      "name": "Conector MC4",
+      "unitPrice": 5.35,
+      "category": "scaling",
+      "ratioPerPanel": 2
+    },
+    {
+      "id": "cable-negro",
+      "name": "Cable fotovoltaico solar negro 1500 V 6mm^2",
+      "unitPrice": 3.45,
+      "category": "scaling",
+      "ratioPerPanel": 5
+    },
+    {
+      "id": "cable-rojo",
+      "name": "Cable fotovoltaico solar rojo 1500 V 6mm^3",
+      "unitPrice": 3.45,
+      "category": "scaling",
+      "ratioPerPanel": 5
+    },
+    {
+      "id": "cable-tsj",
+      "name": "Cable TSJ 3x10",
+      "unitPrice": 8.98,
+      "category": "fixed",
+      "fixedQuantity": 5
+    },
+    {
+      "id": "barra-cooper",
+      "name": "Barra Cooper",
+      "unitPrice": 15,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "cepo-barra",
+      "name": "Cepo de barra",
+      "unitPrice": 3.5,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "caja-termica",
+      "name": "Caja térmica",
+      "unitPrice": 38,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "automato-doble-25a",
+      "name": "Autómato Doble de 25 a AC",
+      "unitPrice": 29.5,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "automato-doble-32a",
+      "name": "Autómato doble32a DC",
+      "unitPrice": 38.1,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "breaker-500v",
+      "name": "Breaker 500V DC 20 A 2P",
+      "unitPrice": 71.84,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "canaleta",
+      "name": "Canaleta Plástica 80X40X2MTS",
+      "unitPrice": 28,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "riel",
+      "name": "Riel para paneles de aluminio",
+      "unitPrice": 48,
+      "category": "scaling",
+      "ratioPerPanel": 0.5
+    },
+    {
+      "id": "mid-clamp",
+      "name": "Soporte Mid Clamp",
+      "unitPrice": 4.85,
+      "category": "scaling",
+      "ratioPerPanel": 2
+    },
+    {
+      "id": "end-clamp",
+      "name": "Soporte End Clamp",
+      "unitPrice": 4.85,
+      "category": "scaling",
+      "ratioPerPanel": 2
+    },
+    {
+      "id": "kit-pieza-l",
+      "name": "Kit pieza L",
+      "unitPrice": 8.3,
+      "category": "scaling",
+      "ratioPerPanel": 4
+    },
+    {
+      "id": "anclas",
+      "name": "Anclas plásticas de 1/4",
+      "unitPrice": 0.08,
+      "category": "fixed",
+      "fixedQuantity": 50
+    },
+    {
+      "id": "tornillo-lamina",
+      "name": "Tornillo para lámina 5/16 2",
+      "unitPrice": 0.4,
+      "category": "scaling",
+      "ratioPerPanel": 10
+    },
+    {
+      "id": "tornillo-broca",
+      "name": "Tornillo Punto Broca 3/4",
+      "unitPrice": 0.12,
+      "category": "scaling",
+      "ratioPerPanel": 10
+    },
+    {
+      "id": "caja-registro",
+      "name": "Caja de Registro Plexo",
+      "unitPrice": 12,
+      "category": "fixed",
+      "fixedQuantity": 2
+    },
+    {
+      "id": "thhn-verde",
+      "name": "Cable thhn #10 verde",
+      "unitPrice": 0.85,
+      "category": "scaling",
+      "ratioPerPanel": 5
+    },
+    {
+      "id": "terminal-ojo",
+      "name": "Terminal ojo cerrado cable 10-12 AWG 5.3mm desnudo",
+      "unitPrice": 1,
+      "category": "scaling",
+      "ratioPerPanel": 4
+    },
+    {
+      "id": "alambre-galvanizado",
+      "name": "Alambre galvanizado #16",
+      "unitPrice": 2,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "conector-plastico",
+      "name": "Conector Plástico Para Cable 3/4",
+      "unitPrice": 2.8,
+      "category": "fixed",
+      "fixedQuantity": 2
+    },
+    {
+      "id": "conector-prensaestopa",
+      "name": "Conector prensaestopa para caja de registro 1/2 PULGADA",
+      "unitPrice": 1.75,
+      "category": "fixed",
+      "fixedQuantity": 2
+    },
+    {
+      "id": "gabinete",
+      "name": "Gabinete metalico 30x25x15 cm para intemperie",
+      "unitPrice": 89,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "riel-din",
+      "name": "Riel din para bornera y autómatos sin agujero",
+      "unitPrice": 8.9,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "cinchas",
+      "name": "Cinchas plásticas 4\" blanco",
+      "unitPrice": 0.25,
+      "category": "scaling",
+      "ratioPerPanel": 5
+    },
+    {
+      "id": "thhn-negro",
+      "name": "Cable thhn #10 negro Mt.",
+      "unitPrice": 1.35,
+      "category": "scaling",
+      "ratioPerPanel": 2
+    },
+    {
+      "id": "coraza",
+      "name": "Coraza flexible metal forrata LT 3/4 pulg",
+      "unitPrice": 2.1,
+      "category": "scaling",
+      "ratioPerPanel": 5
+    },
+    {
+      "id": "grapa-conduit",
+      "name": "Grapa conduit 1/2 pulg",
+      "unitPrice": 0.35,
+      "category": "scaling",
+      "ratioPerPanel": 2
+    },
+    {
+      "id": "conector-tecnoducto",
+      "name": "Conector recto para tecnoducto 1/2 pulg",
+      "unitPrice": 1.05,
+      "category": "scaling",
+      "ratioPerPanel": 1
+    },
+    {
+      "id": "automato-16a",
+      "name": "Autómato 16a 2 polos 5sl62167cc",
+      "unitPrice": 30.95,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "bornera-tierra",
+      "name": "Accesorio bornera tierra verde",
+      "unitPrice": 8.3,
+      "category": "fixed",
+      "fixedQuantity": 1
+    },
+    {
+      "id": "sikaflex",
+      "name": "Sellador de construcción sikaflex 1a blanco 10.1 oz (300 ml) SIKA",
+      "unitPrice": 12.3,
+      "category": "fixed",
+      "fixedQuantity": 2
+    },
+    {
+      "id": "mano-obra",
+      "name": "Mano de Obra por panel",
+      "unitPrice": 75,
+      "category": "scaling",
+      "ratioPerPanel": 1
+    },
+    {
+      "id": "tramite-media",
+      "name": "Trámite UPR de conexión AES o DELSUR (media tensión)",
+      "unitPrice": 650,
+      "category": "permit-media"
+    },
+    {
+      "id": "tramite-baja",
+      "name": "Trámite UPR de conexión AES o DELSUR (baja tensión)",
+      "unitPrice": 578,
+      "category": "permit-baja"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:3000/cotizador -o 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Lenovo-Desktop-suntech-suntech-web\\\\bfded1e2-002c-48b7-ab08-bdc4b9d69565\\\\scratchpad\\\\cotizador_page.html')",
+      "Bash(python3 -c ' *)",
+      "Bash(taskkill //PID 29552 //F)",
+      "Bash(rm -rf .next)"
+    ]
+  }
+}

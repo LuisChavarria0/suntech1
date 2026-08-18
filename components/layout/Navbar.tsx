@@ -9,11 +9,13 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { COMPANY_INFO, WHATSAPP_URL } from "@/lib/data/company";
+import { useCotizadorModal } from "@/components/cotizador/CotizadorModalContext";
 
 export function Navbar() {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
   const [menuOpen, setMenuOpen] = useState(false);
+  const { open: openCotizador } = useCotizadorModal();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -63,14 +65,12 @@ export function Navbar() {
             {/* CTA + Language switcher */}
             <div className="hidden md:flex items-center gap-3">
               <LanguageSwitcher />
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-shine inline-flex items-center h-9 px-5 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-md"
+              <button
+                onClick={openCotizador}
+                className="btn-shine inline-flex items-center h-9 px-5 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-md cursor-pointer"
               >
                 {tc("calc_savings")}
-              </a>
+              </button>
             </div>
 
             {/* Mobile hamburger */}
