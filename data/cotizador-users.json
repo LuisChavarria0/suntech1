@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "u-suntech-admin",
+      "username": "suntech_admin",
+      "salt": "fc2903797d31a155fb38122f53368a03",
+      "passwordHash": "a9272ba7a27fa4c1cecd19fa4c57094fa1ec66f3891bb33fc8927d25be82c2dbb454bf1a90aa1182187799684bbf3a09b1849d3396b05f488445d4b54c894c03",
+      "role": "super_admin",
+      "disabled": false,
+      "createdAt": "2026-08-15T00:00:00.000Z",
+      "createdBy": null
+    },
+    {
+      "id": "5601c93a-93b9-4813-8e3d-432d8eb2a462",
+      "username": "Ernesto",
+      "salt": "acf40415096f37b95e6ac3528c1aefdd",
+      "passwordHash": "cd219517755d98612292948ef3555bd1055d91a0810f15fa396b1617d0cd0435d54be4057863bd1bea1ec5267c5fd3d139b57b0915312616f34204a32787dc33",
+      "role": "editor",
+      "disabled": false,
+      "createdAt": "2026-08-18T04:13:58.907Z",
+      "createdBy": "suntech_admin"
+    }
+  ]
+}

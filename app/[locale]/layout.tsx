@@ -6,6 +6,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { CursorGlow } from "@/components/ui/CursorGlow";
+import { CotizadorModalProvider } from "@/components/cotizador/CotizadorModalContext";
+import { CotizadorModal } from "@/components/cotizador/CotizadorModal";
 
 export default async function LocaleLayout({
   children,
@@ -21,11 +23,14 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-      <ScrollToTop />
-      <CursorGlow />
+      <CotizadorModalProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <ScrollToTop />
+        <CursorGlow />
+        <CotizadorModal />
+      </CotizadorModalProvider>
     </NextIntlClientProvider>
   );
 }

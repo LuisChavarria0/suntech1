@@ -348,5 +348,27 @@
     "solar_full": "Solar Energy",
     "seguridad_full": "Electronic Security",
     "tecnologia_full": "Technology"
+  },
+  "cotizador": {
+    "modal_title": "Calculate your solar system savings",
+    "modal_subtitle": "Enter your average electric bill consumption and we'll show you an instant estimated proposal.",
+    "close": "Close",
+    "input_label": "Enter Average Electric Bill Consumption (Kwh, over 30 days)",
+    "input_placeholder": "E.g. 350",
+    "load_error": "Couldn't load the quote calculator settings. Try reloading the page.",
+    "panels_needed": "Panels needed",
+    "inverter_recommended": "Recommended inverter",
+    "total_estimated": "Estimated total",
+    "exceeds_capacity": "This consumption exceeds our standard automatic quoting capacity. We're showing you the largest available system; contact us for a custom proposal.",
+    "table_product": "Product",
+    "table_qty": "Qty.",
+    "table_unit_price": "Unit price",
+    "table_subtotal": "Subtotal",
+    "discount": "Special discount",
+    "total_with_tax": "Total (tax included)",
+    "send_whatsapp": "Download PDF and send via WhatsApp",
+    "generating_pdf": "Generating PDF...",
+    "whatsapp_hint": "Your quote PDF will download and WhatsApp will open — attach the downloaded quote there.",
+    "whatsapp_message": "Hi, I'd like a quote for a solar system.\nAverage consumption: {consumo} Kwh\nEstimated panels: {paneles}\nInverter: {inversor}\nEstimated total: {total}\n\nI'm attaching my downloaded quote PDF."
   }
 }
