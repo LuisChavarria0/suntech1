@@ -123,7 +123,41 @@ export function CotizadorCalculator() {
             </div>
           )}
 
-          <div className="card-base overflow-hidden">
+          {/* Mobile: stacked cards */}
+          <div className="card-base divide-y divide-slate-100 sm:hidden">
+            {quote.lines.map((line) => (
+              <div key={line.id} className="p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <span className="text-navy-900 font-medium text-sm">{line.name}</span>
+                  <span className="text-navy-900 font-semibold text-sm whitespace-nowrap">
+                    {currency.format(line.subtotal)}
+                  </span>
+                </div>
+                <div className="mt-1 text-xs text-slate-500">
+                  {line.quantity} × {currency.format(line.unitPrice)}
+                </div>
+              </div>
+            ))}
+            <div className="p-4 space-y-1.5 bg-slate-50">
+              <div className="flex justify-between text-sm text-slate-600">
+                <span>{t("table_subtotal")}</span>
+                <span>{currency.format(quote.subtotal)}</span>
+              </div>
+              {quote.discount > 0 && (
+                <div className="flex justify-between text-sm text-slate-600">
+                  <span>{t("discount")}</span>
+                  <span>-{currency.format(quote.discount)}</span>
+                </div>
+              )}
+              <div className="flex justify-between text-base font-bold text-navy-900 pt-1">
+                <span>{t("total_with_tax")}</span>
+                <span className="text-gold-600">{currency.format(quote.total)}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: table */}
+          <div className="card-base overflow-hidden hidden sm:block">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-navy-800 text-white text-left">
