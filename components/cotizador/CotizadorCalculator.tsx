@@ -60,6 +60,9 @@ export function CotizadorCalculator() {
   const sendViaWhatsapp = async () => {
     if (!quote || !whatsappHref || !clientInfoComplete) return;
     setPreparing(true);
+    // Open the WhatsApp tab synchronously (still inside the click handler) so mobile
+    // browsers don't treat it as a blocked popup once we hand it a URL later.
+    const waWindow = window.open("", "_blank");
     try {
       const blob = await generateQuotePdf(quote, locale, {
         name: clientName.trim(),
@@ -67,16 +70,29 @@ export function CotizadorCalculator() {
         phone: clientPhone.trim(),
       });
       const url = URL.createObjectURL(blob);
+      const stamp = new Intl.DateTimeFormat("sv-SE", {
+        dateStyle: "short",
+        timeStyle: "medium",
+      })
+        .format(new Date())
+        .replace(/[: ]/g, "-");
       const a = document.createElement("a");
       a.href = url;
-      a.download = `cotizacion-suntech-${quote.consumoMensualKwh}kwh.pdf`;
+      a.download = `cotizacion-suntech-${quote.consumoMensualKwh}kwh-${stamp}.pdf`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      // Give mobile browsers a moment to actually start the download before we
+      // navigate away to WhatsApp and revoke the blob URL.
+      await new Promise((resolve) => setTimeout(resolve, 800));
       URL.revokeObjectURL(url);
     } finally {
       setPreparing(false);
-      window.open(whatsappHref, "_blank", "noopener,noreferrer");
+      if (waWindow) {
+        waWindow.location.href = whatsappHref;
+      } else {
+        window.open(whatsappHref, "_blank", "noopener,noreferrer");
+      }
     }
   };
 
@@ -282,9 +298,9 @@ export function CotizadorCalculator() {
                 <button
                   onClick={sendViaWhatsapp}
                   disabled={preparing || !clientInfoComplete}
-                  className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-navy-800 hover:bg-navy-700 disabled:opacity-60 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer disabled:hover:translate-y-0"
+                  className="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-14 px-6 sm:px-8 py-3 bg-navy-800 hover:bg-navy-700 disabled:opacity-60 text-white text-base sm:text-lg font-bold text-center rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer disabled:hover:translate-y-0"
                 >
-                  <WhatsAppIcon className="h-5 w-5" />
+                  <WhatsAppIcon className="h-5 w-5 shrink-0" />
                   {preparing ? t("generating_pdf") : t("send_whatsapp")}
                 </button>
                 <p className="mt-2 text-sm text-slate-500">
