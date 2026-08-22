@@ -369,6 +369,14 @@
     "send_whatsapp": "Download PDF and send via WhatsApp",
     "generating_pdf": "Generating PDF...",
     "whatsapp_hint": "Your quote PDF will download and WhatsApp will open — attach the downloaded quote there.",
-    "whatsapp_message": "Hi, I'd like a quote for a solar system.\nAverage consumption: {consumo} Kwh\nEstimated panels: {paneles}\nInverter: {inversor}\nEstimated total: {total}\n\nI'm attaching my downloaded quote PDF."
+    "whatsapp_message": "Hi, I'd like a quote for a solar system.\nAverage consumption: {consumo} Kwh\nEstimated panels: {paneles}\nInverter: {inversor}\nEstimated total: {total}\n\nI'm attaching my downloaded quote PDF.",
+    "client_info_title": "Quote details",
+    "client_name_label": "Client name",
+    "client_name_placeholder": "E.g. John Smith",
+    "client_address_label": "Client address",
+    "client_address_placeholder": "E.g. San Salvador",
+    "client_phone_label": "Client phone",
+    "client_phone_placeholder": "E.g. 7000-0000",
+    "client_info_required": "Fill in name, address and phone to download the quote."
   }
 }

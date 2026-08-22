@@ -60,6 +60,7 @@ export const NAV_LINKS: NavLink[] = [
 
 export const COMPANY_INFO = {
   name: "Grupo Suntech",
+  legalName: "Grupo SunTech S.A. DE C.V.",
   tagline: "Soluciones tecnológicas para un futuro sostenible",
   mission:
     "Ofrecer soluciones a la medida integrando tecnologías que se adaptan a la necesidad de todos nuestros clientes.",
@@ -68,4 +69,6 @@ export const COMPANY_INFO = {
   description:
     "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
   logoUrl: "/logos/logo-suntech.png",
+  registryNumber: "338052-3",
+  nit: "0614-141123-109-1",
 };

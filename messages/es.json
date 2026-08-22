@@ -369,6 +369,14 @@
     "send_whatsapp": "Descargar PDF y enviar por WhatsApp",
     "generating_pdf": "Generando PDF...",
     "whatsapp_hint": "Se descargará el PDF de tu cotización y se abrirá WhatsApp — adjúnta la cotización descargada.",
-    "whatsapp_message": "Hola, quiero cotizar un sistema solar.\nConsumo promedio: {consumo} Kwh\nPaneles estimados: {paneles}\nInversor: {inversor}\nTotal estimado: {total}\n\nAdjunto el PDF de mi cotización descargada."
+    "whatsapp_message": "Hola, quiero cotizar un sistema solar.\nConsumo promedio: {consumo} Kwh\nPaneles estimados: {paneles}\nInversor: {inversor}\nTotal estimado: {total}\n\nAdjunto el PDF de mi cotización descargada.",
+    "client_info_title": "Datos para la cotización",
+    "client_name_label": "Nombre del cliente",
+    "client_name_placeholder": "Ej. Juan Pérez",
+    "client_address_label": "Dirección del cliente",
+    "client_address_placeholder": "Ej. Col. Escalón, San Salvador",
+    "client_phone_label": "Teléfono del cliente",
+    "client_phone_placeholder": "Ej. 7000-0000",
+    "client_info_required": "Completa nombre, dirección y teléfono para descargar la cotización."
   }
 }

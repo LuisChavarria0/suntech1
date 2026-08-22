@@ -20,6 +20,12 @@ export function CotizadorCalculator() {
   const [loadError, setLoadError] = useState(false);
   const [consumo, setConsumo] = useState("");
   const [preparing, setPreparing] = useState(false);
+  const [clientName, setClientName] = useState("");
+  const [clientAddress, setClientAddress] = useState("");
+  const [clientPhone, setClientPhone] = useState("");
+
+  const clientInfoComplete =
+    clientName.trim().length > 0 && clientAddress.trim().length > 0 && clientPhone.trim().length > 0;
 
   useEffect(() => {
     fetch("/api/cotizador/config")
@@ -52,10 +58,14 @@ export function CotizadorCalculator() {
   }, [quote, t]);
 
   const sendViaWhatsapp = async () => {
-    if (!quote || !whatsappHref) return;
+    if (!quote || !whatsappHref || !clientInfoComplete) return;
     setPreparing(true);
     try {
-      const blob = await generateQuotePdf(quote, locale);
+      const blob = await generateQuotePdf(quote, locale, {
+        name: clientName.trim(),
+        address: clientAddress.trim(),
+        phone: clientPhone.trim(),
+      });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -213,16 +223,74 @@ export function CotizadorCalculator() {
           </div>
 
           {whatsappHref && (
-            <div>
-              <button
-                onClick={sendViaWhatsapp}
-                disabled={preparing}
-                className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-navy-800 hover:bg-navy-700 disabled:opacity-60 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
-              >
-                <WhatsAppIcon className="h-5 w-5" />
-                {preparing ? t("generating_pdf") : t("send_whatsapp")}
-              </button>
-              <p className="mt-2 text-sm text-slate-500">{t("whatsapp_hint")}</p>
+            <div className="card-base p-6 md:p-8 space-y-4">
+              <h3 className="text-sm font-semibold text-navy-800 uppercase tracking-wide">
+                {t("client_info_title")}
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div>
+                  <label
+                    htmlFor="clientName"
+                    className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
+                  >
+                    {t("client_name_label")}
+                  </label>
+                  <input
+                    id="clientName"
+                    type="text"
+                    value={clientName}
+                    onChange={(e) => setClientName(e.target.value)}
+                    placeholder={t("client_name_placeholder")}
+                    className="w-full h-11 px-3 rounded-lg border border-slate-200 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="clientAddress"
+                    className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
+                  >
+                    {t("client_address_label")}
+                  </label>
+                  <input
+                    id="clientAddress"
+                    type="text"
+                    value={clientAddress}
+                    onChange={(e) => setClientAddress(e.target.value)}
+                    placeholder={t("client_address_placeholder")}
+                    className="w-full h-11 px-3 rounded-lg border border-slate-200 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="clientPhone"
+                    className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2"
+                  >
+                    {t("client_phone_label")}
+                  </label>
+                  <input
+                    id="clientPhone"
+                    type="tel"
+                    value={clientPhone}
+                    onChange={(e) => setClientPhone(e.target.value)}
+                    placeholder={t("client_phone_placeholder")}
+                    className="w-full h-11 px-3 rounded-lg border border-slate-200 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <button
+                  onClick={sendViaWhatsapp}
+                  disabled={preparing || !clientInfoComplete}
+                  className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-navy-800 hover:bg-navy-700 disabled:opacity-60 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer disabled:hover:translate-y-0"
+                >
+                  <WhatsAppIcon className="h-5 w-5" />
+                  {preparing ? t("generating_pdf") : t("send_whatsapp")}
+                </button>
+                <p className="mt-2 text-sm text-slate-500">
+                  {clientInfoComplete ? t("whatsapp_hint") : t("client_info_required")}
+                </p>
+              </div>
             </div>
           )}
         </div>
