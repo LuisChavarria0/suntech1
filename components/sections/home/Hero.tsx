@@ -1,14 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { WHATSAPP_URL } from "@/lib/data/company";
+import { useCotizadorModal } from "@/components/cotizador/CotizadorModalContext";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const { open: openCotizador } = useCotizadorModal();
 
   return (
     <section className="relative min-h-[92dvh] flex flex-col justify-center overflow-hidden bg-navy-950">
@@ -32,7 +35,7 @@ export function Hero() {
       <div className="relative z-10 container-tight pt-32 pb-24 flex flex-col items-center text-center">
         {/* Headline */}
         <motion.h1
-          className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight text-balance max-w-3xl"
+          className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.2] tracking-[0.05em] text-balance max-w-3xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -57,7 +60,7 @@ export function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
@@ -68,9 +71,22 @@ export function Hero() {
             rel="noopener noreferrer"
             className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5"
           >
-            <WhatsAppIcon className="h-5 w-5" />
+            <WhatsAppIcon className="h-7 w-7" />
             {t("cta_primary")}
           </a>
+          <button
+            onClick={openCotizador}
+            className="btn-shine inline-flex items-center gap-2 h-14 px-8 bg-gold-500 hover:bg-gold-600 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 cursor-pointer"
+          >
+            <Image
+              src="/logos/cotiza.png"
+              alt=""
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain brightness-0 invert"
+            />
+            {t("cta_quote")}
+          </button>
           <Link
             href="/proyectos"
             className="btn-shine inline-flex items-center gap-3 h-14 px-8 bg-white hover:bg-white/90 text-navy-900 text-lg font-semibold rounded-xl transition-all duration-200 hover:-translate-y-0.5"

@@ -67,7 +67,7 @@ export function Navbar() {
               <LanguageSwitcher />
               <button
                 onClick={openCotizador}
-                className="btn-shine inline-flex items-center h-9 px-5 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-md cursor-pointer"
+                className="btn-shine inline-flex items-center h-10 px-6 bg-navy-800 hover:bg-navy-700 text-white text-base font-semibold rounded-xl transition-all duration-200 shadow-md cursor-pointer"
               >
                 {tc("calc_savings")}
               </button>
@@ -130,8 +130,15 @@ export function Navbar() {
                   setMenuOpen(false);
                   openCotizador();
                 }}
-                className="btn-shine flex items-center justify-center h-14 w-full bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+                className="btn-shine flex items-center justify-center gap-2 h-14 w-full bg-gold-500 hover:bg-gold-600 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
               >
+                <Image
+                  src="/logos/cotiza.png"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 object-contain brightness-0 invert"
+                />
                 {tc("calc_savings")}
               </button>
               <a
@@ -140,8 +147,8 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="btn-shine flex items-center justify-center gap-2 h-14 w-full bg-navy-800 hover:bg-navy-700 text-white text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
               >
-                <WhatsAppIcon className="h-5 w-5" />
-                {tc("quote_whatsapp")}
+                <WhatsAppIcon className="h-7 w-7" />
+                {tc("contact_cta")}
               </a>
             </motion.div>
           </motion.div>
