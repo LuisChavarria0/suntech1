@@ -1,0 +1,349 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "slug": "inyeccion-lourdes-colon",
+      "category": "solar",
+      "location": "Lourdes Colón",
+      "year": 2024,
+      "featured": true,
+      "image": "/images/whatsapp-image-2025-01-23-at-19.43.34_b5a75fcb-1.jpg",
+      "gallery": [
+        "/images/whatsapp-image-2025-01-23-at-19.43.34_b5a75fcb.jpg",
+        "/images/whatsapp-image-2025-01-23-at-19.17.31_9f0f3001.jpg"
+      ],
+      "title": {
+        "es": "Inyección Lourdes Colón",
+        "en": "Lourdes Colón Grid Injection"
+      },
+      "description": {
+        "es": "Sistema fotovoltaico con inyección a la red eléctrica nacional para optimizar el consumo energético en la zona.",
+        "en": "Grid-tied photovoltaic system connected to the national grid to optimize the area's energy consumption."
+      }
+    },
+    {
+      "id": "2",
+      "slug": "iluminacion-solar-san-juan-opico",
+      "category": "solar",
+      "location": "San Juan Opico",
+      "year": 2024,
+      "featured": true,
+      "image": "/images/whatsapp-image-2025-01-23-at-19.52.26_00ab1e8c.jpg",
+      "gallery": [
+        "/images/sdfds4.jpg",
+        "/images/456gfh.jpg"
+      ],
+      "title": {
+        "es": "Iluminación Solar San Juan Opico",
+        "en": "Solar Lighting San Juan Opico"
+      },
+      "description": {
+        "es": "Instalación de sistema de iluminación solar para alumbrado público, mejorando la seguridad vial de la comunidad.",
+        "en": "Solar lighting system installed for public street lighting, improving the community's road safety."
+      }
+    },
+    {
+      "id": "3",
+      "slug": "inyeccion-santa-ana",
+      "category": "solar",
+      "location": "Santa Ana",
+      "year": 2024,
+      "featured": true,
+      "image": "/images/12312.png",
+      "gallery": [],
+      "title": {
+        "es": "Inyección Santa Ana",
+        "en": "Santa Ana Grid Injection"
+      },
+      "description": {
+        "es": "Proyecto de inyección fotovoltaica a la red en Santa Ana, reduciendo costos energéticos y emisiones de carbono.",
+        "en": "Photovoltaic grid-injection project in Santa Ana, reducing energy costs and carbon emissions."
+      }
+    },
+    {
+      "id": "4",
+      "slug": "inyeccion-sonsonate-3",
+      "category": "solar",
+      "location": "Sonsonate",
+      "year": 2024,
+      "featured": false,
+      "image": "/images/sad32445-2.jpg",
+      "gallery": [
+        "/images/sad32445-1.jpg"
+      ],
+      "title": {
+        "es": "Inyección Sonsonate 3",
+        "en": "Sonsonate Grid Injection 3"
+      },
+      "description": {
+        "es": "Tercer proyecto de inyección solar en Sonsonate, consolidando la presencia de energía renovable en la región.",
+        "en": "Third solar grid-injection project in Sonsonate, consolidating renewable energy in the region."
+      }
+    },
+    {
+      "id": "5",
+      "slug": "inyeccion-armenia-sonsonate",
+      "category": "solar",
+      "location": "Armenia, Sonsonate",
+      "year": 2024,
+      "featured": false,
+      "image": "/images/asd443.jpg",
+      "gallery": [],
+      "title": {
+        "es": "Inyección Armenia Sonsonate",
+        "en": "Armenia Sonsonate Grid Injection"
+      },
+      "description": {
+        "es": "Sistema fotovoltaico de inyección a red en Armenia, optimizando el consumo y generando excedentes energéticos.",
+        "en": "Grid-tied photovoltaic system in Armenia, optimizing consumption and generating energy surpluses."
+      }
+    },
+    {
+      "id": "6",
+      "slug": "camaras-los-chorros",
+      "category": "seguridad",
+      "location": "Los Chorros",
+      "year": 2024,
+      "featured": false,
+      "image": "/images/whatsapp-image-2025-01-23-at-19.47.32_2a55881c-1.jpg",
+      "gallery": [
+        "/images/whatsapp-image-2025-01-23-at-19.47.32_2a55881c.jpg",
+        "/images/screenshot_1.png",
+        "/images/sad323.png"
+      ],
+      "title": {
+        "es": "Centro de Monitoreo Los Chorros",
+        "en": "Los Chorros Monitoring Center"
+      },
+      "description": {
+        "es": "Instalación de sistema CCTV integrado con energía solar y tecnología 5G para monitoreo continuo en Los Chorros.",
+        "en": "CCTV system integrated with solar power and 5G technology for continuous monitoring in Los Chorros."
+      }
+    },
+    {
+      "id": "7",
+      "slug": "inyeccion-sonsonate",
+      "category": "solar",
+      "location": "Sonsonate",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/whatsapp-image-2025-01-23-at-19.47.32_2a55881c-2.jpg",
+      "gallery": [],
+      "title": {
+        "es": "Inyección Sonsonate",
+        "en": "Sonsonate Grid Injection"
+      },
+      "description": {
+        "es": "Proyecto de inyección fotovoltaica a la red eléctrica en Sonsonate para consumo industrial.",
+        "en": "Photovoltaic grid-injection project in Sonsonate for industrial consumption."
+      }
+    },
+    {
+      "id": "8",
+      "slug": "inyeccion-sucursal-bermeja",
+      "category": "solar",
+      "location": "Bermeja",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/213.jpg",
+      "gallery": [
+        "/images/h66h6.jpg"
+      ],
+      "title": {
+        "es": "Inyección Sucursal Bermeja",
+        "en": "Bermeja Branch Grid Injection"
+      },
+      "description": {
+        "es": "Sistema solar de inyección a red para sucursal comercial en Bermeja, con monitoreo remoto en tiempo real.",
+        "en": "Grid-tied solar system for a commercial branch in Bermeja, with real-time remote monitoring."
+      }
+    },
+    {
+      "id": "9",
+      "slug": "inyeccion-polideportivo-espana",
+      "category": "solar",
+      "location": "Don Bosco, San Salvador",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/6h66h6.jpg",
+      "gallery": [
+        "/images/6h66h6-1.jpg"
+      ],
+      "title": {
+        "es": "Inyección Polideportivo España",
+        "en": "España Sports Complex Grid Injection"
+      },
+      "description": {
+        "es": "Sistema fotovoltaico instalado en el Polideportivo España (Don Bosco), promoviendo el deporte sostenible.",
+        "en": "Photovoltaic system installed at the España Sports Complex (Don Bosco), promoting sustainable sport."
+      }
+    },
+    {
+      "id": "10",
+      "slug": "inyeccion-bulevar-venezuela",
+      "category": "solar",
+      "location": "Bulevar Venezuela, San Salvador",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/whatsapp-image-2025-01-23-at-19.51.01_774efa44-1.jpg",
+      "gallery": [
+        "/images/whatsapp-image-2025-01-23-at-19.51.01_774efa44.jpg",
+        "/images/whatsapp-image-2025-01-23-at-19.51.01_774efa44-2.jpg"
+      ],
+      "title": {
+        "es": "Inyección Bulevar Venezuela",
+        "en": "Bulevar Venezuela Grid Injection"
+      },
+      "description": {
+        "es": "Proyecto de energía solar con inyección a la red en Bulevar Venezuela, San Salvador.",
+        "en": "Solar energy project with grid injection on Bulevar Venezuela, San Salvador."
+      }
+    },
+    {
+      "id": "11",
+      "slug": "camaras-central-abasto-soyapango",
+      "category": "seguridad",
+      "location": "Soyapango",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/whatsapp-image-2025-01-23-at-19.44.39_8addfd24.jpg",
+      "gallery": [
+        "/images/whatsapp-image-2025-01-23-at-19.44.41_9db06ec1.jpg"
+      ],
+      "title": {
+        "es": "Cámaras Central Abasto Soyapango",
+        "en": "Soyapango Wholesale Market Cameras"
+      },
+      "description": {
+        "es": "Instalación de sistema de videovigilancia CCTV en Central de Abasto de Soyapango para seguridad del comercio.",
+        "en": "CCTV video surveillance system installed at the Soyapango wholesale market for retail security."
+      }
+    },
+    {
+      "id": "12",
+      "slug": "inyeccion-sonsonate-2",
+      "category": "solar",
+      "location": "Sonsonate",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/sda2-1.jpg",
+      "gallery": [],
+      "title": {
+        "es": "Inyección Sonsonate 2",
+        "en": "Sonsonate Grid Injection 2"
+      },
+      "description": {
+        "es": "Segundo proyecto de inyección fotovoltaica en Sonsonate, ampliando la capacidad energética renovable.",
+        "en": "Second photovoltaic grid-injection project in Sonsonate, expanding renewable energy capacity."
+      }
+    },
+    {
+      "id": "13",
+      "slug": "inyeccion-monserrat",
+      "category": "solar",
+      "location": "Monserrat",
+      "year": 2023,
+      "featured": false,
+      "image": "/images/sad32.png",
+      "gallery": [],
+      "title": {
+        "es": "Inyección Monserrat",
+        "en": "Monserrat Grid Injection"
+      },
+      "description": {
+        "es": "Sistema fotovoltaico de inyección a red en Monserrat, parte del programa de expansión de energía solar en El Salvador.",
+        "en": "Grid-tied photovoltaic system in Monserrat, part of El Salvador's solar energy expansion program."
+      }
+    },
+    {
+      "id": "14",
+      "slug": "power-drill",
+      "category": "solar",
+      "location": "El Salvador",
+      "year": 2024,
+      "featured": true,
+      "image": "/images/proyectos/power-drill.webp",
+      "gallery": [],
+      "title": {
+        "es": "Power Drill",
+        "en": "Power Drill"
+      },
+      "description": {
+        "es": "Sistema fotovoltaico de 200 paneles solares con 4 inversores de 20K para autoconsumo comercial.",
+        "en": "200-panel photovoltaic system with four 20K inverters for commercial self-consumption."
+      }
+    },
+    {
+      "id": "15",
+      "slug": "super-keny",
+      "category": "solar",
+      "location": "El Salvador",
+      "year": 2024,
+      "featured": true,
+      "image": "/images/proyectos/super-keny.webp",
+      "gallery": [],
+      "title": {
+        "es": "Super Keny",
+        "en": "Super Keny"
+      },
+      "description": {
+        "es": "Sistema solar de 84 paneles con 4 inversores de 10K para reducir el costo energético del supermercado.",
+        "en": "84-panel solar system with four 10K inverters to cut the supermarket's energy costs."
+      }
+    },
+    {
+      "id": "16",
+      "slug": "super-el-baratillo",
+      "category": "solar",
+      "location": "El Salvador",
+      "year": 2024,
+      "featured": true,
+      "image": "/images/proyectos/super-el-baratillo.webp",
+      "gallery": [],
+      "title": {
+        "es": "Super el Baratillo",
+        "en": "Super el Baratillo"
+      },
+      "description": {
+        "es": "Instalación de 290 paneles solares con 12 inversores de 10K para autoconsumo a gran escala.",
+        "en": "Installation of 290 solar panels with twelve 10K inverters for large-scale self-consumption."
+      }
+    },
+    {
+      "id": "17",
+      "slug": "ariana-reyes",
+      "category": "solar",
+      "location": "El Salvador",
+      "year": 2024,
+      "featured": false,
+      "image": "/images/proyectos/ariana-reyes.webp",
+      "gallery": [],
+      "title": {
+        "es": "Ariana Reyes",
+        "en": "Ariana Reyes"
+      },
+      "description": {
+        "es": "Sistema fotovoltaico residencial de 40 paneles con inversores de 10K y 6K.",
+        "en": "Residential photovoltaic system of 40 panels with 10K and 6K inverters."
+      }
+    },
+    {
+      "id": "18",
+      "slug": "paseo-del-prado",
+      "category": "solar",
+      "location": "San Salvador",
+      "year": 2024,
+      "featured": false,
+      "image": "/images/proyectos/paseo-del-prado.webp",
+      "gallery": [],
+      "title": {
+        "es": "Paseo del Prado",
+        "en": "Paseo del Prado"
+      },
+      "description": {
+        "es": "Sistema solar de inyección a la red con más de 200 paneles para consumo comercial.",
+        "en": "Grid-tied solar system with over 200 panels for commercial consumption."
+      }
+    }
+  ]
+}

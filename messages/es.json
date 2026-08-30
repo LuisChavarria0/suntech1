@@ -10,13 +10,14 @@
     "back_projects": "Todos los proyectos",
     "go_home": "Ir al inicio",
     "contact_us": "Contactarnos",
+    "contact_cta": "Contáctanos",
     "years": "Años",
     "projects_label": "Proyectos",
     "services_label": "Servicios",
     "location": "Ubicación",
     "year": "Año",
     "category": "Categoría",
-    "calc_savings": "Calcular el ahorro"
+    "calc_savings": "Cotización preliminar"
   },
   "nav": {
     "home": "Inicio",
@@ -31,7 +32,8 @@
     "savings_prefix": "ahorra hasta un",
     "savings_highlight": "90%",
     "savings_suffix": "en tu factura eléctrica",
-    "cta_primary": "Cotizar",
+    "cta_primary": "Contáctanos",
+    "cta_quote": "Cotización preliminar",
     "cta_secondary": "Ver proyectos"
   },
   "stats": {
@@ -71,15 +73,15 @@
     "zonasolar_name": "Zona Solar"
   },
   "panels_showcase": {
-    "title_bold": "Más de 20,000.00",
-    "title_rest": "paneles solares instalados en todo El Salvador",
+    "title_bold": "Más de 20,000",
+    "title_rest": "paneles solares instalados.",
     "prev": "Anterior",
     "next": "Siguiente",
     "power_drill_specs": "200 paneles / 4 Inversores de 20K",
     "super_keny_specs": "84 paneles / 4 Inversores de 10K",
     "super_baratillo_specs": "290 paneles / 12 inversores de 10K",
     "ariana_reyes_specs": "40 paneles / 1 inversor de 10K y 6K",
-    "paseo_prado_specs": "20 paneles / 1 inversor de 15K"
+    "paseo_prado_specs": "+200 paneles"
   },
   "advantages": {
     "title": "Tus ventajas con SunTech",
@@ -351,11 +353,24 @@
   },
   "cotizador": {
     "modal_title": "Calcula el ahorro de tu sistema solar",
-    "modal_subtitle": "Ingresa el consumo promedio de tu factura eléctrica y te mostramos una propuesta estimada al instante.",
+    "modal_subtitle": "Ingresa el consumo más elevado de tu factura eléctrica y te mostramos una propuesta estimada al instante.",
     "close": "Cerrar",
-    "input_label": "Ingresar Consumo Promedio de Factura Eléctrica (Kwh, entre 30 días)",
+    "input_label": "Ingresar consumo más elevado de factura eléctrica",
     "input_placeholder": "Ej. 350",
     "load_error": "No se pudo cargar la configuración del cotizador. Intenta recargar la página.",
+    "receipt_help_title": "¿Cómo hacer una lectura correcta del recibo?",
+    "receipt_help_body": "kWh: Este dato lo puedes encontrar en la sección de barras de consumo de tu recibo de energía. Toma como referencia el mes con el consumo más alto, identificado en kWh (kilovatios hora). Consulta la imagen de ejemplo para ubicarlo fácilmente.",
+    "receipt_help_image_alt": "Ejemplo de recibo de energía señalando el consumo en kWh",
+    "connection_title": "¿Qué tipo de conexión eléctrica tiene tu inmueble?",
+    "connection_mono": "Monofásica",
+    "connection_tri": "Trifásica",
+    "connection_unknown": "No lo sé",
+    "connection_mono_info": "Es la más común en viviendas. Generalmente utiliza 2 cables (fase y neutro) y se emplea para consumos residenciales normales.",
+    "connection_tri_info": "Se utiliza en viviendas con alta demanda de energía, comercios e industrias. Generalmente utiliza 4 cables (3 fases y neutro) y permite alimentar equipos de mayor potencia.",
+    "connection_unknown_info": "No hay problema. Nuestro equipo lo verificará contigo durante la visita técnica.",
+    "connection_guide_show": "¿Cómo identifico mi tipo de conexión?",
+    "connection_guide_hide": "Ocultar guía",
+    "connection_guide_alt": "Guía para identificar el tipo de conexión eléctrica (página {page})",
     "panels_needed": "Paneles necesarios",
     "inverter_recommended": "Inversor recomendado",
     "total_estimated": "Total estimado",

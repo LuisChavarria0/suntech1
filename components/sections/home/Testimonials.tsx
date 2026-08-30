@@ -23,15 +23,15 @@ export async function Testimonials() {
   return (
     <section className="w-full bg-white">
       {/* Client logos marquee */}
-      <div className="container-tight py-6 flex items-center gap-8">
-        <p className="shrink-0 text-navy-700 font-semibold max-w-36">{t("clients_intro")}</p>
+      <div className="container-tight py-5 flex items-center gap-8">
+        <p className="shrink-0 text-navy-700 font-semibold text-lg max-w-40">{t("clients_intro")}</p>
         <MarqueeRow>
           {logos.map((name, i) => (
             <img
               key={name + i}
               src={`/logos/clientes/${name}.png`}
               alt={name}
-              className="h-20 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
           ))}
         </MarqueeRow>

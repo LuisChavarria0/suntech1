@@ -1,5 +1,88 @@
 {
   "entries": [
-    
+    {
+      "id": "9005c0b5-908e-4faf-8cc8-1ea17021870e",
+      "timestamp": "2026-08-30T08:03:10.193Z",
+      "username": "Ernesto",
+      "action": "update_projects",
+      "details": "Actualizó proyectos (19 → 18)"
+    },
+    {
+      "id": "d3dad079-5ed0-4fbe-ac69-4c1def4b342a",
+      "timestamp": "2026-08-30T08:01:26.208Z",
+      "username": "Ernesto",
+      "action": "update_projects",
+      "details": "Actualizó proyectos (18 → 19)"
+    },
+    {
+      "id": "8057fa7f-dfc8-4cad-92d8-dea360d45e82",
+      "timestamp": "2026-08-30T07:22:27.481Z",
+      "username": "Ernesto",
+      "action": "update_config",
+      "details": "Inversor GROWATT / HUAWEI / SYLVANIA 10KW — precio: 16600 → 1660"
+    },
+    {
+      "id": "4ee46602-9cce-4ef4-89a4-25a41b8b8d95",
+      "timestamp": "2026-08-30T07:22:14.495Z",
+      "username": "Ernesto",
+      "action": "update_config",
+      "details": "Inversor GROWATT / HUAWEI / SYLVANIA 10KW — precio: 1660 → 16600"
+    },
+    {
+      "id": "69609975-690b-4125-87bb-94339400eec6",
+      "timestamp": "2026-08-30T07:22:04.722Z",
+      "username": "Ernesto",
+      "action": "update_config",
+      "details": "Cable TSJ 3x10 — precio: 800.98 → 8.98"
+    },
+    {
+      "id": "3dbabf7c-464a-4bf1-b7f4-9a24486723b2",
+      "timestamp": "2026-08-30T07:21:55.479Z",
+      "username": "Ernesto",
+      "action": "update_config",
+      "details": "Cable TSJ 3x10 — precio: 8.98 → 800.98"
+    },
+    {
+      "id": "82075aeb-fe94-476f-b38d-e77d610e455c",
+      "timestamp": "2026-08-30T07:21:22.947Z",
+      "username": "suntech_admin",
+      "action": "change_password",
+      "details": "Cambió su contraseña"
+    },
+    {
+      "id": "aca154ca-a291-4f45-a1a4-2e9a4680313b",
+      "timestamp": "2026-08-30T07:20:55.219Z",
+      "username": "suntech_admin",
+      "action": "change_password",
+      "details": "Cambió su contraseña"
+    },
+    {
+      "id": "e707688c-8a81-4aa2-9aaf-dd7f27a36fc5",
+      "timestamp": "2026-08-30T07:15:49.942Z",
+      "username": "suntech_admin",
+      "action": "update_config",
+      "details": "Cable TSJ 3x10 — precio: 800.98 → 8.98; Cable TSJ 3x10 — cantidad fija: 52 → 5"
+    },
+    {
+      "id": "a7a9ec6f-2571-457b-ac65-715279228b01",
+      "timestamp": "2026-08-30T07:14:54.241Z",
+      "username": "suntech_admin",
+      "action": "update_config",
+      "details": "Cable TSJ 3x10 — precio: 8.98 → 800.98; Cable TSJ 3x10 — cantidad fija: 5 → 52"
+    },
+    {
+      "id": "0edccd7b-add2-4d1e-bee1-2fbb42aa6567",
+      "timestamp": "2026-08-30T07:14:18.336Z",
+      "username": "suntech_admin",
+      "action": "update_config",
+      "details": "Descuento especial: 300 → 0"
+    },
+    {
+      "id": "dfe507d0-4249-4608-8199-48c172f52d53",
+      "timestamp": "2026-08-30T07:13:41.860Z",
+      "username": "suntech_admin",
+      "action": "update_config",
+      "details": "Descuento especial: 0 → 300"
+    }
   ]
 }

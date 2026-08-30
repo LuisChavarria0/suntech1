@@ -10,13 +10,14 @@
     "back_projects": "All projects",
     "go_home": "Go home",
     "contact_us": "Contact us",
+    "contact_cta": "Contact us",
     "years": "Years",
     "projects_label": "Projects",
     "services_label": "Services",
     "location": "Location",
     "year": "Year",
     "category": "Category",
-    "calc_savings": "Calculate your savings"
+    "calc_savings": "Preliminary quote"
   },
   "nav": {
     "home": "Home",
@@ -31,7 +32,8 @@
     "savings_prefix": "save up to",
     "savings_highlight": "90%",
     "savings_suffix": "on your electric bill",
-    "cta_primary": "Get a quote",
+    "cta_primary": "Contact us",
+    "cta_quote": "Preliminary quote",
     "cta_secondary": "View projects"
   },
   "stats": {
@@ -72,14 +74,14 @@
   },
   "panels_showcase": {
     "title_bold": "Over 20,000",
-    "title_rest": "solar panels installed across El Salvador",
+    "title_rest": "solar panels installed.",
     "prev": "Previous",
     "next": "Next",
     "power_drill_specs": "200 panels / 4 20K inverters",
     "super_keny_specs": "84 panels / 4 10K inverters",
     "super_baratillo_specs": "290 panels / 12 10K inverters",
     "ariana_reyes_specs": "40 panels / 1 10K and 6K inverter",
-    "paseo_prado_specs": "20 panels / 1 15K inverter"
+    "paseo_prado_specs": "+200 panels"
   },
   "advantages": {
     "title": "Your advantages with SunTech",
@@ -351,11 +353,24 @@
   },
   "cotizador": {
     "modal_title": "Calculate your solar system savings",
-    "modal_subtitle": "Enter your average electric bill consumption and we'll show you an instant estimated proposal.",
+    "modal_subtitle": "Enter your highest electric bill consumption and we'll show you an instant estimated proposal.",
     "close": "Close",
-    "input_label": "Enter Average Electric Bill Consumption (Kwh, over 30 days)",
+    "input_label": "Enter your highest electric bill consumption",
     "input_placeholder": "E.g. 350",
     "load_error": "Couldn't load the quote calculator settings. Try reloading the page.",
+    "receipt_help_title": "How to read your bill correctly",
+    "receipt_help_body": "kWh: you can find this figure in the consumption bar chart section of your energy bill. Use the month with the highest consumption as your reference, shown in kWh (kilowatt-hours). Check the example image to locate it easily.",
+    "receipt_help_image_alt": "Example energy bill highlighting consumption in kWh",
+    "connection_title": "What type of electrical connection does your property have?",
+    "connection_mono": "Single-phase",
+    "connection_tri": "Three-phase",
+    "connection_unknown": "I don't know",
+    "connection_mono_info": "The most common in homes. It usually uses 2 wires (line and neutral) and is used for normal residential consumption.",
+    "connection_tri_info": "Used in homes with high energy demand, businesses and industry. It usually uses 4 wires (3 phases and neutral) and can power higher-output equipment.",
+    "connection_unknown_info": "No problem. Our team will verify it with you during the technical visit.",
+    "connection_guide_show": "How do I identify my connection type?",
+    "connection_guide_hide": "Hide guide",
+    "connection_guide_alt": "Guide to identify the electrical connection type (page {page})",
     "panels_needed": "Panels needed",
     "inverter_recommended": "Recommended inverter",
     "total_estimated": "Estimated total",

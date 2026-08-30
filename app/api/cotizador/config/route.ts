@@ -27,16 +27,24 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: "Configuración inválida" }, { status: 400 });
   }
 
-  const previousConfig = await readCotizadorConfig();
-  await writeCotizadorConfig(body);
+  try {
+    const previousConfig = await readCotizadorConfig();
+    await writeCotizadorConfig(body);
 
-  const changes = diffConfig(previousConfig, body);
-  if (changes.length > 0) {
-    await appendAuditLog({
-      username: session.username,
-      action: "update_config",
-      details: changes.join("; "),
-    });
+    const changes = diffConfig(previousConfig, body);
+    if (changes.length > 0) {
+      await appendAuditLog({
+        username: session.username,
+        action: "update_config",
+        details: changes.join("; "),
+      });
+    }
+  } catch (err) {
+    console.error("Failed to persist cotizador config", err);
+    return NextResponse.json(
+      { error: "No se pudo escribir la configuración en el servidor." },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json({ ok: true });

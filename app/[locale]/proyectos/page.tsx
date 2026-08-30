@@ -1,12 +1,17 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { ProjectsGridClientIntl } from "@/components/sections/projects/ProjectsGridClientIntl";
-import { PROJECTS } from "@/lib/data/projects";
+import { getProjects } from "@/lib/data/projects";
+import type { Locale } from "@/lib/data/projectsStore";
+
+export const dynamic = "force-dynamic";
 
 export default async function ProyectosPage() {
   const t = await getTranslations("projects_page");
+  const locale = (await getLocale()) as Locale;
+  const projects = await getProjects(locale);
 
   return (
     <>
@@ -24,7 +29,7 @@ export default async function ProyectosPage() {
 
       <section className="py-12 md:py-16 bg-white">
         <div className="container-tight">
-          <ProjectsGridClientIntl projects={PROJECTS} />
+          <ProjectsGridClientIntl projects={projects} />
         </div>
       </section>
 
