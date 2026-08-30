@@ -10,23 +10,22 @@ import { CTABanner } from "@/components/sections/home/CTABanner";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
-import { PROJECTS, getProjectBySlug } from "@/lib/data/projects";
+import { getProjectBySlug, getProjectsByCategory } from "@/lib/data/projects";
+import type { Locale } from "@/lib/data/projectsStore";
 import { WHATSAPP_URL } from "@/lib/data/company";
 import type { Project } from "@/lib/types";
+
+export const dynamic = "force-dynamic";
 
 const badgeVariant: Record<Project["category"], "gold" | "electric" | "eco"> = {
   solar: "gold", seguridad: "electric", tecnologia: "eco",
 };
 
-export async function generateStaticParams() {
-  return PROJECTS.map((p) => ({ slug: p.slug }));
-}
-
 export async function generateMetadata(
   props: PageProps<"/[locale]/proyectos/[slug]">
 ): Promise<Metadata> {
-  const { slug } = await props.params;
-  const project = getProjectBySlug(slug);
+  const { slug, locale } = await props.params;
+  const project = await getProjectBySlug(slug, locale as Locale);
   if (!project) return {};
   return { title: project.title, description: project.description };
 }
@@ -34,17 +33,17 @@ export async function generateMetadata(
 export default async function ProjectPage(
   props: PageProps<"/[locale]/proyectos/[slug]">
 ) {
-  const { slug } = await props.params;
-  const project = getProjectBySlug(slug);
+  const { slug, locale } = await props.params;
+  const project = await getProjectBySlug(slug, locale as Locale);
   if (!project) notFound();
 
   const t = await getTranslations("projects_page");
   const tc = await getTranslations("common");
   const tcat = await getTranslations("category");
 
-  const related = PROJECTS.filter(
-    (p) => p.category === project.category && p.slug !== project.slug
-  ).slice(0, 3);
+  const related = (await getProjectsByCategory(project.category, locale as Locale))
+    .filter((p) => p.slug !== project.slug)
+    .slice(0, 3);
 
   return (
     <>

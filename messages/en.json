@@ -74,14 +74,14 @@
   },
   "panels_showcase": {
     "title_bold": "Over 20,000",
-    "title_rest": "solar panels installed across El Salvador",
+    "title_rest": "solar panels installed.",
     "prev": "Previous",
     "next": "Next",
     "power_drill_specs": "200 panels / 4 20K inverters",
     "super_keny_specs": "84 panels / 4 10K inverters",
     "super_baratillo_specs": "290 panels / 12 10K inverters",
     "ariana_reyes_specs": "40 panels / 1 10K and 6K inverter",
-    "paseo_prado_specs": "20 panels / 1 15K inverter"
+    "paseo_prado_specs": "+200 panels"
   },
   "advantages": {
     "title": "Your advantages with SunTech",

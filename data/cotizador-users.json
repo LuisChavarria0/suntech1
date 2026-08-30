@@ -3,8 +3,8 @@
     {
       "id": "u-suntech-admin",
       "username": "suntech_admin",
-      "salt": "fc2903797d31a155fb38122f53368a03",
-      "passwordHash": "a9272ba7a27fa4c1cecd19fa4c57094fa1ec66f3891bb33fc8927d25be82c2dbb454bf1a90aa1182187799684bbf3a09b1849d3396b05f488445d4b54c894c03",
+      "salt": "458a060cdd2ec99affe4b0758590735d",
+      "passwordHash": "9d0d483501ffffc1e3de0837bd9066943cb8dd5ec8d9cff3e92a21290b45b9274fc668ca2390480b40bec0a992b1d9ca74f929f46d583a0c17e16c9a1ced0992",
       "role": "super_admin",
       "disabled": false,
       "createdAt": "2026-08-15T00:00:00.000Z",

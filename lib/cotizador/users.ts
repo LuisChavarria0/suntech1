@@ -102,6 +102,29 @@ export async function createUser(input: {
   return toPublicUser(user);
 }
 
+export async function changePassword(
+  id: string,
+  currentPassword: string,
+  newPassword: string
+): Promise<void> {
+  const data = await readUsersFile();
+  const user = data.users.find((u) => u.id === id);
+  if (!user) {
+    throw new Error("USER_NOT_FOUND");
+  }
+  if (!verifyPassword(currentPassword, user.salt, user.passwordHash)) {
+    throw new Error("BAD_CURRENT_PASSWORD");
+  }
+  if (!newPassword || newPassword.length < 8) {
+    throw new Error("PASSWORD_TOO_SHORT");
+  }
+
+  const { salt, hash } = hashPassword(newPassword);
+  user.salt = salt;
+  user.passwordHash = hash;
+  await writeUsersFile(data);
+}
+
 export async function setUserDisabled(id: string, disabled: boolean): Promise<PublicUser> {
   const data = await readUsersFile();
   const user = data.users.find((u) => u.id === id);

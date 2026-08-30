@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { ArrowRight, MapPin } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { Link } from "@/i18n/navigation";
 import { getFeaturedProjects } from "@/lib/data/projects";
+import type { Locale } from "@/lib/data/projectsStore";
 import type { Project } from "@/lib/types";
 
 const badgeVariant: Record<Project["category"], "gold" | "electric" | "eco"> = {
@@ -15,7 +16,7 @@ const badgeVariant: Record<Project["category"], "gold" | "electric" | "eco"> = {
 export async function FeaturedProjects() {
   const t = await getTranslations("projects_section");
   const tc = await getTranslations("category");
-  const projects = getFeaturedProjects();
+  const projects = await getFeaturedProjects((await getLocale()) as Locale);
 
   return (
     <section className="section-padding bg-white">

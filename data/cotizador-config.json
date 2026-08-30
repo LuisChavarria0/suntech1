@@ -41,61 +41,49 @@
       "capacityKw": 10,
       "maxPanels": 24,
       "productId": "inv-10k"
-    },
-    {
-      "capacityLabel": "20K",
-      "capacityKw": 20,
-      "maxPanels": 48,
-      "productId": "inv-20k"
     }
   ],
   "products": [
     {
       "id": "inv-3k",
       "name": "Inversor GROWATT / HUAWEI / SYLVANIA 3KW",
-      "unitPrice": 1135,
+      "unitPrice": 1025,
       "category": "inverter"
     },
     {
       "id": "inv-4k",
       "name": "Inversor GROWATT / HUAWEI / SYLVANIA 4KW",
-      "unitPrice": 1372.32,
+      "unitPrice": 1200,
       "category": "inverter"
     },
     {
       "id": "inv-5k",
       "name": "Inversor GROWATT / HUAWEI / SYLVANIA 5KW",
-      "unitPrice": 1395.63,
+      "unitPrice": 1275,
       "category": "inverter"
     },
     {
       "id": "inv-6k",
       "name": "Inversor GROWATT / HUAWEI / SYLVANIA 6KW",
-      "unitPrice": 1479.3,
+      "unitPrice": 1379,
       "category": "inverter"
     },
     {
       "id": "inv-8k",
       "name": "Inversor GROWATT / HUAWEI / SYLVANIA 8KW",
-      "unitPrice": 1705,
+      "unitPrice": 1605,
       "category": "inverter"
     },
     {
       "id": "inv-10k",
       "name": "Inversor GROWATT / HUAWEI / SYLVANIA 10KW",
-      "unitPrice": 1860,
-      "category": "inverter"
-    },
-    {
-      "id": "inv-20k",
-      "name": "Inversor GROWATT / HUAWEI / SYLVANIA 20KW",
-      "unitPrice": 5070.57,
+      "unitPrice": 1660,
       "category": "inverter"
     },
     {
       "id": "panel-620w",
       "name": "Panel Solar 620W Jinko/ Longi/ JA solar / Trina / Sunshine",
-      "unitPrice": 210,
+      "unitPrice": 190,
       "category": "panel"
     },
     {
@@ -178,7 +166,7 @@
     {
       "id": "riel",
       "name": "Riel para paneles de aluminio",
-      "unitPrice": 48,
+      "unitPrice": 45,
       "category": "scaling",
       "ratioPerPanel": 0.5
     },
@@ -339,7 +327,7 @@
     {
       "id": "mano-obra",
       "name": "Mano de Obra por panel",
-      "unitPrice": 75,
+      "unitPrice": 60,
       "category": "scaling",
       "ratioPerPanel": 1
     },
@@ -348,12 +336,6 @@
       "name": "Trámite UPR de conexión AES o DELSUR (media tensión)",
       "unitPrice": 650,
       "category": "permit-media"
-    },
-    {
-      "id": "tramite-baja",
-      "name": "Trámite UPR de conexión AES o DELSUR (baja tensión)",
-      "unitPrice": 578,
-      "category": "permit-baja"
     }
   ]
 }
