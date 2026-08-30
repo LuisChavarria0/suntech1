@@ -102,6 +102,7 @@ export function CotizadorCalculator() {
         name: clientName.trim(),
         address: clientAddress.trim(),
         phone: clientPhone.trim(),
+        connection,
       });
       const url = URL.createObjectURL(blob);
       const stamp = new Intl.DateTimeFormat("sv-SE", {

@@ -12,10 +12,13 @@ const currency = new Intl.NumberFormat("es-SV", {
 
 export type Locale = "es" | "en";
 
+export type ConnectionType = "mono" | "tri" | "unknown";
+
 export interface ClientInfo {
   name: string;
   address: string;
   phone: string;
+  connection?: ConnectionType | null;
 }
 
 interface DescSegment {
@@ -31,6 +34,8 @@ const LABELS: Record<
     clientName: string;
     clientAddress: string;
     clientPhone: string;
+    connectionLabel: string;
+    connectionValue: Record<ConnectionType, string>;
     systemAmount: string;
     consumptionBanner: (kwh: number) => string;
     headerNote: string;
@@ -43,6 +48,8 @@ const LABELS: Record<
     clientName: "Nombre del cliente",
     clientAddress: "Dirección del cliente",
     clientPhone: "Teléfono del cliente",
+    connectionLabel: "Tipo de conexión eléctrica",
+    connectionValue: { mono: "Monofásica", tri: "Trifásica", unknown: "No lo sé" },
     systemAmount: "Monto total del sistema",
     consumptionBanner: (kwh) =>
       `Sistema fotovoltaico, proyectado según el consumo de los últimos 6 meses: ${kwh} kWh`,
@@ -74,6 +81,8 @@ const LABELS: Record<
     clientName: "Client name",
     clientAddress: "Client address",
     clientPhone: "Client phone",
+    connectionLabel: "Electrical connection type",
+    connectionValue: { mono: "Single-phase", tri: "Three-phase", unknown: "Not sure" },
     systemAmount: "Total system amount",
     consumptionBanner: (kwh) =>
       `Solar system, projected from the last 6 months of consumption: ${kwh} kWh`,
@@ -101,14 +110,18 @@ const LABELS: Record<
   },
 };
 
-// Exact letterhead template (public/cotizardor/quote-letterhead.png), traced from the
-// approved reference PDF. Fractions below are pixel-measured against that image's
-// 2481x3509 canvas so the overlay text lands precisely in its blank slots.
-const LETTERHEAD_URL = "/cotizardor/quote-letterhead.jpg";
+// Exact letterhead template (public/cotizardor/coti-membrete.jpg — new membrete,
+// same layout as the previous one). Fractions below are pixel-measured against the
+// A4 canvas so the overlay text lands precisely in its blank slots. Verified: the
+// blue banner (0.380–0.429), orange table header (0.442–0.463) and cost box
+// (0.583–0.620) sit at the same fractions as the prior template.
+const LETTERHEAD_URL = "/cotizardor/coti-membrete.jpg";
 
 const MARGIN_X_FRAC = 0.1;
-const HEADER_BOTTOM_FRAC = 0.1114;
-const BADGE_LEFT_FRAC = 0.728;
+// The new membrete prints a "Cotización válida por 15 días…" note in the top-right
+// gap, so the overlaid title/client block starts lower and stays narrow to clear it.
+const CONTENT_TOP_FRAC = 0.17;
+const CONTENT_RIGHT_FRAC = 0.56;
 const BANNER_TOP_FRAC = 0.3785;
 const BANNER_BOTTOM_FRAC = 0.4312;
 const PRODUCT_COL_RIGHT_FRAC = 0.5829;
@@ -187,8 +200,8 @@ export async function generateQuotePdf(
   doc.addImage(letterhead, "JPEG", 0, 0, pageWidth, pageHeight, undefined, "NONE");
 
   // --- Title + subtitle (blank gap between header and consumption banner) ---
-  const titleWidth = BADGE_LEFT_FRAC * pageWidth - margin - 20;
-  let cursorY = HEADER_BOTTOM_FRAC * pageHeight + 26;
+  const titleWidth = CONTENT_RIGHT_FRAC * pageWidth - margin;
+  let cursorY = CONTENT_TOP_FRAC * pageHeight;
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(15);
@@ -214,6 +227,9 @@ export async function generateQuotePdf(
     [t.clientName, client.name || "—"],
     [t.clientAddress, client.address || "—"],
     [t.clientPhone, client.phone || "—"],
+    ...(client.connection
+      ? ([[t.connectionLabel, t.connectionValue[client.connection]]] as [string, string][])
+      : []),
     [t.systemAmount, currency.format(quote.total)],
   ];
   clientRows.forEach(([label, value]) => {
