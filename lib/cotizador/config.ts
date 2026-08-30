@@ -1,5 +1,4 @@
-import fs from "node:fs/promises";
-import path from "node:path";
+import { readJson, writeJson } from "./jsonStore";
 
 export type ProductCategory =
   | "panel"
@@ -38,13 +37,18 @@ export interface CotizadorConfig {
   products: ProductItem[];
 }
 
-const CONFIG_PATH = path.join(process.cwd(), "data", "cotizador-config.json");
+const KEY = "cotizador-config";
+const FILE = "cotizador-config.json";
 
 export async function readCotizadorConfig(): Promise<CotizadorConfig> {
-  const raw = await fs.readFile(CONFIG_PATH, "utf-8");
-  return JSON.parse(raw) as CotizadorConfig;
+  return readJson<CotizadorConfig>(KEY, FILE, {
+    formula: { hsp: 6, safetyFactor: 1.2, panelWattage: 620 },
+    discount: 0,
+    inverterTiers: [],
+    products: [],
+  });
 }
 
 export async function writeCotizadorConfig(config: CotizadorConfig): Promise<void> {
-  await fs.writeFile(CONFIG_PATH, JSON.stringify(config, null, 2) + "\n", "utf-8");
+  await writeJson(KEY, FILE, config);
 }

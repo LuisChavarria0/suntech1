@@ -1,6 +1,5 @@
-import fs from "node:fs/promises";
-import path from "node:path";
 import crypto from "node:crypto";
+import { readJson, writeJson } from "./jsonStore";
 
 export type UserRole = "super_admin" | "editor";
 
@@ -17,21 +16,21 @@ export interface CotizadorUser {
 
 export type PublicUser = Omit<CotizadorUser, "salt" | "passwordHash">;
 
-const USERS_PATH = path.join(process.cwd(), "data", "cotizador-users.json");
+const KEY = "cotizador-users";
+const FILE = "cotizador-users.json";
 
 interface UsersFile {
   users: CotizadorUser[];
 }
 
 async function readUsersFile(): Promise<UsersFile> {
-  const raw = await fs.readFile(USERS_PATH, "utf-8");
-  const data = JSON.parse(raw) as UsersFile;
-  data.users = data.users.map((u) => ({ ...u, disabled: u.disabled ?? false }));
+  const data = await readJson<UsersFile>(KEY, FILE, { users: [] });
+  data.users = (data.users ?? []).map((u) => ({ ...u, disabled: u.disabled ?? false }));
   return data;
 }
 
 async function writeUsersFile(data: UsersFile): Promise<void> {
-  await fs.writeFile(USERS_PATH, JSON.stringify(data, null, 2), "utf-8");
+  await writeJson(KEY, FILE, data);
 }
 
 function hashPassword(password: string, salt: string = crypto.randomBytes(16).toString("hex")) {

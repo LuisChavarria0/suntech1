@@ -1,6 +1,5 @@
-import fs from "node:fs/promises";
-import path from "node:path";
 import crypto from "node:crypto";
+import { readJson, writeJson } from "./jsonStore";
 
 export interface AuditLogEntry {
   id: string;
@@ -10,7 +9,8 @@ export interface AuditLogEntry {
   details: string;
 }
 
-const LOG_PATH = path.join(process.cwd(), "data", "cotizador-audit-log.json");
+const KEY = "cotizador-audit-log";
+const FILE = "cotizador-audit-log.json";
 const MAX_ENTRIES = 500;
 
 interface LogFile {
@@ -18,16 +18,11 @@ interface LogFile {
 }
 
 async function readLogFile(): Promise<LogFile> {
-  try {
-    const raw = await fs.readFile(LOG_PATH, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    return { entries: [] };
-  }
+  return readJson<LogFile>(KEY, FILE, { entries: [] });
 }
 
 async function writeLogFile(data: LogFile): Promise<void> {
-  await fs.writeFile(LOG_PATH, JSON.stringify(data, null, 2), "utf-8");
+  await writeJson(KEY, FILE, data);
 }
 
 export async function appendAuditLog(entry: {

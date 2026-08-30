@@ -19,6 +19,38 @@ const CATEGORY_LABEL: Record<string, string> = {
   tecnologia: "Tecnología",
 };
 
+const MAX_DIM = 1600;
+const WEBP_QUALITY = 0.8;
+
+// Resize + convert to WebP in the browser so uploads stay tiny and the server
+// route never needs sharp (and never hits Vercel's 4.5 MB upload limit).
+async function compressImage(file: File): Promise<File> {
+  const bitmap = await new Promise<HTMLImageElement>((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = URL.createObjectURL(file);
+  });
+
+  const scale = Math.min(1, MAX_DIM / Math.max(bitmap.width, bitmap.height));
+  const w = Math.round(bitmap.width * scale);
+  const h = Math.round(bitmap.height * scale);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("no-canvas");
+  ctx.drawImage(bitmap, 0, 0, w, h);
+  URL.revokeObjectURL(bitmap.src);
+
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob(resolve, "image/webp", WEBP_QUALITY)
+  );
+  if (!blob) throw new Error("no-blob");
+  return new File([blob], file.name.replace(/\.[^.]+$/, "") + ".webp", { type: "image/webp" });
+}
+
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -461,8 +493,14 @@ function UploadButton({
     const paths: string[] = [];
     try {
       for (const file of picked) {
+        let toSend = file;
+        try {
+          toSend = await compressImage(file);
+        } catch {
+          // Fall back to the original file (e.g. HEIC the browser can't decode).
+        }
         const body = new FormData();
-        body.append("file", file);
+        body.append("file", toSend);
         const res = await fetch("/api/cotizador/upload", { method: "POST", body });
         const data = await res.json().catch(() => null);
         if (!res.ok) throw new Error(data?.error ?? "Error al subir");

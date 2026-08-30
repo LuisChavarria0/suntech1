@@ -3,6 +3,14 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  // Keep sharp's native libvips binaries out of the serverless bundle.
+  serverExternalPackages: ["sharp"],
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
+    ],
+  },
+};
 
 export default withNextIntl(nextConfig);

@@ -1,5 +1,4 @@
-import fs from "node:fs/promises";
-import path from "node:path";
+import { readJson, writeJson } from "@/lib/cotizador/jsonStore";
 import { normalizeProjectRecord, type ProjectRecord } from "./projectTypes";
 
 export {
@@ -13,18 +12,14 @@ interface ProjectsFile {
   projects: ProjectRecord[];
 }
 
-const PROJECTS_PATH = path.join(process.cwd(), "data", "projects.json");
+const KEY = "projects";
+const FILE = "projects.json";
 
 export async function readProjectRecords(): Promise<ProjectRecord[]> {
-  const raw = await fs.readFile(PROJECTS_PATH, "utf-8");
-  const data = JSON.parse(raw) as ProjectsFile;
+  const data = await readJson<ProjectsFile>(KEY, FILE, { projects: [] });
   return (data.projects ?? []).map(normalizeProjectRecord);
 }
 
 export async function writeProjectRecords(projects: ProjectRecord[]): Promise<void> {
-  await fs.writeFile(
-    PROJECTS_PATH,
-    JSON.stringify({ projects: projects.map(normalizeProjectRecord) }, null, 2) + "\n",
-    "utf-8"
-  );
+  await writeJson(KEY, FILE, { projects: projects.map(normalizeProjectRecord) });
 }
