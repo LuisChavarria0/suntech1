@@ -19,9 +19,9 @@ const RECEIPT_EXAMPLE_IMG = "/images/kWh.png";
 
 // Infographic pages explaining how to identify a single/three-phase supply.
 const CONNECTION_GUIDE_IMGS = [
-  "/images/info-coti1.png",
-  "/images/info-coti2.png",
-  "/images/info-coti3.png",
+  "/images/info-coti1.webp",
+  "/images/info-coti2.webp",
+  "/images/info-coti3.webp",
 ];
 
 const CONNECTION_OPTIONS = ["mono", "tri", "unknown"] as const;

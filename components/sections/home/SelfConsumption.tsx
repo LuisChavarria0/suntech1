@@ -55,7 +55,7 @@ export function SelfConsumption() {
         {/* Image */}
         <div className="relative min-h-[300px] md:min-h-0 overflow-hidden">
           <Image
-            src="/fotografias/paneles-soluciones.png"
+            src="/fotografias/paneles-soluciones.webp"
             alt={t("homes_title")}
             fill
             className="object-cover object-[50%_75%] scale-125"
