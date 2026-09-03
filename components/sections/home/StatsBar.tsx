@@ -7,7 +7,7 @@ export async function StatsBar() {
 
   const stats = [
     { value: 10, suffix: "+", label: t("years") },
-    { value: 109, suffix: "+", label: t("projects") },
+    { value: 20000, suffix: "+", label: t("projects") },
     { value: 3, suffix: "", label: t("services") },
   ];
 

@@ -38,7 +38,7 @@
   },
   "stats": {
     "years": "Años de experiencia",
-    "projects": "Proyectos completados",
+    "projects": "Paneles instalados",
     "services": "Líneas de servicio",
     "commitment": "Compromiso nacional"
   },
@@ -65,11 +65,12 @@
     "business_desc": "Reduce tus costos operativos y aumenta la competitividad de tu negocio."
   },
   "recommendations": {
-    "eyebrow": "Recomendados por nuestros clientes",
+    "eyebrow": "La confianza de nuestros clientes y aliados nos respalda",
     "title": "Contamos con recomendaciones",
     "cta": "Ver carta",
+    "cta_plural": "Ver cartas",
     "close": "Cerrar",
-    "textufil_name": "TEXTUFIL, S.A. DE C.V.",
+    "cartas_name": "Cartas de recomendación:",
     "zonasolar_name": "Zona Solar"
   },
   "panels_showcase": {
@@ -172,14 +173,14 @@
     "contact_col": "Contacto",
     "copyright": "Todos los derechos reservados.",
     "tagline": "El Salvador — Energía, Seguridad & Tecnología",
-    "description": "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas."
+    "description": "Con más de 10 años de experiencia y más de 20,000 paneles instalados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas."
   },
   "about": {
     "eyebrow": "Quiénes somos",
     "title": "Más de una década",
     "title_highlight": "transformando",
     "title_end": "El Salvador",
-    "description": "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
+    "description": "Con más de 10 años de experiencia y más de 20,000 paneles instalados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
     "mission_title": "Misión",
     "mission": "Ofrecer soluciones a la medida integrando tecnologías que se adaptan a la necesidad de todos nuestros clientes.",
     "vision_title": "Visión",
@@ -200,7 +201,7 @@
     "diff5": "Garantía en todos nuestros proyectos",
     "diff6": "Cobertura en todo El Salvador",
     "stat1_label": "Años de experiencia",
-    "stat2_label": "Proyectos entregados",
+    "stat2_label": "Paneles instalados",
     "stat3_label": "Líneas de servicio",
     "stat4_label": "Compromiso con calidad"
   },
@@ -231,7 +232,7 @@
     "eyebrow": "Portafolio",
     "title": "Proyectos que demuestran",
     "title_highlight": "nuestra experiencia",
-    "description": "Más de 109 proyectos completados en todo El Salvador. Energía solar, seguridad electrónica y tecnología al servicio de comunidades y empresas.",
+    "description": "Más de 20,000 paneles instalados en todo El Salvador. Energía solar, seguridad electrónica y tecnología al servicio de comunidades y empresas.",
     "filter_all": "Todos",
     "filter_solar": "Energía Solar",
     "filter_security": "Seguridad",
@@ -255,7 +256,7 @@
     "email_label": "Email",
     "email_desc": "Respuesta en menos de 24 horas",
     "office_label": "Oficina",
-    "office_desc": "Visítanos en persona",
+    "office_desc": "Visítanos y descubre todo lo que tenemos para ti.",
     "hours_title": "Horario de atención",
     "hours_weekdays": "Lunes a jueves",
     "hours_weekdays_time": "7:30 AM – 5:30 PM",
@@ -339,7 +340,7 @@
     "e6_year": "2021", "e6_title": "Línea de tecnología", "e6_desc": "Lanzamos la división de hardware, software y soporte técnico empresarial, completando nuestras tres líneas estratégicas.",
     "e7_year": "2022", "e7_title": "Más de 50 proyectos", "e7_desc": "Superamos los 50 proyectos entregados en todo El Salvador, consolidando nuestra posición como referentes del sector.",
     "e8_year": "2023", "e8_title": "Tecnología 5G", "e8_desc": "Implementamos centros de monitoreo solar con conectividad 5G en Los Chorros, siendo pioneros en esta tecnología en el país.",
-    "e9_year": "2024", "e9_title": "109+ proyectos", "e9_desc": "Superamos los 109 proyectos completados en todo el territorio nacional, con presencia en San Salvador, Sonsonate, Santa Ana y más.",
+    "e9_year": "2024", "e9_title": "20,000+ paneles", "e9_desc": "Superamos los 20,000 paneles instalados en todo el territorio nacional, con presencia en San Salvador, Sonsonate, Santa Ana y más.",
     "e10_year": "2025", "e10_title": "Expansión digital", "e10_desc": "Lanzamos nuestra plataforma digital y fortalecemos la presencia en línea para atender a más clientes en toda Centroamérica.",
     "e11_year": "2026", "e11_title": "Líderes regionales", "e11_desc": "Continuamos creciendo como referente en energía solar y tecnología, con nuevos proyectos de mayor envergadura e impacto para El Salvador."
   },

@@ -24,7 +24,7 @@ export const SOCIAL_LINKS = {
 
 export const STATS: CompanyStat[] = [
   { value: 10, suffix: "+", label: "Años de experiencia" },
-  { value: 109, suffix: "+", label: "Proyectos completados" },
+  { value: 20000, suffix: "+", label: "Paneles instalados" },
   { value: 3, suffix: "", label: "Líneas de servicio" },
   { value: 100, suffix: "%", label: "Compromiso nacional" },
 ];
@@ -67,7 +67,7 @@ export const COMPANY_INFO = {
   vision:
     "Revolucionar el acceso a la energía con soluciones sostenibles que promueven un futuro más eficiente para El Salvador.",
   description:
-    "Con más de 10 años de experiencia y más de 109 proyectos completados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
+    "Con más de 10 años de experiencia y más de 20,000 paneles instalados, somos líderes en energía solar, seguridad electrónica y tecnología en El Salvador. Integramos tres áreas estratégicas para ofrecer soluciones completas y personalizadas.",
   logoUrl: "/logos/logo-suntech.png",
   registryNumber: "338052-3",
   nit: "0614-141123-109-1",

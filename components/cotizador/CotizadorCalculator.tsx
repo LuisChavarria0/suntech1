@@ -252,11 +252,11 @@ export function CotizadorCalculator() {
             </div>
           </div>
 
-          {quote.exceedsStandardCapacity && (
+          {/* {quote.exceedsStandardCapacity && (
             <div className="rounded-xl bg-gold-500/10 border border-gold-500/30 text-navy-900 text-sm p-4">
               {t("exceeds_capacity")}
             </div>
-          )}
+          )} */}
 
           {/* Mobile: stacked cards */}
           <div className="card-base divide-y divide-slate-100 sm:hidden">

@@ -38,7 +38,7 @@
   },
   "stats": {
     "years": "Years of experience",
-    "projects": "Completed projects",
+    "projects": "Installed panels",
     "services": "Service lines",
     "commitment": "National commitment"
   },
@@ -65,11 +65,12 @@
     "business_desc": "Cut your operating costs and boost your business's competitiveness."
   },
   "recommendations": {
-    "eyebrow": "Recommended by our clients",
+    "eyebrow": "Backed by the trust of our clients and partners",
     "title": "We have recommendation letters",
     "cta": "View letter",
+    "cta_plural": "View letters",
     "close": "Close",
-    "textufil_name": "TEXTUFIL, S.A. DE C.V.",
+    "cartas_name": "Recommendation letters:",
     "zonasolar_name": "Zona Solar"
   },
   "panels_showcase": {
@@ -172,14 +173,14 @@
     "contact_col": "Contact",
     "copyright": "All rights reserved.",
     "tagline": "El Salvador — Energy, Security & Technology",
-    "description": "With more than 10 years of experience and over 109 completed projects, we are leaders in solar energy, electronic security, and technology in El Salvador. We integrate three strategic areas to offer complete, personalized solutions."
+    "description": "With more than 10 years of experience and over 20,000 installed panels, we are leaders in solar energy, electronic security, and technology in El Salvador. We integrate three strategic areas to offer complete, personalized solutions."
   },
   "about": {
     "eyebrow": "Who we are",
     "title": "Over a decade",
     "title_highlight": "transforming",
     "title_end": "El Salvador",
-    "description": "With more than 10 years of experience and over 109 completed projects, we are leaders in solar energy, electronic security, and technology in El Salvador. We integrate three strategic areas to offer complete, personalized solutions.",
+    "description": "With more than 10 years of experience and over 20,000 installed panels, we are leaders in solar energy, electronic security, and technology in El Salvador. We integrate three strategic areas to offer complete, personalized solutions.",
     "mission_title": "Mission",
     "mission": "To offer tailored solutions by integrating technologies that adapt to the needs of all our clients.",
     "vision_title": "Vision",
@@ -200,7 +201,7 @@
     "diff5": "Warranty on all our projects",
     "diff6": "Coverage throughout El Salvador",
     "stat1_label": "Years of experience",
-    "stat2_label": "Projects delivered",
+    "stat2_label": "Installed panels",
     "stat3_label": "Service lines",
     "stat4_label": "Commitment to quality"
   },
@@ -231,7 +232,7 @@
     "eyebrow": "Portfolio",
     "title": "Projects that demonstrate",
     "title_highlight": "our experience",
-    "description": "Over 109 completed projects throughout El Salvador. Solar energy, electronic security and technology serving communities and businesses.",
+    "description": "Over 20,000 installed panels throughout El Salvador. Solar energy, electronic security and technology serving communities and businesses.",
     "filter_all": "All",
     "filter_solar": "Solar Energy",
     "filter_security": "Security",
@@ -255,7 +256,7 @@
     "email_label": "Email",
     "email_desc": "Response within 24 hours",
     "office_label": "Office",
-    "office_desc": "Visit us in person",
+    "office_desc": "Visit us and discover everything we have for you.",
     "hours_title": "Business hours",
     "hours_weekdays": "Monday to Thursday",
     "hours_weekdays_time": "7:30 AM – 5:30 PM",
@@ -339,7 +340,7 @@
     "e6_year": "2021", "e6_title": "Technology division", "e6_desc": "We launched the hardware, software and enterprise technical support division, completing our three strategic lines.",
     "e7_year": "2022", "e7_title": "Over 50 projects", "e7_desc": "We surpassed 50 delivered projects throughout El Salvador, consolidating our position as sector leaders.",
     "e8_year": "2023", "e8_title": "5G Technology", "e8_desc": "We implemented solar monitoring centers with 5G connectivity in Los Chorros, pioneering this technology in the country.",
-    "e9_year": "2024", "e9_title": "109+ projects", "e9_desc": "We surpassed 109 completed projects nationwide, with presence in San Salvador, Sonsonate, Santa Ana and beyond.",
+    "e9_year": "2024", "e9_title": "20,000+ panels", "e9_desc": "We surpassed 20,000 installed panels nationwide, with presence in San Salvador, Sonsonate, Santa Ana and beyond.",
     "e10_year": "2025", "e10_title": "Digital expansion", "e10_desc": "We launched our digital platform and strengthened our online presence to serve more clients throughout Central America.",
     "e11_year": "2026", "e11_title": "Regional leaders", "e11_desc": "We continue growing as a benchmark in solar energy and technology, with new large-scale, high-impact projects for El Salvador."
   },

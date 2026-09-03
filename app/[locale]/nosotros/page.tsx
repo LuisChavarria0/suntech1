@@ -33,7 +33,7 @@ export default async function NosotrosPage() {
 
   const diffStats = [
     { value: "10+", label: t("stat1_label"), color: "gold" },
-    { value: "109+", label: t("stat2_label"), color: "electric" },
+    { value: "20,000+", label: t("stat2_label"), color: "electric" },
     { value: "3", label: t("stat3_label"), color: "eco" },
     { value: "100%", label: t("stat4_label"), color: "gold" },
   ];
