@@ -10,6 +10,7 @@ import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { SERVICES, getServiceBySlug } from "@/lib/data/services";
 import { WHATSAPP_URL } from "@/lib/data/company";
+import { pageMetadata, type Locale } from "@/lib/seo";
 
 const IconMap = { Sun, Shield, Cpu } as Record<string, React.ComponentType<{ className?: string }>>;
 
@@ -32,10 +33,18 @@ export async function generateStaticParams() {
 export async function generateMetadata(
   props: PageProps<"/[locale]/servicios/[slug]">
 ): Promise<Metadata> {
-  const { slug } = await props.params;
+  const { slug, locale } = await props.params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
-  return { title: service.title };
+  const key = slugToKey[slug] ?? "solar";
+  const ts = await getTranslations({ locale, namespace: "services_data" });
+  return pageMetadata({
+    locale: locale as Locale,
+    path: `/servicios/${slug}`,
+    title: ts(`${key}.title`),
+    description: ts(`${key}.description`),
+    images: [{ url: service.image, width: 1200, height: 630, alt: ts(`${key}.title`) }],
+  });
 }
 
 export default async function ServicePage(

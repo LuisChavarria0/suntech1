@@ -26,6 +26,12 @@
     "projects": "Proyectos",
     "contact": "Contacto"
   },
+  "seo": {
+    "default_title": "Grupo Suntech | Energía Solar y Tecnología en El Salvador",
+    "default_description": "Líderes en energía solar fotovoltaica, seguridad electrónica y tecnología en El Salvador. Más de 10 años diseñando soluciones a la medida para empresas y hogares.",
+    "home_title": "Paneles solares en El Salvador | Ahorra hasta 90%",
+    "home_description": "Instalamos paneles solares, seguridad electrónica y soluciones tecnológicas en toda El Salvador. Más de 10 años de experiencia y 20,000+ paneles instalados. Cotiza gratis."
+  },
   "hero": {
     "title1": "Paneles solares",
     "title2": "en El Salvador",

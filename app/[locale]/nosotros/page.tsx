@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { CheckCircle2, Target, Eye, Users, Zap, TrendingUp } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
 import { AnimatedTimeline } from "@/components/sections/nosotros/AnimatedTimeline";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
+import { pageMetadata, type Locale } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Nosotros" };
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("about");
+  return pageMetadata({
+    locale,
+    path: "/nosotros",
+    title: `${t("title")} ${t("title_highlight")} ${t("title_end")}`,
+    description: t("description"),
+  });
 }
 
 const IconMap = { Users, Zap, TrendingUp, Target, Eye } as Record<

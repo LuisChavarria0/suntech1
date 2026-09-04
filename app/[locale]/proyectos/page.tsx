@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { CTABanner } from "@/components/sections/home/CTABanner";
@@ -5,8 +6,20 @@ import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { ProjectsGridClientIntl } from "@/components/sections/projects/ProjectsGridClientIntl";
 import { getProjects } from "@/lib/data/projects";
 import type { Locale } from "@/lib/data/projectsStore";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("projects_page");
+  return pageMetadata({
+    locale,
+    path: "/proyectos",
+    title: `${t("title")} ${t("title_highlight")}`,
+    description: t("description"),
+  });
+}
 
 export default async function ProyectosPage() {
   const t = await getTranslations("projects_page");

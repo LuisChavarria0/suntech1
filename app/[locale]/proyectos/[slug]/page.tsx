@@ -14,6 +14,7 @@ import { getProjectBySlug, getProjectsByCategory } from "@/lib/data/projects";
 import type { Locale } from "@/lib/data/projectsStore";
 import { WHATSAPP_URL } from "@/lib/data/company";
 import type { Project } from "@/lib/types";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,13 @@ export async function generateMetadata(
   const { slug, locale } = await props.params;
   const project = await getProjectBySlug(slug, locale as Locale);
   if (!project) return {};
-  return { title: project.title, description: project.description };
+  return pageMetadata({
+    locale: locale as Locale,
+    path: `/proyectos/${slug}`,
+    title: project.title,
+    description: project.description,
+    images: [{ url: project.image, width: 1200, height: 630, alt: project.title }],
+  });
 }
 
 export default async function ProjectPage(
