@@ -4,7 +4,9 @@ import { getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Link } from "@/i18n/navigation";
 import { TestimonialVideo } from "@/components/sections/home/TestimonialVideo";
+import { TestimonialsMoreModal } from "@/components/sections/home/TestimonialsMoreModal";
 import { MarqueeRow } from "@/components/ui/MarqueeRow";
+import { readTestimonialVideos } from "@/lib/data/testimonialVideos";
 
 function getClientLogos(): string[] {
   const dir = path.join(process.cwd(), "public", "logos", "clientes");
@@ -18,6 +20,7 @@ function getClientLogos(): string[] {
 export async function Testimonials() {
   const t = await getTranslations("testimonials");
   const clientLogos = getClientLogos();
+  const videos = await readTestimonialVideos();
   const logos = [...clientLogos, ...clientLogos];
 
   return (
@@ -56,6 +59,8 @@ export async function Testimonials() {
           >
             {t("cta")}
           </Link>
+
+          <TestimonialsMoreModal videos={videos} />
         </FadeIn>
       </div>
     </section>

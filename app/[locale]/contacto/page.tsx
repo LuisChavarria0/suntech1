@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ContactForm } from "@/components/sections/contacto/ContactForm";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { WhatsAppIcon } from "@/components/ui/icons/WhatsAppIcon";
 import { CONTACT, WHATSAPP_URL } from "@/lib/data/company";
+import { pageMetadata, type Locale } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Contacto" };
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("contact_page");
+  return pageMetadata({
+    locale,
+    path: "/contacto",
+    title: `${t("title")} ${t("title_highlight")}`,
+    description: t("description"),
+  });
 }
 
 export default async function ContactoPage() {

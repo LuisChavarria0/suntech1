@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { COMPANY_INFO, CONTACT, SOCIAL_LINKS } from "@/lib/data/company";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -11,15 +12,8 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://suntechsv.com"),
-  title: {
-    default: "Grupo Suntech | Energía Solar y Tecnología en El Salvador",
-    template: "%s | Grupo Suntech",
-  },
-  description:
-    "Líderes en energía solar fotovoltaica, seguridad electrónica y tecnología en El Salvador. Más de 10 años diseñando soluciones a la medida para empresas y hogares.",
-  keywords: [
+const KEYWORDS: Record<string, string[]> = {
+  es: [
     "energía solar El Salvador",
     "paneles solares San Salvador",
     "sistemas fotovoltaicos",
@@ -29,34 +23,64 @@ export const metadata: Metadata = {
     "inyección a la red",
     "iluminación solar",
   ],
-  authors: [{ name: "Grupo Suntech" }],
-  creator: "Grupo Suntech",
-  openGraph: {
-    type: "website",
-    locale: "es_SV",
-    url: "https://suntechsv.com",
-    siteName: "Grupo Suntech",
-    title: "Grupo Suntech | Energía Solar y Tecnología en El Salvador",
-    description:
-      "Líderes en energía solar fotovoltaica, seguridad electrónica y tecnología en El Salvador.",
-    images: [{ url: COMPANY_INFO.logoUrl, width: 1200, height: 630, alt: "Grupo Suntech" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Grupo Suntech | Energía Solar y Tecnología en El Salvador",
-    description:
-      "Líderes en energía solar fotovoltaica, seguridad electrónica y tecnología en El Salvador.",
-  },
-  robots: { index: true, follow: true },
+  en: [
+    "solar energy El Salvador",
+    "solar panels San Salvador",
+    "photovoltaic systems",
+    "electronic security El Salvador",
+    "CCTV El Salvador",
+    "Grupo Suntech",
+    "grid injection solar",
+    "solar lighting",
+  ],
 };
+
+// Default/fallback metadata — every route overrides this with its own
+// generateMetadata (see lib/seo.ts), but this covers anything that doesn't.
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations("seo");
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("default_title"),
+      template: `%s | ${SITE_NAME}`,
+    },
+    description: t("default_description"),
+    keywords: KEYWORDS[locale] ?? KEYWORDS.es,
+    authors: [{ name: SITE_NAME }],
+    creator: SITE_NAME,
+    openGraph: {
+      type: "website",
+      locale: locale === "en" ? "en_US" : "es_SV",
+      url: SITE_URL,
+      siteName: SITE_NAME,
+      title: t("default_title"),
+      description: t("default_description"),
+      // No explicit images here — app/opengraph-image.tsx (the branded 1200x630
+      // card) is picked up automatically by Next's file convention and would
+      // otherwise get shadowed by whatever we set at this (the root) segment.
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("default_title"),
+      description: t("default_description"),
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": `${SITE_URL}/#organization`,
   name: COMPANY_INFO.name,
+  legalName: COMPANY_INFO.legalName,
   description: COMPANY_INFO.description,
-  url: "https://suntechsv.com",
-  logo: COMPANY_INFO.logoUrl,
+  url: SITE_URL,
+  logo: `${SITE_URL}${COMPANY_INFO.logoUrl}`,
+  image: `${SITE_URL}${COMPANY_INFO.logoUrl}`,
   telephone: CONTACT.phone,
   email: CONTACT.email,
   address: {
@@ -65,6 +89,15 @@ const jsonLd = {
     addressLocality: "Apopa",
     addressRegion: "San Salvador",
     addressCountry: "SV",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 13.775851,
+    longitude: -89.190454,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "El Salvador",
   },
   sameAs: Object.values(SOCIAL_LINKS),
 };

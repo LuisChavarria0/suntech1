@@ -1,16 +1,19 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/data/services";
 import { getProjectSlugs } from "@/lib/data/projects";
+import { SITE_URL } from "@/lib/seo";
 
-const BASE = "https://suntechsv.com";
+const BASE = SITE_URL;
 const locales = ["es", "en"];
 
 function localeRoutes(path: string, priority: number, changeFreq: MetadataRoute.Sitemap[0]["changeFrequency"]): MetadataRoute.Sitemap {
+  const languages = Object.fromEntries(locales.map((l) => [l, `${BASE}/${l}${path}`]));
   return locales.map((locale) => ({
     url: `${BASE}/${locale}${path}`,
     lastModified: new Date(),
     changeFrequency: changeFreq,
     priority,
+    alternates: { languages: { ...languages, "x-default": languages.es } },
   }));
 }
 

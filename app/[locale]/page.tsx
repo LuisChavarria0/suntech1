@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
+import { pageMetadata, type Locale } from "@/lib/seo";
 import { Hero } from "@/components/sections/home/Hero";
 import { StatsBar } from "@/components/sections/home/StatsBar";
 import { SystemTypes } from "@/components/sections/home/SystemTypes";
@@ -12,6 +15,17 @@ import { Services } from "@/components/sections/home/Services";
 // import { WhySuntech } from "@/components/sections/home/WhySuntech";
 // import { Partners } from "@/components/sections/home/Partners";
 import { CTABanner } from "@/components/sections/home/CTABanner";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("seo");
+  return pageMetadata({
+    locale,
+    path: "",
+    title: t("home_title"),
+    description: t("home_description"),
+  });
+}
 
 export default function HomePage() {
   return (

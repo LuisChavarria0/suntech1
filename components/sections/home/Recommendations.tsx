@@ -8,16 +8,18 @@ import { LockedPdfViewer } from "@/components/ui/LockedPdfViewer";
 
 const LETTERS = [
   {
-    key: "textufil",
-    nameKey: "textufil_name" as const,
-    logo: "/logos/clientes/TEXTUFIL.png",
-    pdf: "/carta1.pdf",
-  },
-  {
     key: "zonasolar",
     nameKey: "zonasolar_name" as const,
     logo: "/logos/zona-Solar.png",
     pdf: "/carta2.pdf",
+    ctaKey: "cta" as const,
+  },
+  {
+    key: "cartas",
+    nameKey: "cartas_name" as const,
+    logo: null,
+    pdf: "/cartas-recomendacion.pdf",
+    ctaKey: "cta_plural" as const,
   },
 ];
 
@@ -57,7 +59,11 @@ export function Recommendations() {
             >
               <Quote className="absolute -top-2 -right-1 h-16 w-16 text-navy-800/5 rotate-12" />
               <div className="relative h-16 w-16 shrink-0 rounded-xl bg-navy-800/10 ring-1 ring-navy-800/20 p-2.5">
-                <Image src={letter.logo} alt="" fill className="object-contain" />
+                {letter.logo ? (
+                  <Image src={letter.logo} alt="" fill className="object-contain" />
+                ) : (
+                  <FileText className="h-full w-full text-navy-800/70" />
+                )}
               </div>
               <div className="relative">
                 <p className="font-bold text-navy-900 text-sm leading-snug mb-1">
@@ -65,7 +71,7 @@ export function Recommendations() {
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-navy-700 text-sm font-semibold group-hover:gap-2.5 transition-all duration-200">
                   <FileText className="h-3.5 w-3.5" />
-                  {t("cta")} &rarr;
+                  {t(letter.ctaKey)} &rarr;
                 </span>
               </div>
             </button>

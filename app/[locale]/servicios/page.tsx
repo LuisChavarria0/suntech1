@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { ArrowRight, CheckCircle2, Sun, Shield, Cpu } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
@@ -7,9 +7,17 @@ import { CTABanner } from "@/components/sections/home/CTABanner";
 import { MouseGradientSection } from "@/components/ui/MouseGradientSection";
 import { Link } from "@/i18n/navigation";
 import { SERVICES } from "@/lib/data/services";
+import { pageMetadata, type Locale } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Servicios" };
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("services_page");
+  return pageMetadata({
+    locale,
+    path: "/servicios",
+    title: `${t("title")} ${t("title_highlight")}`,
+    description: t("description"),
+  });
 }
 
 const IconMap = { Sun, Shield, Cpu } as Record<string, React.ComponentType<{ className?: string }>>;

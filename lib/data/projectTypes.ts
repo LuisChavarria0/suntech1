@@ -2,7 +2,7 @@ import type { Project } from "@/lib/types";
 
 export type Locale = "es" | "en";
 
-export const MAX_PROJECTS = 20;
+export const MAX_PROJECTS = 30;
 export const PROJECT_CATEGORIES = ["solar", "seguridad", "tecnologia"] as const;
 export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 

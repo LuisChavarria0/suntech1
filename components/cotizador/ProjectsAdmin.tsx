@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { GripVertical } from "lucide-react";
 import { PROJECT_CATEGORIES, type ProjectRecord } from "@/lib/data/projectTypes";
 import type { SessionPayload } from "@/lib/cotizador/auth";
+import { AdminShell } from "./AdminShell";
 
 const MAX_GALLERY = 3;
 
@@ -103,10 +104,20 @@ export function ProjectsAdmin({
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [editing, setEditing] = useState<{ draft: ProjectRecord; isNew: boolean } | null>(null);
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
   const savedRef = useRef<ProjectRecord[]>(initialProjects);
 
   const removeProject = (id: string) => {
     setProjects((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  const reorderProjects = (from: number, to: number) => {
+    setProjects((prev) => {
+      const next = prev.slice();
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      return next;
+    });
   };
 
   const openNew = () => {
@@ -164,36 +175,13 @@ export function ProjectsAdmin({
     router.refresh();
   };
 
-  const logout = async () => {
-    await fetch("/api/cotizador/logout", { method: "POST" });
-    router.push("/admin/login");
-    router.refresh();
-  };
-
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-xl font-bold text-navy-900">Proyectos — Administración</h1>
-          <p className="text-xs text-slate-500 mt-1">
-            Sesión: <span className="font-semibold text-navy-800">{session.username}</span> ·{" "}
-            {projects.length} / {max} proyectos
-          </p>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/admin/cotizador"
-            className="text-sm font-semibold text-navy-700 hover:text-navy-900 transition-colors"
-          >
-            Cotizador
-          </Link>
-          <button
-            onClick={logout}
-            className="text-sm font-semibold text-slate-500 hover:text-navy-900 transition-colors cursor-pointer"
-          >
-            Cerrar sesión
-          </button>
-        </div>
+    <AdminShell session={session} maxWidth="4xl">
+      <div className="mb-6">
+        <h1 className="text-xl font-bold text-navy-900">Proyectos — Administración</h1>
+        <p className="text-xs text-slate-500 mt-1">
+          {projects.length} / {max} proyectos
+        </p>
       </div>
 
       {/* Toolbar */}
@@ -216,9 +204,26 @@ export function ProjectsAdmin({
       </div>
 
       {/* Project list */}
+      <p className="text-xs text-slate-500 mb-2">Arrastra por el ícono para reordenar.</p>
       <div className="space-y-3">
         {projects.map((p, i) => (
-          <div key={p.id} className="card-base p-3 flex items-center gap-4">
+          <div
+            key={p.id}
+            draggable
+            onDragStart={() => setDragIndex(i)}
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={() => {
+              if (dragIndex !== null && dragIndex !== i) reorderProjects(dragIndex, i);
+              setDragIndex(null);
+            }}
+            onDragEnd={() => setDragIndex(null)}
+            className={`card-base p-3 flex items-center gap-4 transition-opacity ${
+              dragIndex === i ? "opacity-40" : ""
+            }`}
+          >
+            <span className="shrink-0 text-slate-400 cursor-grab active:cursor-grabbing">
+              <GripVertical className="h-5 w-5" />
+            </span>
             <div className="h-16 w-16 rounded-lg bg-slate-100 overflow-hidden shrink-0">
               {p.image && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -261,7 +266,7 @@ export function ProjectsAdmin({
           onApply={applyDraft}
         />
       )}
-    </div>
+    </AdminShell>
   );
 }
 
