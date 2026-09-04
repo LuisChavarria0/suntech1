@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Local-only fallback for project image uploads (see app/api/cotizador/upload).
+# When Vercel Blob is configured, uploads go there instead and never touch this
+# folder — it only fills up in local dev without a blob token. Never commit
+# what lands here; it's not what a real deploy serves.
+/public/uploads/proyectos/*
+!/public/uploads/proyectos/.gitkeep
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

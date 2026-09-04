@@ -27,6 +27,14 @@ const CONNECTION_GUIDE_IMGS = [
 const CONNECTION_OPTIONS = ["mono", "tri", "unknown"] as const;
 type ConnectionType = (typeof CONNECTION_OPTIONS)[number];
 
+// Admin-facing labels for the quotes log — always Spanish, independent of the
+// visitor's site locale.
+const SYSTEM_TYPE_LABELS: Record<ConnectionType, string> = {
+  mono: "Monofásico",
+  tri: "Trifásico",
+  unknown: "Sin especificar",
+};
+
 export function CotizadorCalculator() {
   const t = useTranslations("cotizador");
   const locale = useLocale() as "es" | "en";
@@ -121,6 +129,20 @@ export function CotizadorCalculator() {
       // navigate away to WhatsApp and revoke the blob URL.
       await new Promise((resolve) => setTimeout(resolve, 800));
       URL.revokeObjectURL(url);
+
+      // Best-effort: log the quote for the admin registry. Never blocks or
+      // breaks the WhatsApp handoff if it fails.
+      fetch("/api/cotizador/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemType: connection ? SYSTEM_TYPE_LABELS[connection] : SYSTEM_TYPE_LABELS.unknown,
+          kw: quote.inverterTier?.capacityKw ?? null,
+          name: clientName.trim(),
+          address: clientAddress.trim(),
+          phone: clientPhone.trim(),
+        }),
+      }).catch(() => {});
     } finally {
       setPreparing(false);
       if (waWindow) {

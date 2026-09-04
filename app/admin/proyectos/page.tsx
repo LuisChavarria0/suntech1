@@ -13,11 +13,5 @@ export default async function AdminProjectsPage() {
 
   const projects = await readProjectRecords();
 
-  return (
-    <div className="min-h-screen bg-slate-50 py-10">
-      <div className="container-tight max-w-4xl">
-        <ProjectsAdmin initialProjects={projects} max={MAX_PROJECTS} session={session} />
-      </div>
-    </div>
-  );
+  return <ProjectsAdmin initialProjects={projects} max={MAX_PROJECTS} session={session} />;
 }

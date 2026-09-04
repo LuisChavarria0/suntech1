@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import type { PublicUser } from "@/lib/cotizador/users";
 import type { AuditLogEntry } from "@/lib/cotizador/auditLog";
+import type { SessionPayload } from "@/lib/cotizador/auth";
+import { AdminShell } from "./AdminShell";
 
 const inputClass =
   "w-full h-10 px-3 rounded-xl border border-slate-200 text-sm text-navy-900 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all";
@@ -26,13 +26,13 @@ const ACTION_LABELS: Record<string, string> = {
 export function UsersAdmin({
   initialUsers,
   initialLogs,
-  currentUserId,
+  session,
 }: {
   initialUsers: PublicUser[];
   initialLogs: AuditLogEntry[];
-  currentUserId: string;
+  session: SessionPayload;
 }) {
-  const router = useRouter();
+  const currentUserId = session.userId;
   const [users, setUsers] = useState<PublicUser[]>(initialUsers);
   const [logs] = useState<AuditLogEntry[]>(initialLogs);
   const [logPage, setLogPage] = useState(1);
@@ -44,12 +44,6 @@ export function UsersAdmin({
 
   const totalLogPages = Math.max(1, Math.ceil(logs.length / LOGS_PER_PAGE));
   const pagedLogs = logs.slice((logPage - 1) * LOGS_PER_PAGE, logPage * LOGS_PER_PAGE);
-
-  const logout = async () => {
-    await fetch("/api/cotizador/logout", { method: "POST" });
-    router.push("/admin/login");
-    router.refresh();
-  };
 
   const addUser = async (e: FormEvent) => {
     e.preventDefault();
@@ -92,24 +86,8 @@ export function UsersAdmin({
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-xl font-bold text-navy-900">Usuarios y registro de cambios</h1>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/admin/cotizador"
-            className="text-sm font-semibold text-navy-700 hover:text-navy-900 transition-colors"
-          >
-            Volver al cotizador
-          </Link>
-          <button
-            onClick={logout}
-            className="text-sm font-semibold text-slate-500 hover:text-navy-900 transition-colors cursor-pointer"
-          >
-            Cerrar sesión
-          </button>
-        </div>
-      </div>
+    <AdminShell session={session} maxWidth="4xl">
+      <h1 className="text-xl font-bold text-navy-900 mb-8">Usuarios y registro de cambios</h1>
 
       {/* Users table */}
       <section className="card-base p-6 mb-6">
@@ -271,6 +249,6 @@ export function UsersAdmin({
           </div>
         )}
       </section>
-    </div>
+    </AdminShell>
   );
 }

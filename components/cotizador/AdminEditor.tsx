@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import type { CotizadorConfig, ProductItem } from "@/lib/cotizador/config";
 import type { SessionPayload } from "@/lib/cotizador/auth";
+import { AdminShell } from "./AdminShell";
 
 const inputClass =
   "w-full h-10 px-3 rounded-xl border border-slate-200 text-sm text-navy-900 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
@@ -81,11 +80,9 @@ export function AdminEditor({
   initialConfig: CotizadorConfig;
   session: SessionPayload;
 }) {
-  const router = useRouter();
   const [config, setConfig] = useState<CotizadorConfig>(initialConfig);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-  const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   const save = async () => {
     setSaving(true);
@@ -108,12 +105,6 @@ export function AdminEditor({
     );
   };
 
-  const logout = async () => {
-    await fetch("/api/cotizador/logout", { method: "POST" });
-    router.push("/admin/login");
-    router.refresh();
-  };
-
   const panel = config.products.find((p) => p.category === "panel");
   const inverters = config.products.filter((p) => p.category === "inverter");
   const scaling = config.products.filter((p) => p.category === "scaling");
@@ -123,48 +114,8 @@ export function AdminEditor({
   );
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-xl font-bold text-navy-900">Cotizador — Administración</h1>
-          <p className="text-xs text-slate-500 mt-1">
-            Sesión: <span className="font-semibold text-navy-800">{session.username}</span>{" "}
-            ({session.role === "super_admin" ? "Super administrador" : "Editor"})
-          </p>
-        </div>
-        <div className="flex items-center gap-4">
-          {session.role === "super_admin" && (
-            <Link
-              href="/admin/usuarios"
-              className="text-sm font-semibold text-navy-700 hover:text-navy-900 transition-colors"
-            >
-              Usuarios y registro
-            </Link>
-          )}
-          <Link
-            href="/admin/proyectos"
-            className="text-sm font-semibold text-navy-700 hover:text-navy-900 transition-colors"
-          >
-            Proyectos
-          </Link>
-          <button
-            onClick={() => setShowPasswordForm((v) => !v)}
-            className="text-sm font-semibold text-navy-700 hover:text-navy-900 transition-colors cursor-pointer"
-          >
-            Cambiar contraseña
-          </button>
-          <button
-            onClick={logout}
-            className="text-sm font-semibold text-slate-500 hover:text-navy-900 transition-colors cursor-pointer"
-          >
-            Cerrar sesión
-          </button>
-        </div>
-      </div>
-
-      {showPasswordForm && (
-        <ChangePasswordModal onClose={() => setShowPasswordForm(false)} />
-      )}
+    <AdminShell session={session} maxWidth="4xl">
+      <h1 className="text-xl font-bold text-navy-900 mb-8">Cotizador — Administración</h1>
 
       {/* Formula constants */}
       <section className="card-base p-6 mb-6">
@@ -325,128 +276,7 @@ export function AdminEditor({
         </button>
         {message && <p className="text-sm text-slate-600">{message}</p>}
       </div>
-    </div>
-  );
-}
-
-function ChangePasswordModal({ onClose }: { onClose: () => void }) {
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  const submit = async () => {
-    setError(null);
-    if (newPassword.length < 8) {
-      setError("La nueva contraseña debe tener al menos 8 caracteres.");
-      return;
-    }
-    if (newPassword !== confirm) {
-      setError("La confirmación no coincide.");
-      return;
-    }
-    setBusy(true);
-    const res = await fetch("/api/cotizador/password", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ currentPassword, newPassword }),
-    });
-    setBusy(false);
-    if (res.ok) {
-      setOk(true);
-      setCurrentPassword("");
-      setNewPassword("");
-      setConfirm("");
-      return;
-    }
-    const detail = await res.json().catch(() => null);
-    setError(detail?.error ?? "No se pudo cambiar la contraseña.");
-  };
-
-  return (
-    <div
-      className="fixed inset-0 z-100 flex items-center justify-center bg-navy-950/60 backdrop-blur-sm p-4"
-      onClick={onClose}
-    >
-      <section
-        className="card-base p-6 w-full max-w-md shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="font-bold text-navy-900">Cambiar contraseña</h2>
-          <button
-            onClick={onClose}
-            aria-label="Cerrar"
-            className="text-xs font-semibold text-slate-500 hover:text-navy-900 cursor-pointer"
-          >
-            Cerrar
-          </button>
-        </div>
-        {ok ? (
-          <div className="space-y-4">
-            <p className="text-sm text-green-700">Contraseña actualizada.</p>
-            <button
-              onClick={onClose}
-              className="h-11 px-6 bg-navy-800 hover:bg-navy-700 text-white text-sm font-bold rounded-xl transition-colors cursor-pointer"
-            >
-              Listo
-            </button>
-          </div>
-        ) : (
-        <div className="space-y-4">
-          <Field label="Contraseña actual">
-            <input
-              type="password"
-              autoComplete="current-password"
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-              className={inputClass}
-            />
-          </Field>
-          <Field label="Nueva contraseña">
-            <input
-              type="password"
-              autoComplete="new-password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              className={inputClass}
-            />
-          </Field>
-          <Field label="Confirmar nueva contraseña">
-            <input
-              type="password"
-              autoComplete="new-password"
-              value={confirm}
-              onChange={(e) => setConfirm(e.target.value)}
-              className={inputClass}
-            />
-          </Field>
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          <button
-            onClick={submit}
-            disabled={busy || !currentPassword || !newPassword || !confirm}
-            className="h-11 px-6 bg-navy-800 hover:bg-navy-700 disabled:opacity-60 text-white text-sm font-bold rounded-xl transition-colors cursor-pointer"
-          >
-            {busy ? "Guardando..." : "Actualizar contraseña"}
-          </button>
-        </div>
-        )}
-      </section>
-    </div>
+    </AdminShell>
   );
 }
 

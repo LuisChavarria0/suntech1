@@ -155,6 +155,35 @@
     100% { transform: translateX(320%)  skewX(-18deg); }
   }
 
+  /* Gentle breathing scale to draw the eye toward a CTA */
+  .btn-pulse {
+    animation: btn-pulse 2.2s ease-in-out infinite;
+  }
+
+  .btn-pulse:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes btn-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+
+  /* Nudges an inline arrow icon to draw the eye toward a CTA */
+  .arrow-nudge {
+    animation: arrow-nudge 1.6s ease-in-out infinite;
+  }
+
+  .group:hover .arrow-nudge {
+    animation-play-state: paused;
+    transform: translateX(4px);
+  }
+
+  @keyframes arrow-nudge {
+    0%, 15%, 100% { transform: translateX(0); }
+    7% { transform: translateX(6px); }
+  }
+
   /* Keep full video frame visible in native fullscreen instead of cropping */
   .fullscreen-contain:fullscreen,
   .fullscreen-contain:-webkit-full-screen,

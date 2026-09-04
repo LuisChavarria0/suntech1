@@ -117,6 +117,10 @@
     "eyebrow": "Success story",
     "quote": "I installed solar panels, which has led me to save 80% on my consumption.",
     "cta": "Get a free study",
+    "cta_more": "See more testimonials",
+    "modal_title": "More testimonials",
+    "modal_empty": "More video testimonials coming soon.",
+    "close": "Close",
     "video_badge1": "Real savings with",
     "video_badge2": "Solar panel system"
   },

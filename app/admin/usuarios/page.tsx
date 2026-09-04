@@ -15,11 +15,5 @@ export default async function AdminUsersPage() {
 
   const [users, logs] = await Promise.all([listUsers(), listAuditLog()]);
 
-  return (
-    <div className="min-h-screen bg-slate-50 py-10">
-      <div className="container-tight max-w-4xl">
-        <UsersAdmin initialUsers={users} initialLogs={logs} currentUserId={session.userId} />
-      </div>
-    </div>
-  );
+  return <UsersAdmin initialUsers={users} initialLogs={logs} session={session} />;
 }

@@ -11,11 +11,5 @@ export default async function AdminCotizadorPage() {
 
   const config = await readCotizadorConfig();
 
-  return (
-    <div className="min-h-screen bg-slate-50 py-10">
-      <div className="container-tight max-w-4xl">
-        <AdminEditor initialConfig={config} session={session} />
-      </div>
-    </div>
-  );
+  return <AdminEditor initialConfig={config} session={session} />;
 }
